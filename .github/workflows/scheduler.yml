@@ -17,11 +17,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TZ: Asia/Manila
-      MIN_COMMITS_PER_DAY: "15"
-      MAX_COMMITS_PER_DAY: "30"
-      ACTIVE_START_HOUR: "0"
-      ACTIVE_END_HOUR: "24"
-      SLOT_INTERVAL_MINUTES: "60"
       GIT_AUTHOR_NAME: terd-bot
       GIT_AUTHOR_EMAIL: knowledge-bot@users.noreply.github.com
     steps:
@@ -35,24 +30,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Decide whether to run this slot
-        id: gate
-        run: |
-          python scripts/scheduler_gate.py \
-            --min "$MIN_COMMITS_PER_DAY" \
-            --max "$MAX_COMMITS_PER_DAY" \
-            --tz "$TZ" \
-            --start "$ACTIVE_START_HOUR" \
-            --end "$ACTIVE_END_HOUR" \
-            --interval "$SLOT_INTERVAL_MINUTES" \
-            >> "$GITHUB_OUTPUT"
-
       - name: Update repo content and push
-        if: steps.gate.outputs.should_run == 'true'
         run: |
           python scripts/update_repo.py --timezone "$TZ"
-
-      - name: Skip message
-        if: steps.gate.outputs.should_run != 'true'
-        run: echo "Scheduler gate skipped this tick."
 
