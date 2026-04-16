@@ -372,7 +372,10 @@ def run_update(repo_root: Path, timezone: str, now: datetime | None = None, skip
     if not is_git_repo(repo_root):
         return UpdateResult(True, False, False, entry_id, "Files updated; not a git repository.")
 
-    targets = [README_PATH, ARCHIVE_PATH, NOTES_DIR / f"{date_str}.md", DAILY_TRENDS_CACHE_PATH]
+    targets = [README_PATH, ARCHIVE_PATH, NOTES_DIR / f"{date_str}.md"]
+    trend_cache_path = repo_root / DAILY_TRENDS_CACHE_PATH
+    if trend_cache_path.exists():
+        targets.append(DAILY_TRENDS_CACHE_PATH)
     if not has_repo_changes_for_targets(repo_root, targets):
         return UpdateResult(False, False, False, entry_id, "No tracked file changes.")
 
