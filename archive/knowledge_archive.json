@@ -1,4 +1,13 @@
 {
-  "entries": []
+  "entries": [
+    {
+      "id": "entry-2026-04-16-f248075bf0",
+      "date": "2026-04-16",
+      "timestamp": "2026-04-16T15:43:03+08:00",
+      "category": "Testing",
+      "title": "Write one behavior per test",
+      "content": "Single-purpose tests fail with clearer intent and reduce time spent diagnosing what actually regressed.",
+      "source": "https://martinfowler.com/bliki/UnitTest.html"
+    }
+  ]
 }
-
