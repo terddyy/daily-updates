@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 from datetime import datetime, timedelta
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -44,6 +45,20 @@ def seed_repo(root: Path) -> None:
 
 
 class UpdateRepoTests(unittest.TestCase):
+    def test_run_update_without_gemini_key_uses_local_pool(self) -> None:
+        with TemporaryDirectory() as td:
+            root = Path(td)
+            seed_repo(root)
+            previous = os.environ.pop("GEMINI_API_KEY", None)
+            try:
+                now = datetime(2026, 4, 16, 9, 3, tzinfo=ZoneInfo("Asia/Manila"))
+                result = run_update(root, "Asia/Manila", now=now, skip_git=True)
+                self.assertTrue(result.changed)
+                self.assertFalse((root / "data" / "daily_tech_trends.json").exists())
+            finally:
+                if previous is not None:
+                    os.environ["GEMINI_API_KEY"] = previous
+
     def test_run_update_appends_archive_and_note(self) -> None:
         with TemporaryDirectory() as td:
             root = Path(td)
@@ -97,6 +112,7 @@ class UpdateRepoTests(unittest.TestCase):
             readme = (root / "README.md").read_text(encoding="utf-8")
             self.assertIn("Total archive entries: **2**", readme)
             self.assertIn("Today's entries: **2**", readme)
+            self.assertIn("Set `GEMINI_API_KEY` as a GitHub Actions secret", readme)
 
 
 if __name__ == "__main__":

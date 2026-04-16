@@ -5,7 +5,10 @@ import hashlib
 import json
 import os
 import random
+import re
 import subprocess
+import urllib.error
+import urllib.request
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
@@ -19,6 +22,8 @@ KNOWLEDGE_POOL_PATH = Path("data/knowledge_pool.json")
 ARCHIVE_PATH = Path("archive/knowledge_archive.json")
 NOTES_DIR = Path("notes")
 SLOT_MINUTES = 5
+DAILY_TRENDS_CACHE_PATH = Path("data/daily_tech_trends.json")
+GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent"
 
 
 @dataclass
@@ -76,6 +81,131 @@ def select_pool_item(pool: list[dict[str, Any]], archive_entries: list[dict[str,
         if candidate.get("title", "") not in recent_titles:
             return candidate
     return pool[candidate_index]
+
+
+def parse_json_object(text: str) -> dict[str, Any]:
+    stripped = text.strip()
+    if stripped.startswith("```"):
+        stripped = re.sub(r"^```[a-zA-Z0-9_-]*\s*", "", stripped)
+        stripped = re.sub(r"\s*```$", "", stripped)
+    try:
+        loaded = json.loads(stripped)
+        if isinstance(loaded, dict):
+            return loaded
+    except json.JSONDecodeError:
+        pass
+
+    start = stripped.find("{")
+    end = stripped.rfind("}")
+    if start >= 0 and end > start:
+        candidate = stripped[start : end + 1]
+        loaded = json.loads(candidate)
+        if isinstance(loaded, dict):
+            return loaded
+    raise ValueError("Gemini did not return a valid JSON object.")
+
+
+def fetch_daily_trend_from_gemini(api_key: str, local_now: datetime) -> dict[str, Any]:
+    prompt = (
+        "Use Google Search to find one latest significant software/AI tech advancement from the last 7 days. "
+        "Prioritize developer-relevant topics (examples: OpenClaw, major model releases, framework/runtime updates, tooling). "
+        "Return STRICT JSON object only with keys: title, content, source. "
+        "content must be one concise sentence with practical relevance. "
+        "source must be the most authoritative URL for the claim."
+    )
+    payload = {
+        "contents": [{"parts": [{"text": prompt}]}],
+        "tools": [{"googleSearch": {}}],
+        "generationConfig": {
+            "responseMimeType": "application/json",
+            "responseJsonSchema": {
+                "type": "object",
+                "properties": {
+                    "title": {"type": "string"},
+                    "content": {"type": "string"},
+                    "source": {"type": "string"},
+                },
+                "required": ["title", "content", "source"],
+            },
+        },
+    }
+    body = json.dumps(payload).encode("utf-8")
+    req = urllib.request.Request(
+        GEMINI_API_URL,
+        data=body,
+        method="POST",
+        headers={
+            "Content-Type": "application/json",
+            "x-goog-api-key": api_key,
+        },
+    )
+
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            raw = json.loads(resp.read().decode("utf-8"))
+    except urllib.error.URLError as exc:
+        raise RuntimeError(f"Gemini request failed: {exc}") from exc
+
+    candidates = raw.get("candidates", [])
+    if not candidates:
+        raise RuntimeError("Gemini returned no candidates.")
+    parts = candidates[0].get("content", {}).get("parts", [])
+    if not parts:
+        raise RuntimeError("Gemini returned no content parts.")
+    text = parts[0].get("text", "")
+    parsed = parse_json_object(text)
+
+    title = str(parsed.get("title", "")).strip()
+    content = str(parsed.get("content", "")).strip()
+    source = str(parsed.get("source", "")).strip()
+    if not (title and content and source):
+        raise RuntimeError("Gemini response missing title/content/source.")
+
+    return {
+        "category": "Tech Trends",
+        "title": title,
+        "content": content,
+        "source": source,
+        "fetched_at": local_now.isoformat(timespec="seconds"),
+    }
+
+
+def get_daily_trend_item(repo_root: Path, date_str: str, local_now: datetime) -> dict[str, Any] | None:
+    api_key = os.environ.get("GEMINI_API_KEY", "").strip()
+    if not api_key:
+        return None
+
+    cache = load_json(repo_root / DAILY_TRENDS_CACHE_PATH, {"days": {}})
+    days = cache.get("days", {})
+    day_entry = days.get(date_str)
+    if isinstance(day_entry, dict) and {"title", "content", "source"}.issubset(day_entry.keys()):
+        return {
+            "category": "Tech Trends",
+            "title": day_entry["title"],
+            "content": day_entry["content"],
+            "source": day_entry["source"],
+        }
+
+    try:
+        fresh = fetch_daily_trend_from_gemini(api_key=api_key, local_now=local_now)
+    except Exception as exc:
+        print(f"Warning: failed to fetch daily trend from Gemini: {exc}")
+        return None
+
+    days[date_str] = {
+        "title": fresh["title"],
+        "content": fresh["content"],
+        "source": fresh["source"],
+        "fetched_at": fresh["fetched_at"],
+    }
+    cache["days"] = days
+    write_json(repo_root / DAILY_TRENDS_CACHE_PATH, cache)
+    return {
+        "category": fresh["category"],
+        "title": fresh["title"],
+        "content": fresh["content"],
+        "source": fresh["source"],
+    }
 
 
 def ensure_today_note_header(note_path: Path, date_str: str) -> None:
@@ -137,6 +267,10 @@ def render_readme(entries: list[dict[str, Any]], today_count: int, today_note_pa
     return (
         "# Daily Knowledge Repo MVP\n\n"
         "Automated knowledge maintenance repository. It appends practical daily notes and keeps metadata fresh.\n\n"
+        "## AI Trend Source\n\n"
+        "- Optional daily live trend fetch uses Gemini API with Google Search grounding.\n"
+        "- Set `GEMINI_API_KEY` as a GitHub Actions secret to enable one daily `Tech Trends` entry.\n"
+        "- Without API key, the repo falls back to local `data/knowledge_pool.json` entries.\n\n"
         "## Dashboard\n\n"
         f"- Total archive entries: **{total}**\n"
         f"- Today's entries: **{today_count}**\n"
@@ -201,7 +335,15 @@ def run_update(repo_root: Path, timezone: str, now: datetime | None = None, skip
     if any(item.get("id") == entry_id for item in archive_entries):
         return UpdateResult(False, False, False, entry_id, "Slot already processed.")
 
-    selected = select_pool_item(pool, archive_entries, slot_key)
+    todays_trend_exists = any(
+        item.get("date") == date_str and item.get("category") == "Tech Trends"
+        for item in archive_entries
+    )
+    selected = None
+    if not todays_trend_exists:
+        selected = get_daily_trend_item(repo_root=repo_root, date_str=date_str, local_now=local_now)
+    if selected is None:
+        selected = select_pool_item(pool, archive_entries, slot_key)
     record = {
         "id": entry_id,
         "date": date_str,
@@ -230,7 +372,7 @@ def run_update(repo_root: Path, timezone: str, now: datetime | None = None, skip
     if not is_git_repo(repo_root):
         return UpdateResult(True, False, False, entry_id, "Files updated; not a git repository.")
 
-    targets = [README_PATH, ARCHIVE_PATH, NOTES_DIR / f"{date_str}.md"]
+    targets = [README_PATH, ARCHIVE_PATH, NOTES_DIR / f"{date_str}.md", DAILY_TRENDS_CACHE_PATH]
     if not has_repo_changes_for_targets(repo_root, targets):
         return UpdateResult(False, False, False, entry_id, "No tracked file changes.")
 

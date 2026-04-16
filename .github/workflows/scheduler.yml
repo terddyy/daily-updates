@@ -19,6 +19,7 @@ jobs:
       TZ: Asia/Manila
       GIT_AUTHOR_NAME: terd-bot
       GIT_AUTHOR_EMAIL: knowledge-bot@users.noreply.github.com
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
