@@ -17,12 +17,12 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TZ: Asia/Manila
-      MIN_COMMITS_PER_DAY: "10"
-      MAX_COMMITS_PER_DAY: "20"
+      MIN_COMMITS_PER_DAY: "15"
+      MAX_COMMITS_PER_DAY: "30"
       ACTIVE_START_HOUR: "6"
       ACTIVE_END_HOUR: "22"
       SLOT_INTERVAL_MINUTES: "15"
-      GIT_AUTHOR_NAME: knowledge-bot
+      GIT_AUTHOR_NAME: terd-bot
       GIT_AUTHOR_EMAIL: knowledge-bot@users.noreply.github.com
     steps:
       - name: Checkout repository
