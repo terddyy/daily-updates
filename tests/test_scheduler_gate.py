@@ -38,6 +38,30 @@ class SchedulerGateTests(unittest.TestCase):
         day2 = choose_schedule("2026-04-17", 10, 20, 6, 22, 15, "salt")
         self.assertNotEqual(day1, day2)
 
+    def test_enumerate_slots_hourly_full_day_count(self) -> None:
+        slots = enumerate_slots("2026-04-16", start_hour=0, end_hour=24, interval_minutes=60)
+        self.assertEqual(len(slots), 24)
+        self.assertEqual(slots[0], "2026-04-16T00:00")
+        self.assertEqual(slots[-1], "2026-04-16T23:00")
+
+    def test_choose_schedule_caps_max_to_hourly_slots(self) -> None:
+        target, slots = choose_schedule(
+            local_date="2026-04-16",
+            min_commits=15,
+            max_commits=30,
+            start_hour=0,
+            end_hour=24,
+            interval_minutes=60,
+            seed_salt="hourly-test",
+        )
+        self.assertTrue(15 <= target <= 24)
+        self.assertEqual(len(slots), target)
+
+    def test_should_run_matches_hourly_bucket(self) -> None:
+        now = datetime(2026, 4, 16, 9, 37, tzinfo=ZoneInfo("Asia/Manila"))
+        self.assertTrue(should_run(now, ["2026-04-16T09:00"], interval_minutes=60))
+        self.assertFalse(should_run(now, ["2026-04-16T10:00"], interval_minutes=60))
+
 
 if __name__ == "__main__":
     unittest.main()

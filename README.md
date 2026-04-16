@@ -2,6 +2,15 @@
 
 Automated knowledge maintenance repository. It appends practical daily notes and keeps metadata fresh.
 
+## Scheduler Configuration
+
+- Workflow cadence: hourly (`0 * * * *`)
+- Timezone: `Asia/Manila`
+- Active window: `00:00-23:59` (`ACTIVE_START_HOUR=0`, `ACTIVE_END_HOUR=24`)
+- Slot interval: `60` minutes
+- Daily commit target bounds: minimum `15`, maximum configured `30`
+- Effective hourly upper bound: `24` commits/day (capped by available hourly slots)
+
 ## Dashboard
 
 - Total archive entries: **4**

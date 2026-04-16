@@ -2,7 +2,7 @@ name: Daily Knowledge Scheduler
 
 on:
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "0 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -19,9 +19,9 @@ jobs:
       TZ: Asia/Manila
       MIN_COMMITS_PER_DAY: "15"
       MAX_COMMITS_PER_DAY: "30"
-      ACTIVE_START_HOUR: "6"
-      ACTIVE_END_HOUR: "22"
-      SLOT_INTERVAL_MINUTES: "15"
+      ACTIVE_START_HOUR: "0"
+      ACTIVE_END_HOUR: "24"
+      SLOT_INTERVAL_MINUTES: "60"
       GIT_AUTHOR_NAME: terd-bot
       GIT_AUTHOR_EMAIL: knowledge-bot@users.noreply.github.com
     steps:
