@@ -10,28 +10,29 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ## Dashboard
 
-- Total archive entries: **6**
-- Today's entries: **2**
+- Total archive entries: **7**
+- Today's entries: **3**
 - Today's note: `notes/2026-04-17.md`
 
 ### Latest Entry
 
-- Timestamp: `2026-04-17T06:13:24+08:00`
-- Title: **Optimize first contentful view**
-- Category: `Frontend`
-- Source: https://web.dev/
-- Summary: Prioritizing critical rendering path assets improves perceived performance more than micro-optimizing non-critical code paths.
+- Timestamp: `2026-04-17T07:14:41+08:00`
+- Title: **Set realistic timeouts everywhere**
+- Category: `Backend`
+- Source: https://sre.google/sre-book/addressing-cascading-failures/
+- Summary: Explicit timeouts on outbound calls prevent thread exhaustion and keep cascading failures contained.
 
 ### Top Categories
 
 - `APIs`: 1
+- `Backend`: 1
 - `Databases`: 1
 - `Frontend`: 1
 - `Observability`: 1
-- `Security`: 1
 
 ### Recent Timeline
 
+- `2026-04-17T07:14:41+08:00` | **Set realistic timeouts everywhere** (Backend)
 - `2026-04-17T06:13:24+08:00` | **Optimize first contentful view** (Frontend)
 - `2026-04-17T05:42:48+08:00` | **Log with stable keys** (Observability)
 - `2026-04-16T20:07:44+08:00` | **Design for idempotency** (APIs)
