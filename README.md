@@ -10,28 +10,29 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ## Dashboard
 
-- Total archive entries: **5**
-- Today's entries: **1**
+- Total archive entries: **6**
+- Today's entries: **2**
 - Today's note: `notes/2026-04-17.md`
 
 ### Latest Entry
 
-- Timestamp: `2026-04-17T05:42:48+08:00`
-- Title: **Log with stable keys**
-- Category: `Observability`
-- Source: https://opentelemetry.io/docs/concepts/signals/logs/
-- Summary: Structured logs with predictable field names make filtering and alerting far easier than free-form log lines.
+- Timestamp: `2026-04-17T06:13:24+08:00`
+- Title: **Optimize first contentful view**
+- Category: `Frontend`
+- Source: https://web.dev/
+- Summary: Prioritizing critical rendering path assets improves perceived performance more than micro-optimizing non-critical code paths.
 
 ### Top Categories
 
 - `APIs`: 1
 - `Databases`: 1
+- `Frontend`: 1
 - `Observability`: 1
 - `Security`: 1
-- `Testing`: 1
 
 ### Recent Timeline
 
+- `2026-04-17T06:13:24+08:00` | **Optimize first contentful view** (Frontend)
 - `2026-04-17T05:42:48+08:00` | **Log with stable keys** (Observability)
 - `2026-04-16T20:07:44+08:00` | **Design for idempotency** (APIs)
 - `2026-04-16T16:53:00+08:00` | **Add indexes for real query patterns** (Databases)
