@@ -1,0 +1,123 @@
+[
+  {
+    "category": "Git",
+    "title": "Prefer small focused commits",
+    "content": "Smaller commits are easier to review, easier to revert, and reduce merge conflict risk when multiple contributors work in parallel.",
+    "source": "https://git-scm.com/docs"
+  },
+  {
+    "category": "Python",
+    "title": "Use virtual environments by default",
+    "content": "Project-specific virtual environments prevent dependency leaks across projects and make builds more reproducible on CI.",
+    "source": "https://docs.python.org/3/library/venv.html"
+  },
+  {
+    "category": "Testing",
+    "title": "Write one behavior per test",
+    "content": "Single-purpose tests fail with clearer intent and reduce time spent diagnosing what actually regressed.",
+    "source": "https://martinfowler.com/bliki/UnitTest.html"
+  },
+  {
+    "category": "Security",
+    "title": "Rotate credentials on schedule",
+    "content": "Regular credential rotation limits blast radius if a secret leaks and encourages teams to maintain key management hygiene.",
+    "source": "https://owasp.org/www-project-top-ten/"
+  },
+  {
+    "category": "Databases",
+    "title": "Add indexes for real query patterns",
+    "content": "Measure slow queries first, then index based on predicates and sort order. Over-indexing harms write performance.",
+    "source": "https://use-the-index-luke.com/"
+  },
+  {
+    "category": "APIs",
+    "title": "Design for idempotency",
+    "content": "Idempotent create/update endpoints make retries safe under network failures and reduce accidental duplicate operations.",
+    "source": "https://www.rfc-editor.org/rfc/rfc7231"
+  },
+  {
+    "category": "Observability",
+    "title": "Log with stable keys",
+    "content": "Structured logs with predictable field names make filtering and alerting far easier than free-form log lines.",
+    "source": "https://opentelemetry.io/docs/concepts/signals/logs/"
+  },
+  {
+    "category": "Architecture",
+    "title": "Keep boundaries explicit",
+    "content": "Defining module boundaries early reduces accidental coupling and keeps refactors local instead of system-wide.",
+    "source": "https://12factor.net/"
+  },
+  {
+    "category": "Frontend",
+    "title": "Optimize first contentful view",
+    "content": "Prioritizing critical rendering path assets improves perceived performance more than micro-optimizing non-critical code paths.",
+    "source": "https://web.dev/"
+  },
+  {
+    "category": "Backend",
+    "title": "Set realistic timeouts everywhere",
+    "content": "Explicit timeouts on outbound calls prevent thread exhaustion and keep cascading failures contained.",
+    "source": "https://sre.google/sre-book/addressing-cascading-failures/"
+  },
+  {
+    "category": "DevOps",
+    "title": "Automate rollback paths",
+    "content": "A tested rollback mechanism shortens incident duration and increases confidence during high-frequency deployments.",
+    "source": "https://cloud.google.com/architecture/devops"
+  },
+  {
+    "category": "Code Quality",
+    "title": "Name intent, not mechanics",
+    "content": "Readable names should communicate business intent so maintainers understand why code exists before how it works.",
+    "source": "https://martinfowler.com/books/clean-code.html"
+  },
+  {
+    "category": "Reliability",
+    "title": "Use exponential backoff with jitter",
+    "content": "Backoff plus jitter avoids retry storms and improves recovery behavior when downstream systems are degraded.",
+    "source": "https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/"
+  },
+  {
+    "category": "Documentation",
+    "title": "Keep runbooks close to code",
+    "content": "Version-controlled operational runbooks age better than external docs and stay aligned with implementation changes.",
+    "source": "https://sre.google/workbook/"
+  },
+  {
+    "category": "Productivity",
+    "title": "Batch similar tasks",
+    "content": "Grouping related cognitive tasks reduces context switching overhead and improves steady development throughput.",
+    "source": "https://www.atlassian.com/blog/productivity"
+  },
+  {
+    "category": "Networking",
+    "title": "Retry only safe operations",
+    "content": "Not all requests should be retried blindly; non-idempotent calls need safeguards or idempotency keys.",
+    "source": "https://www.rfc-editor.org/rfc/rfc9110"
+  },
+  {
+    "category": "CI/CD",
+    "title": "Fail fast on lint and tests",
+    "content": "Early pipeline checks give faster feedback loops and reduce wasted compute in late deployment stages.",
+    "source": "https://docs.github.com/actions"
+  },
+  {
+    "category": "Performance",
+    "title": "Measure before tuning",
+    "content": "Profiling first prevents optimization of cold paths and helps teams target changes with measurable user impact.",
+    "source": "https://perf.wiki/"
+  },
+  {
+    "category": "Accessibility",
+    "title": "Keyboard support is a baseline",
+    "content": "All interactive controls should be reachable and usable by keyboard to support accessibility and power users.",
+    "source": "https://www.w3.org/WAI/standards-guidelines/wcag/"
+  },
+  {
+    "category": "Leadership",
+    "title": "Write decisions down",
+    "content": "Lightweight decision records preserve context, reduce repeated debates, and accelerate onboarding for new contributors.",
+    "source": "https://adr.github.io/"
+  }
+]
+
