@@ -10,17 +10,17 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ## Dashboard
 
-- Total archive entries: **8**
-- Today's entries: **4**
+- Total archive entries: **9**
+- Today's entries: **5**
 - Today's note: `notes/2026-04-17.md`
 
 ### Latest Entry
 
-- Timestamp: `2026-04-17T08:23:23+08:00`
-- Title: **Keep boundaries explicit**
-- Category: `Architecture`
-- Source: https://12factor.net/
-- Summary: Defining module boundaries early reduces accidental coupling and keeps refactors local instead of system-wide.
+- Timestamp: `2026-04-17T09:33:33+08:00`
+- Title: **Automate rollback paths**
+- Category: `DevOps`
+- Source: https://cloud.google.com/architecture/devops
+- Summary: A tested rollback mechanism shortens incident duration and increases confidence during high-frequency deployments.
 
 ### Top Categories
 
@@ -28,10 +28,11 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 - `Architecture`: 1
 - `Backend`: 1
 - `Databases`: 1
-- `Frontend`: 1
+- `DevOps`: 1
 
 ### Recent Timeline
 
+- `2026-04-17T09:33:33+08:00` | **Automate rollback paths** (DevOps)
 - `2026-04-17T08:23:23+08:00` | **Keep boundaries explicit** (Architecture)
 - `2026-04-17T07:14:41+08:00` | **Set realistic timeouts everywhere** (Backend)
 - `2026-04-17T06:13:24+08:00` | **Optimize first contentful view** (Frontend)

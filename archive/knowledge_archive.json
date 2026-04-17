@@ -71,6 +71,15 @@
       "title": "Keep boundaries explicit",
       "content": "Defining module boundaries early reduces accidental coupling and keeps refactors local instead of system-wide.",
       "source": "https://12factor.net/"
+    },
+    {
+      "id": "entry-2026-04-17-1acd45b936",
+      "date": "2026-04-17",
+      "timestamp": "2026-04-17T09:33:33+08:00",
+      "category": "DevOps",
+      "title": "Automate rollback paths",
+      "content": "A tested rollback mechanism shortens incident duration and increases confidence during high-frequency deployments.",
+      "source": "https://cloud.google.com/architecture/devops"
     }
   ]
 }
