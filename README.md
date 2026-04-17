@@ -10,17 +10,17 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ## Dashboard
 
-- Total archive entries: **10**
-- Today's entries: **6**
+- Total archive entries: **11**
+- Today's entries: **7**
 - Today's note: `notes/2026-04-17.md`
 
 ### Latest Entry
 
-- Timestamp: `2026-04-17T11:02:44+08:00`
-- Title: **Name intent, not mechanics**
-- Category: `Code Quality`
-- Source: https://martinfowler.com/books/clean-code.html
-- Summary: Readable names should communicate business intent so maintainers understand why code exists before how it works.
+- Timestamp: `2026-04-17T12:58:38+08:00`
+- Title: **Keep runbooks close to code**
+- Category: `Documentation`
+- Source: https://sre.google/workbook/
+- Summary: Version-controlled operational runbooks age better than external docs and stay aligned with implementation changes.
 
 ### Top Categories
 
@@ -32,6 +32,7 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ### Recent Timeline
 
+- `2026-04-17T12:58:38+08:00` | **Keep runbooks close to code** (Documentation)
 - `2026-04-17T11:02:44+08:00` | **Name intent, not mechanics** (Code Quality)
 - `2026-04-17T09:33:33+08:00` | **Automate rollback paths** (DevOps)
 - `2026-04-17T08:23:23+08:00` | **Keep boundaries explicit** (Architecture)
@@ -41,4 +42,3 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 - `2026-04-16T20:07:44+08:00` | **Design for idempotency** (APIs)
 - `2026-04-16T16:53:00+08:00` | **Add indexes for real query patterns** (Databases)
 - `2026-04-16T16:09:27+08:00` | **Rotate credentials on schedule** (Security)
-- `2026-04-16T15:43:03+08:00` | **Write one behavior per test** (Testing)
