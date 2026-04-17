@@ -10,17 +10,17 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ## Dashboard
 
-- Total archive entries: **18**
-- Today's entries: **14**
+- Total archive entries: **19**
+- Today's entries: **15**
 - Today's note: `notes/2026-04-17.md`
 
 ### Latest Entry
 
-- Timestamp: `2026-04-17T19:19:12+08:00`
-- Title: **Prefer small focused commits**
-- Category: `Git`
-- Source: https://git-scm.com/docs
-- Summary: Smaller commits are easier to review, easier to revert, and reduce merge conflict risk when multiple contributors work in parallel.
+- Timestamp: `2026-04-17T20:17:53+08:00`
+- Title: **Use virtual environments by default**
+- Category: `Python`
+- Source: https://docs.python.org/3/library/venv.html
+- Summary: Project-specific virtual environments prevent dependency leaks across projects and make builds more reproducible on CI.
 
 ### Top Categories
 
@@ -32,6 +32,7 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ### Recent Timeline
 
+- `2026-04-17T20:17:53+08:00` | **Use virtual environments by default** (Python)
 - `2026-04-17T19:19:12+08:00` | **Prefer small focused commits** (Git)
 - `2026-04-17T18:25:34+08:00` | **Write decisions down** (Leadership)
 - `2026-04-17T17:31:23+08:00` | **Keyboard support is a baseline** (Accessibility)
@@ -41,4 +42,3 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 - `2026-04-17T13:49:19+08:00` | **Batch similar tasks** (Productivity)
 - `2026-04-17T12:58:38+08:00` | **Keep runbooks close to code** (Documentation)
 - `2026-04-17T11:02:44+08:00` | **Name intent, not mechanics** (Code Quality)
-- `2026-04-17T09:33:33+08:00` | **Automate rollback paths** (DevOps)
