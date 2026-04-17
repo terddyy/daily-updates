@@ -10,28 +10,29 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ## Dashboard
 
-- Total archive entries: **7**
-- Today's entries: **3**
+- Total archive entries: **8**
+- Today's entries: **4**
 - Today's note: `notes/2026-04-17.md`
 
 ### Latest Entry
 
-- Timestamp: `2026-04-17T07:14:41+08:00`
-- Title: **Set realistic timeouts everywhere**
-- Category: `Backend`
-- Source: https://sre.google/sre-book/addressing-cascading-failures/
-- Summary: Explicit timeouts on outbound calls prevent thread exhaustion and keep cascading failures contained.
+- Timestamp: `2026-04-17T08:23:23+08:00`
+- Title: **Keep boundaries explicit**
+- Category: `Architecture`
+- Source: https://12factor.net/
+- Summary: Defining module boundaries early reduces accidental coupling and keeps refactors local instead of system-wide.
 
 ### Top Categories
 
 - `APIs`: 1
+- `Architecture`: 1
 - `Backend`: 1
 - `Databases`: 1
 - `Frontend`: 1
-- `Observability`: 1
 
 ### Recent Timeline
 
+- `2026-04-17T08:23:23+08:00` | **Keep boundaries explicit** (Architecture)
 - `2026-04-17T07:14:41+08:00` | **Set realistic timeouts everywhere** (Backend)
 - `2026-04-17T06:13:24+08:00` | **Optimize first contentful view** (Frontend)
 - `2026-04-17T05:42:48+08:00` | **Log with stable keys** (Observability)

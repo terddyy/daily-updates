@@ -62,6 +62,15 @@
       "title": "Set realistic timeouts everywhere",
       "content": "Explicit timeouts on outbound calls prevent thread exhaustion and keep cascading failures contained.",
       "source": "https://sre.google/sre-book/addressing-cascading-failures/"
+    },
+    {
+      "id": "entry-2026-04-17-d17293ef16",
+      "date": "2026-04-17",
+      "timestamp": "2026-04-17T08:23:23+08:00",
+      "category": "Architecture",
+      "title": "Keep boundaries explicit",
+      "content": "Defining module boundaries early reduces accidental coupling and keeps refactors local instead of system-wide.",
+      "source": "https://12factor.net/"
     }
   ]
 }
