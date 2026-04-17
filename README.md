@@ -10,17 +10,17 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ## Dashboard
 
-- Total archive entries: **11**
-- Today's entries: **7**
+- Total archive entries: **12**
+- Today's entries: **8**
 - Today's note: `notes/2026-04-17.md`
 
 ### Latest Entry
 
-- Timestamp: `2026-04-17T12:58:38+08:00`
-- Title: **Keep runbooks close to code**
-- Category: `Documentation`
-- Source: https://sre.google/workbook/
-- Summary: Version-controlled operational runbooks age better than external docs and stay aligned with implementation changes.
+- Timestamp: `2026-04-17T13:49:19+08:00`
+- Title: **Batch similar tasks**
+- Category: `Productivity`
+- Source: https://www.atlassian.com/blog/productivity
+- Summary: Grouping related cognitive tasks reduces context switching overhead and improves steady development throughput.
 
 ### Top Categories
 
@@ -32,6 +32,7 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ### Recent Timeline
 
+- `2026-04-17T13:49:19+08:00` | **Batch similar tasks** (Productivity)
 - `2026-04-17T12:58:38+08:00` | **Keep runbooks close to code** (Documentation)
 - `2026-04-17T11:02:44+08:00` | **Name intent, not mechanics** (Code Quality)
 - `2026-04-17T09:33:33+08:00` | **Automate rollback paths** (DevOps)
@@ -41,4 +42,3 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 - `2026-04-17T05:42:48+08:00` | **Log with stable keys** (Observability)
 - `2026-04-16T20:07:44+08:00` | **Design for idempotency** (APIs)
 - `2026-04-16T16:53:00+08:00` | **Add indexes for real query patterns** (Databases)
-- `2026-04-16T16:09:27+08:00` | **Rotate credentials on schedule** (Security)
