@@ -10,28 +10,29 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ## Dashboard
 
-- Total archive entries: **9**
-- Today's entries: **5**
+- Total archive entries: **10**
+- Today's entries: **6**
 - Today's note: `notes/2026-04-17.md`
 
 ### Latest Entry
 
-- Timestamp: `2026-04-17T09:33:33+08:00`
-- Title: **Automate rollback paths**
-- Category: `DevOps`
-- Source: https://cloud.google.com/architecture/devops
-- Summary: A tested rollback mechanism shortens incident duration and increases confidence during high-frequency deployments.
+- Timestamp: `2026-04-17T11:02:44+08:00`
+- Title: **Name intent, not mechanics**
+- Category: `Code Quality`
+- Source: https://martinfowler.com/books/clean-code.html
+- Summary: Readable names should communicate business intent so maintainers understand why code exists before how it works.
 
 ### Top Categories
 
 - `APIs`: 1
 - `Architecture`: 1
 - `Backend`: 1
+- `Code Quality`: 1
 - `Databases`: 1
-- `DevOps`: 1
 
 ### Recent Timeline
 
+- `2026-04-17T11:02:44+08:00` | **Name intent, not mechanics** (Code Quality)
 - `2026-04-17T09:33:33+08:00` | **Automate rollback paths** (DevOps)
 - `2026-04-17T08:23:23+08:00` | **Keep boundaries explicit** (Architecture)
 - `2026-04-17T07:14:41+08:00` | **Set realistic timeouts everywhere** (Backend)
