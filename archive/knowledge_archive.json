@@ -368,6 +368,15 @@
       "title": "Rotate credentials on schedule",
       "content": "Regular credential rotation limits blast radius if a secret leaks and encourages teams to maintain key management hygiene.",
       "source": "https://owasp.org/www-project-top-ten/"
+    },
+    {
+      "id": "entry-2026-04-18-e89a922e84",
+      "date": "2026-04-18",
+      "timestamp": "2026-04-18T20:10:00+08:00",
+      "category": "Databases",
+      "title": "Add indexes for real query patterns",
+      "content": "Measure slow queries first, then index based on predicates and sort order. Over-indexing harms write performance.",
+      "source": "https://use-the-index-luke.com/"
     }
   ]
 }
