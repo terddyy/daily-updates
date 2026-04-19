@@ -10,17 +10,17 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ## Dashboard
 
-- Total archive entries: **74**
-- Today's entries: **6**
+- Total archive entries: **75**
+- Today's entries: **7**
 - Today's note: `notes/2026-04-20.md`
 
 ### Latest Entry
 
-- Timestamp: `2026-04-20T05:10:38+08:00`
-- Title: **Fail fast on lint and tests**
-- Category: `CI/CD`
-- Source: https://docs.github.com/actions
-- Summary: Early pipeline checks give faster feedback loops and reduce wasted compute in late deployment stages.
+- Timestamp: `2026-04-20T06:08:07+08:00`
+- Title: **Measure before tuning**
+- Category: `Performance`
+- Source: https://perf.wiki/
+- Summary: Profiling first prevents optimization of cold paths and helps teams target changes with measurable user impact.
 
 ### Top Categories
 
@@ -32,6 +32,7 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ### Recent Timeline
 
+- `2026-04-20T06:08:07+08:00` | **Measure before tuning** (Performance)
 - `2026-04-20T05:10:38+08:00` | **Fail fast on lint and tests** (CI/CD)
 - `2026-04-20T04:09:12+08:00` | **Retry only safe operations** (Networking)
 - `2026-04-20T03:16:23+08:00` | **Batch similar tasks** (Productivity)
@@ -41,4 +42,3 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 - `2026-04-19T23:13:17+08:00` | **Automate rollback paths** (DevOps)
 - `2026-04-19T22:14:28+08:00` | **Set realistic timeouts everywhere** (Backend)
 - `2026-04-19T21:26:08+08:00` | **Optimize first contentful view** (Frontend)
-- `2026-04-19T20:09:52+08:00` | **Keep boundaries explicit** (Architecture)
