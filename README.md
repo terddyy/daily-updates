@@ -10,17 +10,17 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ## Dashboard
 
-- Total archive entries: **98**
-- Today's entries: **8**
+- Total archive entries: **99**
+- Today's entries: **9**
 - Today's note: `notes/2026-04-21.md`
 
 ### Latest Entry
 
-- Timestamp: `2026-04-21T07:15:15+08:00`
-- Title: **Prefer small focused commits**
-- Category: `Git`
-- Source: https://git-scm.com/docs
-- Summary: Smaller commits are easier to review, easier to revert, and reduce merge conflict risk when multiple contributors work in parallel.
+- Timestamp: `2026-04-21T08:23:39+08:00`
+- Title: **Use virtual environments by default**
+- Category: `Python`
+- Source: https://docs.python.org/3/library/venv.html
+- Summary: Project-specific virtual environments prevent dependency leaks across projects and make builds more reproducible on CI.
 
 ### Top Categories
 
@@ -32,6 +32,7 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ### Recent Timeline
 
+- `2026-04-21T08:23:39+08:00` | **Use virtual environments by default** (Python)
 - `2026-04-21T07:15:15+08:00` | **Prefer small focused commits** (Git)
 - `2026-04-21T06:14:45+08:00` | **Write decisions down** (Leadership)
 - `2026-04-21T05:15:54+08:00` | **Keyboard support is a baseline** (Accessibility)
@@ -41,4 +42,3 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 - `2026-04-21T01:22:36+08:00` | **Batch similar tasks** (Productivity)
 - `2026-04-21T00:25:40+08:00` | **Keep runbooks close to code** (Documentation)
 - `2026-04-20T23:29:14+08:00` | **Use exponential backoff with jitter** (Reliability)
-- `2026-04-20T22:34:00+08:00` | **Name intent, not mechanics** (Code Quality)
