@@ -1349,6 +1349,15 @@
       "title": "Use exponential backoff with jitter",
       "content": "Backoff plus jitter avoids retry storms and improves recovery behavior when downstream systems are degraded.",
       "source": "https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/"
+    },
+    {
+      "id": "entry-2026-04-23-16eb5f5a3d",
+      "date": "2026-04-23",
+      "timestamp": "2026-04-23T15:33:41+08:00",
+      "category": "Documentation",
+      "title": "Keep runbooks close to code",
+      "content": "Version-controlled operational runbooks age better than external docs and stay aligned with implementation changes.",
+      "source": "https://sre.google/workbook/"
     }
   ]
 }
