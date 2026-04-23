@@ -380,8 +380,8 @@ def run_update(repo_root: Path, timezone: str, now: datetime | None = None, skip
         return UpdateResult(False, False, False, entry_id, "No tracked file changes.")
 
     message = f"chore(knowledge): update {date_str} {local_now.strftime('%H:%M')}"
-    author_name = os.environ.get("GIT_AUTHOR_NAME", "knowledge-bot")
-    author_email = os.environ.get("GIT_AUTHOR_EMAIL", "knowledge-bot@users.noreply.github.com")
+    author_name = os.environ.get("GIT_AUTHOR_NAME", "terddyy")
+    author_email = os.environ.get("GIT_AUTHOR_EMAIL", "terddy03@gmail.com")
     committed, pushed = git_commit_and_push(repo_root, targets, message, author_name, author_email)
     return UpdateResult(True, committed, pushed, entry_id, "Update completed.")
 
