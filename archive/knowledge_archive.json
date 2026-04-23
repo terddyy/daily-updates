@@ -35,6 +35,1347 @@
       "title": "Design for idempotency",
       "content": "Idempotent create/update endpoints make retries safe under network failures and reduce accidental duplicate operations.",
       "source": "https://www.rfc-editor.org/rfc/rfc7231"
+    },
+    {
+      "id": "entry-2026-04-17-1540d73577",
+      "date": "2026-04-17",
+      "timestamp": "2026-04-17T05:42:48+08:00",
+      "category": "Observability",
+      "title": "Log with stable keys",
+      "content": "Structured logs with predictable field names make filtering and alerting far easier than free-form log lines.",
+      "source": "https://opentelemetry.io/docs/concepts/signals/logs/"
+    },
+    {
+      "id": "entry-2026-04-17-b616d1c243",
+      "date": "2026-04-17",
+      "timestamp": "2026-04-17T06:13:24+08:00",
+      "category": "Frontend",
+      "title": "Optimize first contentful view",
+      "content": "Prioritizing critical rendering path assets improves perceived performance more than micro-optimizing non-critical code paths.",
+      "source": "https://web.dev/"
+    },
+    {
+      "id": "entry-2026-04-17-0b57e23dc2",
+      "date": "2026-04-17",
+      "timestamp": "2026-04-17T07:14:41+08:00",
+      "category": "Backend",
+      "title": "Set realistic timeouts everywhere",
+      "content": "Explicit timeouts on outbound calls prevent thread exhaustion and keep cascading failures contained.",
+      "source": "https://sre.google/sre-book/addressing-cascading-failures/"
+    },
+    {
+      "id": "entry-2026-04-17-d17293ef16",
+      "date": "2026-04-17",
+      "timestamp": "2026-04-17T08:23:23+08:00",
+      "category": "Architecture",
+      "title": "Keep boundaries explicit",
+      "content": "Defining module boundaries early reduces accidental coupling and keeps refactors local instead of system-wide.",
+      "source": "https://12factor.net/"
+    },
+    {
+      "id": "entry-2026-04-17-1acd45b936",
+      "date": "2026-04-17",
+      "timestamp": "2026-04-17T09:33:33+08:00",
+      "category": "DevOps",
+      "title": "Automate rollback paths",
+      "content": "A tested rollback mechanism shortens incident duration and increases confidence during high-frequency deployments.",
+      "source": "https://cloud.google.com/architecture/devops"
+    },
+    {
+      "id": "entry-2026-04-17-7894d25610",
+      "date": "2026-04-17",
+      "timestamp": "2026-04-17T11:02:44+08:00",
+      "category": "Code Quality",
+      "title": "Name intent, not mechanics",
+      "content": "Readable names should communicate business intent so maintainers understand why code exists before how it works.",
+      "source": "https://martinfowler.com/books/clean-code.html"
+    },
+    {
+      "id": "entry-2026-04-17-21125e54e8",
+      "date": "2026-04-17",
+      "timestamp": "2026-04-17T12:58:38+08:00",
+      "category": "Documentation",
+      "title": "Keep runbooks close to code",
+      "content": "Version-controlled operational runbooks age better than external docs and stay aligned with implementation changes.",
+      "source": "https://sre.google/workbook/"
+    },
+    {
+      "id": "entry-2026-04-17-35daea7b37",
+      "date": "2026-04-17",
+      "timestamp": "2026-04-17T13:49:19+08:00",
+      "category": "Productivity",
+      "title": "Batch similar tasks",
+      "content": "Grouping related cognitive tasks reduces context switching overhead and improves steady development throughput.",
+      "source": "https://www.atlassian.com/blog/productivity"
+    },
+    {
+      "id": "entry-2026-04-17-66894daab9",
+      "date": "2026-04-17",
+      "timestamp": "2026-04-17T14:35:56+08:00",
+      "category": "Networking",
+      "title": "Retry only safe operations",
+      "content": "Not all requests should be retried blindly; non-idempotent calls need safeguards or idempotency keys.",
+      "source": "https://www.rfc-editor.org/rfc/rfc9110"
+    },
+    {
+      "id": "entry-2026-04-17-0800736a75",
+      "date": "2026-04-17",
+      "timestamp": "2026-04-17T15:33:15+08:00",
+      "category": "CI/CD",
+      "title": "Fail fast on lint and tests",
+      "content": "Early pipeline checks give faster feedback loops and reduce wasted compute in late deployment stages.",
+      "source": "https://docs.github.com/actions"
+    },
+    {
+      "id": "entry-2026-04-17-9828f3044a",
+      "date": "2026-04-17",
+      "timestamp": "2026-04-17T16:32:45+08:00",
+      "category": "Performance",
+      "title": "Measure before tuning",
+      "content": "Profiling first prevents optimization of cold paths and helps teams target changes with measurable user impact.",
+      "source": "https://perf.wiki/"
+    },
+    {
+      "id": "entry-2026-04-17-307add76e2",
+      "date": "2026-04-17",
+      "timestamp": "2026-04-17T17:31:23+08:00",
+      "category": "Accessibility",
+      "title": "Keyboard support is a baseline",
+      "content": "All interactive controls should be reachable and usable by keyboard to support accessibility and power users.",
+      "source": "https://www.w3.org/WAI/standards-guidelines/wcag/"
+    },
+    {
+      "id": "entry-2026-04-17-a3c4c1dd6a",
+      "date": "2026-04-17",
+      "timestamp": "2026-04-17T18:25:34+08:00",
+      "category": "Leadership",
+      "title": "Write decisions down",
+      "content": "Lightweight decision records preserve context, reduce repeated debates, and accelerate onboarding for new contributors.",
+      "source": "https://adr.github.io/"
+    },
+    {
+      "id": "entry-2026-04-17-b70dee22cf",
+      "date": "2026-04-17",
+      "timestamp": "2026-04-17T19:19:12+08:00",
+      "category": "Git",
+      "title": "Prefer small focused commits",
+      "content": "Smaller commits are easier to review, easier to revert, and reduce merge conflict risk when multiple contributors work in parallel.",
+      "source": "https://git-scm.com/docs"
+    },
+    {
+      "id": "entry-2026-04-17-cfaf6a6c2a",
+      "date": "2026-04-17",
+      "timestamp": "2026-04-17T20:17:53+08:00",
+      "category": "Python",
+      "title": "Use virtual environments by default",
+      "content": "Project-specific virtual environments prevent dependency leaks across projects and make builds more reproducible on CI.",
+      "source": "https://docs.python.org/3/library/venv.html"
+    },
+    {
+      "id": "entry-2026-04-17-b8ede1a9ae",
+      "date": "2026-04-17",
+      "timestamp": "2026-04-17T21:31:27+08:00",
+      "category": "Testing",
+      "title": "Write one behavior per test",
+      "content": "Single-purpose tests fail with clearer intent and reduce time spent diagnosing what actually regressed.",
+      "source": "https://martinfowler.com/bliki/UnitTest.html"
+    },
+    {
+      "id": "entry-2026-04-17-f6b35a5779",
+      "date": "2026-04-17",
+      "timestamp": "2026-04-17T22:26:53+08:00",
+      "category": "Security",
+      "title": "Rotate credentials on schedule",
+      "content": "Regular credential rotation limits blast radius if a secret leaks and encourages teams to maintain key management hygiene.",
+      "source": "https://owasp.org/www-project-top-ten/"
+    },
+    {
+      "id": "entry-2026-04-17-125109b5d7",
+      "date": "2026-04-17",
+      "timestamp": "2026-04-17T23:22:49+08:00",
+      "category": "Databases",
+      "title": "Add indexes for real query patterns",
+      "content": "Measure slow queries first, then index based on predicates and sort order. Over-indexing harms write performance.",
+      "source": "https://use-the-index-luke.com/"
+    },
+    {
+      "id": "entry-2026-04-18-1f4279506b",
+      "date": "2026-04-18",
+      "timestamp": "2026-04-18T00:23:30+08:00",
+      "category": "APIs",
+      "title": "Design for idempotency",
+      "content": "Idempotent create/update endpoints make retries safe under network failures and reduce accidental duplicate operations.",
+      "source": "https://www.rfc-editor.org/rfc/rfc7231"
+    },
+    {
+      "id": "entry-2026-04-18-a5b317025f",
+      "date": "2026-04-18",
+      "timestamp": "2026-04-18T01:17:17+08:00",
+      "category": "Observability",
+      "title": "Log with stable keys",
+      "content": "Structured logs with predictable field names make filtering and alerting far easier than free-form log lines.",
+      "source": "https://opentelemetry.io/docs/concepts/signals/logs/"
+    },
+    {
+      "id": "entry-2026-04-18-83245c1739",
+      "date": "2026-04-18",
+      "timestamp": "2026-04-18T02:17:13+08:00",
+      "category": "Architecture",
+      "title": "Keep boundaries explicit",
+      "content": "Defining module boundaries early reduces accidental coupling and keeps refactors local instead of system-wide.",
+      "source": "https://12factor.net/"
+    },
+    {
+      "id": "entry-2026-04-18-a346c34f8c",
+      "date": "2026-04-18",
+      "timestamp": "2026-04-18T03:24:27+08:00",
+      "category": "Frontend",
+      "title": "Optimize first contentful view",
+      "content": "Prioritizing critical rendering path assets improves perceived performance more than micro-optimizing non-critical code paths.",
+      "source": "https://web.dev/"
+    },
+    {
+      "id": "entry-2026-04-18-ce468f2300",
+      "date": "2026-04-18",
+      "timestamp": "2026-04-18T04:13:35+08:00",
+      "category": "Backend",
+      "title": "Set realistic timeouts everywhere",
+      "content": "Explicit timeouts on outbound calls prevent thread exhaustion and keep cascading failures contained.",
+      "source": "https://sre.google/sre-book/addressing-cascading-failures/"
+    },
+    {
+      "id": "entry-2026-04-18-051a167e3c",
+      "date": "2026-04-18",
+      "timestamp": "2026-04-18T05:14:42+08:00",
+      "category": "DevOps",
+      "title": "Automate rollback paths",
+      "content": "A tested rollback mechanism shortens incident duration and increases confidence during high-frequency deployments.",
+      "source": "https://cloud.google.com/architecture/devops"
+    },
+    {
+      "id": "entry-2026-04-18-3ae4e92075",
+      "date": "2026-04-18",
+      "timestamp": "2026-04-18T06:12:35+08:00",
+      "category": "Code Quality",
+      "title": "Name intent, not mechanics",
+      "content": "Readable names should communicate business intent so maintainers understand why code exists before how it works.",
+      "source": "https://martinfowler.com/books/clean-code.html"
+    },
+    {
+      "id": "entry-2026-04-18-0a5bd33f55",
+      "date": "2026-04-18",
+      "timestamp": "2026-04-18T07:13:22+08:00",
+      "category": "Reliability",
+      "title": "Use exponential backoff with jitter",
+      "content": "Backoff plus jitter avoids retry storms and improves recovery behavior when downstream systems are degraded.",
+      "source": "https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/"
+    },
+    {
+      "id": "entry-2026-04-18-2ea01f7801",
+      "date": "2026-04-18",
+      "timestamp": "2026-04-18T08:20:45+08:00",
+      "category": "Documentation",
+      "title": "Keep runbooks close to code",
+      "content": "Version-controlled operational runbooks age better than external docs and stay aligned with implementation changes.",
+      "source": "https://sre.google/workbook/"
+    },
+    {
+      "id": "entry-2026-04-18-ea4a6b8cde",
+      "date": "2026-04-18",
+      "timestamp": "2026-04-18T09:33:45+08:00",
+      "category": "Productivity",
+      "title": "Batch similar tasks",
+      "content": "Grouping related cognitive tasks reduces context switching overhead and improves steady development throughput.",
+      "source": "https://www.atlassian.com/blog/productivity"
+    },
+    {
+      "id": "entry-2026-04-18-4a416a8fee",
+      "date": "2026-04-18",
+      "timestamp": "2026-04-18T11:02:07+08:00",
+      "category": "Networking",
+      "title": "Retry only safe operations",
+      "content": "Not all requests should be retried blindly; non-idempotent calls need safeguards or idempotency keys.",
+      "source": "https://www.rfc-editor.org/rfc/rfc9110"
+    },
+    {
+      "id": "entry-2026-04-18-7805465555",
+      "date": "2026-04-18",
+      "timestamp": "2026-04-18T12:46:15+08:00",
+      "category": "CI/CD",
+      "title": "Fail fast on lint and tests",
+      "content": "Early pipeline checks give faster feedback loops and reduce wasted compute in late deployment stages.",
+      "source": "https://docs.github.com/actions"
+    },
+    {
+      "id": "entry-2026-04-18-9eb699059e",
+      "date": "2026-04-18",
+      "timestamp": "2026-04-18T13:32:22+08:00",
+      "category": "Performance",
+      "title": "Measure before tuning",
+      "content": "Profiling first prevents optimization of cold paths and helps teams target changes with measurable user impact.",
+      "source": "https://perf.wiki/"
+    },
+    {
+      "id": "entry-2026-04-18-685f15cc32",
+      "date": "2026-04-18",
+      "timestamp": "2026-04-18T14:24:38+08:00",
+      "category": "Accessibility",
+      "title": "Keyboard support is a baseline",
+      "content": "All interactive controls should be reachable and usable by keyboard to support accessibility and power users.",
+      "source": "https://www.w3.org/WAI/standards-guidelines/wcag/"
+    },
+    {
+      "id": "entry-2026-04-18-343bf251d7",
+      "date": "2026-04-18",
+      "timestamp": "2026-04-18T15:26:02+08:00",
+      "category": "Leadership",
+      "title": "Write decisions down",
+      "content": "Lightweight decision records preserve context, reduce repeated debates, and accelerate onboarding for new contributors.",
+      "source": "https://adr.github.io/"
+    },
+    {
+      "id": "entry-2026-04-18-243f43c0da",
+      "date": "2026-04-18",
+      "timestamp": "2026-04-18T16:13:28+08:00",
+      "category": "Git",
+      "title": "Prefer small focused commits",
+      "content": "Smaller commits are easier to review, easier to revert, and reduce merge conflict risk when multiple contributors work in parallel.",
+      "source": "https://git-scm.com/docs"
+    },
+    {
+      "id": "entry-2026-04-18-05cf7647c5",
+      "date": "2026-04-18",
+      "timestamp": "2026-04-18T17:16:28+08:00",
+      "category": "Python",
+      "title": "Use virtual environments by default",
+      "content": "Project-specific virtual environments prevent dependency leaks across projects and make builds more reproducible on CI.",
+      "source": "https://docs.python.org/3/library/venv.html"
+    },
+    {
+      "id": "entry-2026-04-18-eda7151881",
+      "date": "2026-04-18",
+      "timestamp": "2026-04-18T18:14:01+08:00",
+      "category": "Testing",
+      "title": "Write one behavior per test",
+      "content": "Single-purpose tests fail with clearer intent and reduce time spent diagnosing what actually regressed.",
+      "source": "https://martinfowler.com/bliki/UnitTest.html"
+    },
+    {
+      "id": "entry-2026-04-18-c21ea2ed3e",
+      "date": "2026-04-18",
+      "timestamp": "2026-04-18T19:12:45+08:00",
+      "category": "Security",
+      "title": "Rotate credentials on schedule",
+      "content": "Regular credential rotation limits blast radius if a secret leaks and encourages teams to maintain key management hygiene.",
+      "source": "https://owasp.org/www-project-top-ten/"
+    },
+    {
+      "id": "entry-2026-04-18-e89a922e84",
+      "date": "2026-04-18",
+      "timestamp": "2026-04-18T20:10:00+08:00",
+      "category": "Databases",
+      "title": "Add indexes for real query patterns",
+      "content": "Measure slow queries first, then index based on predicates and sort order. Over-indexing harms write performance.",
+      "source": "https://use-the-index-luke.com/"
+    },
+    {
+      "id": "entry-2026-04-18-9921c47ea1",
+      "date": "2026-04-18",
+      "timestamp": "2026-04-18T21:26:40+08:00",
+      "category": "APIs",
+      "title": "Design for idempotency",
+      "content": "Idempotent create/update endpoints make retries safe under network failures and reduce accidental duplicate operations.",
+      "source": "https://www.rfc-editor.org/rfc/rfc7231"
+    },
+    {
+      "id": "entry-2026-04-18-8e3b1db27f",
+      "date": "2026-04-18",
+      "timestamp": "2026-04-18T22:14:21+08:00",
+      "category": "Observability",
+      "title": "Log with stable keys",
+      "content": "Structured logs with predictable field names make filtering and alerting far easier than free-form log lines.",
+      "source": "https://opentelemetry.io/docs/concepts/signals/logs/"
+    },
+    {
+      "id": "entry-2026-04-18-f80c7f012a",
+      "date": "2026-04-18",
+      "timestamp": "2026-04-18T23:12:58+08:00",
+      "category": "Architecture",
+      "title": "Keep boundaries explicit",
+      "content": "Defining module boundaries early reduces accidental coupling and keeps refactors local instead of system-wide.",
+      "source": "https://12factor.net/"
+    },
+    {
+      "id": "entry-2026-04-19-ca7fc44f94",
+      "date": "2026-04-19",
+      "timestamp": "2026-04-19T00:10:26+08:00",
+      "category": "Frontend",
+      "title": "Optimize first contentful view",
+      "content": "Prioritizing critical rendering path assets improves perceived performance more than micro-optimizing non-critical code paths.",
+      "source": "https://web.dev/"
+    },
+    {
+      "id": "entry-2026-04-19-9695e5236a",
+      "date": "2026-04-19",
+      "timestamp": "2026-04-19T01:11:56+08:00",
+      "category": "Backend",
+      "title": "Set realistic timeouts everywhere",
+      "content": "Explicit timeouts on outbound calls prevent thread exhaustion and keep cascading failures contained.",
+      "source": "https://sre.google/sre-book/addressing-cascading-failures/"
+    },
+    {
+      "id": "entry-2026-04-19-b8d3700886",
+      "date": "2026-04-19",
+      "timestamp": "2026-04-19T02:11:08+08:00",
+      "category": "DevOps",
+      "title": "Automate rollback paths",
+      "content": "A tested rollback mechanism shortens incident duration and increases confidence during high-frequency deployments.",
+      "source": "https://cloud.google.com/architecture/devops"
+    },
+    {
+      "id": "entry-2026-04-19-1766dc3cc2",
+      "date": "2026-04-19",
+      "timestamp": "2026-04-19T03:15:48+08:00",
+      "category": "Code Quality",
+      "title": "Name intent, not mechanics",
+      "content": "Readable names should communicate business intent so maintainers understand why code exists before how it works.",
+      "source": "https://martinfowler.com/books/clean-code.html"
+    },
+    {
+      "id": "entry-2026-04-19-4f7ee69a5b",
+      "date": "2026-04-19",
+      "timestamp": "2026-04-19T04:08:45+08:00",
+      "category": "Reliability",
+      "title": "Use exponential backoff with jitter",
+      "content": "Backoff plus jitter avoids retry storms and improves recovery behavior when downstream systems are degraded.",
+      "source": "https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/"
+    },
+    {
+      "id": "entry-2026-04-19-0f050aa18d",
+      "date": "2026-04-19",
+      "timestamp": "2026-04-19T05:09:40+08:00",
+      "category": "Documentation",
+      "title": "Keep runbooks close to code",
+      "content": "Version-controlled operational runbooks age better than external docs and stay aligned with implementation changes.",
+      "source": "https://sre.google/workbook/"
+    },
+    {
+      "id": "entry-2026-04-19-fa81270039",
+      "date": "2026-04-19",
+      "timestamp": "2026-04-19T06:07:50+08:00",
+      "category": "Productivity",
+      "title": "Batch similar tasks",
+      "content": "Grouping related cognitive tasks reduces context switching overhead and improves steady development throughput.",
+      "source": "https://www.atlassian.com/blog/productivity"
+    },
+    {
+      "id": "entry-2026-04-19-0859daa2b6",
+      "date": "2026-04-19",
+      "timestamp": "2026-04-19T07:10:28+08:00",
+      "category": "Networking",
+      "title": "Retry only safe operations",
+      "content": "Not all requests should be retried blindly; non-idempotent calls need safeguards or idempotency keys.",
+      "source": "https://www.rfc-editor.org/rfc/rfc9110"
+    },
+    {
+      "id": "entry-2026-04-19-cee16fca66",
+      "date": "2026-04-19",
+      "timestamp": "2026-04-19T08:21:33+08:00",
+      "category": "CI/CD",
+      "title": "Fail fast on lint and tests",
+      "content": "Early pipeline checks give faster feedback loops and reduce wasted compute in late deployment stages.",
+      "source": "https://docs.github.com/actions"
+    },
+    {
+      "id": "entry-2026-04-19-d401e7b177",
+      "date": "2026-04-19",
+      "timestamp": "2026-04-19T09:33:34+08:00",
+      "category": "Performance",
+      "title": "Measure before tuning",
+      "content": "Profiling first prevents optimization of cold paths and helps teams target changes with measurable user impact.",
+      "source": "https://perf.wiki/"
+    },
+    {
+      "id": "entry-2026-04-19-78049459b7",
+      "date": "2026-04-19",
+      "timestamp": "2026-04-19T11:03:07+08:00",
+      "category": "Accessibility",
+      "title": "Keyboard support is a baseline",
+      "content": "All interactive controls should be reachable and usable by keyboard to support accessibility and power users.",
+      "source": "https://www.w3.org/WAI/standards-guidelines/wcag/"
+    },
+    {
+      "id": "entry-2026-04-19-1b0ccecc48",
+      "date": "2026-04-19",
+      "timestamp": "2026-04-19T12:59:47+08:00",
+      "category": "Leadership",
+      "title": "Write decisions down",
+      "content": "Lightweight decision records preserve context, reduce repeated debates, and accelerate onboarding for new contributors.",
+      "source": "https://adr.github.io/"
+    },
+    {
+      "id": "entry-2026-04-19-6ca057f2c2",
+      "date": "2026-04-19",
+      "timestamp": "2026-04-19T13:48:03+08:00",
+      "category": "Git",
+      "title": "Prefer small focused commits",
+      "content": "Smaller commits are easier to review, easier to revert, and reduce merge conflict risk when multiple contributors work in parallel.",
+      "source": "https://git-scm.com/docs"
+    },
+    {
+      "id": "entry-2026-04-19-1bb0bd8b43",
+      "date": "2026-04-19",
+      "timestamp": "2026-04-19T14:33:26+08:00",
+      "category": "Python",
+      "title": "Use virtual environments by default",
+      "content": "Project-specific virtual environments prevent dependency leaks across projects and make builds more reproducible on CI.",
+      "source": "https://docs.python.org/3/library/venv.html"
+    },
+    {
+      "id": "entry-2026-04-19-9c6963e4a0",
+      "date": "2026-04-19",
+      "timestamp": "2026-04-19T15:30:24+08:00",
+      "category": "Testing",
+      "title": "Write one behavior per test",
+      "content": "Single-purpose tests fail with clearer intent and reduce time spent diagnosing what actually regressed.",
+      "source": "https://martinfowler.com/bliki/UnitTest.html"
+    },
+    {
+      "id": "entry-2026-04-19-a7bbcf3a27",
+      "date": "2026-04-19",
+      "timestamp": "2026-04-19T16:19:11+08:00",
+      "category": "Security",
+      "title": "Rotate credentials on schedule",
+      "content": "Regular credential rotation limits blast radius if a secret leaks and encourages teams to maintain key management hygiene.",
+      "source": "https://owasp.org/www-project-top-ten/"
+    },
+    {
+      "id": "entry-2026-04-19-68e377f6b3",
+      "date": "2026-04-19",
+      "timestamp": "2026-04-19T17:16:42+08:00",
+      "category": "Databases",
+      "title": "Add indexes for real query patterns",
+      "content": "Measure slow queries first, then index based on predicates and sort order. Over-indexing harms write performance.",
+      "source": "https://use-the-index-luke.com/"
+    },
+    {
+      "id": "entry-2026-04-19-65483549ba",
+      "date": "2026-04-19",
+      "timestamp": "2026-04-19T18:13:32+08:00",
+      "category": "APIs",
+      "title": "Design for idempotency",
+      "content": "Idempotent create/update endpoints make retries safe under network failures and reduce accidental duplicate operations.",
+      "source": "https://www.rfc-editor.org/rfc/rfc7231"
+    },
+    {
+      "id": "entry-2026-04-19-7c7c55500b",
+      "date": "2026-04-19",
+      "timestamp": "2026-04-19T19:13:14+08:00",
+      "category": "Observability",
+      "title": "Log with stable keys",
+      "content": "Structured logs with predictable field names make filtering and alerting far easier than free-form log lines.",
+      "source": "https://opentelemetry.io/docs/concepts/signals/logs/"
+    },
+    {
+      "id": "entry-2026-04-19-a8a40ee46c",
+      "date": "2026-04-19",
+      "timestamp": "2026-04-19T20:09:52+08:00",
+      "category": "Architecture",
+      "title": "Keep boundaries explicit",
+      "content": "Defining module boundaries early reduces accidental coupling and keeps refactors local instead of system-wide.",
+      "source": "https://12factor.net/"
+    },
+    {
+      "id": "entry-2026-04-19-ce3429ff3a",
+      "date": "2026-04-19",
+      "timestamp": "2026-04-19T21:26:08+08:00",
+      "category": "Frontend",
+      "title": "Optimize first contentful view",
+      "content": "Prioritizing critical rendering path assets improves perceived performance more than micro-optimizing non-critical code paths.",
+      "source": "https://web.dev/"
+    },
+    {
+      "id": "entry-2026-04-19-e91cdd1593",
+      "date": "2026-04-19",
+      "timestamp": "2026-04-19T22:14:28+08:00",
+      "category": "Backend",
+      "title": "Set realistic timeouts everywhere",
+      "content": "Explicit timeouts on outbound calls prevent thread exhaustion and keep cascading failures contained.",
+      "source": "https://sre.google/sre-book/addressing-cascading-failures/"
+    },
+    {
+      "id": "entry-2026-04-19-ec44a563e9",
+      "date": "2026-04-19",
+      "timestamp": "2026-04-19T23:13:17+08:00",
+      "category": "DevOps",
+      "title": "Automate rollback paths",
+      "content": "A tested rollback mechanism shortens incident duration and increases confidence during high-frequency deployments.",
+      "source": "https://cloud.google.com/architecture/devops"
+    },
+    {
+      "id": "entry-2026-04-20-95f7e024a8",
+      "date": "2026-04-20",
+      "timestamp": "2026-04-20T00:10:17+08:00",
+      "category": "Code Quality",
+      "title": "Name intent, not mechanics",
+      "content": "Readable names should communicate business intent so maintainers understand why code exists before how it works.",
+      "source": "https://martinfowler.com/books/clean-code.html"
+    },
+    {
+      "id": "entry-2026-04-20-eb67a986f6",
+      "date": "2026-04-20",
+      "timestamp": "2026-04-20T01:11:47+08:00",
+      "category": "Reliability",
+      "title": "Use exponential backoff with jitter",
+      "content": "Backoff plus jitter avoids retry storms and improves recovery behavior when downstream systems are degraded.",
+      "source": "https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/"
+    },
+    {
+      "id": "entry-2026-04-20-56c0ad3902",
+      "date": "2026-04-20",
+      "timestamp": "2026-04-20T02:11:39+08:00",
+      "category": "Documentation",
+      "title": "Keep runbooks close to code",
+      "content": "Version-controlled operational runbooks age better than external docs and stay aligned with implementation changes.",
+      "source": "https://sre.google/workbook/"
+    },
+    {
+      "id": "entry-2026-04-20-b773d5177b",
+      "date": "2026-04-20",
+      "timestamp": "2026-04-20T03:16:23+08:00",
+      "category": "Productivity",
+      "title": "Batch similar tasks",
+      "content": "Grouping related cognitive tasks reduces context switching overhead and improves steady development throughput.",
+      "source": "https://www.atlassian.com/blog/productivity"
+    },
+    {
+      "id": "entry-2026-04-20-b26b2249b6",
+      "date": "2026-04-20",
+      "timestamp": "2026-04-20T04:09:12+08:00",
+      "category": "Networking",
+      "title": "Retry only safe operations",
+      "content": "Not all requests should be retried blindly; non-idempotent calls need safeguards or idempotency keys.",
+      "source": "https://www.rfc-editor.org/rfc/rfc9110"
+    },
+    {
+      "id": "entry-2026-04-20-1f64faabac",
+      "date": "2026-04-20",
+      "timestamp": "2026-04-20T05:10:38+08:00",
+      "category": "CI/CD",
+      "title": "Fail fast on lint and tests",
+      "content": "Early pipeline checks give faster feedback loops and reduce wasted compute in late deployment stages.",
+      "source": "https://docs.github.com/actions"
+    },
+    {
+      "id": "entry-2026-04-20-a9922f3015",
+      "date": "2026-04-20",
+      "timestamp": "2026-04-20T06:08:07+08:00",
+      "category": "Performance",
+      "title": "Measure before tuning",
+      "content": "Profiling first prevents optimization of cold paths and helps teams target changes with measurable user impact.",
+      "source": "https://perf.wiki/"
+    },
+    {
+      "id": "entry-2026-04-20-76c4dfa192",
+      "date": "2026-04-20",
+      "timestamp": "2026-04-20T07:11:13+08:00",
+      "category": "Accessibility",
+      "title": "Keyboard support is a baseline",
+      "content": "All interactive controls should be reachable and usable by keyboard to support accessibility and power users.",
+      "source": "https://www.w3.org/WAI/standards-guidelines/wcag/"
+    },
+    {
+      "id": "entry-2026-04-20-51869c3c1b",
+      "date": "2026-04-20",
+      "timestamp": "2026-04-20T08:21:58+08:00",
+      "category": "Leadership",
+      "title": "Write decisions down",
+      "content": "Lightweight decision records preserve context, reduce repeated debates, and accelerate onboarding for new contributors.",
+      "source": "https://adr.github.io/"
+    },
+    {
+      "id": "entry-2026-04-20-8914c57bfa",
+      "date": "2026-04-20",
+      "timestamp": "2026-04-20T09:33:57+08:00",
+      "category": "Git",
+      "title": "Prefer small focused commits",
+      "content": "Smaller commits are easier to review, easier to revert, and reduce merge conflict risk when multiple contributors work in parallel.",
+      "source": "https://git-scm.com/docs"
+    },
+    {
+      "id": "entry-2026-04-20-864da2a183",
+      "date": "2026-04-20",
+      "timestamp": "2026-04-20T11:03:09+08:00",
+      "category": "Python",
+      "title": "Use virtual environments by default",
+      "content": "Project-specific virtual environments prevent dependency leaks across projects and make builds more reproducible on CI.",
+      "source": "https://docs.python.org/3/library/venv.html"
+    },
+    {
+      "id": "entry-2026-04-20-1001dfed27",
+      "date": "2026-04-20",
+      "timestamp": "2026-04-20T13:02:01+08:00",
+      "category": "Testing",
+      "title": "Write one behavior per test",
+      "content": "Single-purpose tests fail with clearer intent and reduce time spent diagnosing what actually regressed.",
+      "source": "https://martinfowler.com/bliki/UnitTest.html"
+    },
+    {
+      "id": "entry-2026-04-20-9acf1c91f3",
+      "date": "2026-04-20",
+      "timestamp": "2026-04-20T14:42:50+08:00",
+      "category": "Security",
+      "title": "Rotate credentials on schedule",
+      "content": "Regular credential rotation limits blast radius if a secret leaks and encourages teams to maintain key management hygiene.",
+      "source": "https://owasp.org/www-project-top-ten/"
+    },
+    {
+      "id": "entry-2026-04-20-5a0b75a6b7",
+      "date": "2026-04-20",
+      "timestamp": "2026-04-20T15:35:07+08:00",
+      "category": "Databases",
+      "title": "Add indexes for real query patterns",
+      "content": "Measure slow queries first, then index based on predicates and sort order. Over-indexing harms write performance.",
+      "source": "https://use-the-index-luke.com/"
+    },
+    {
+      "id": "entry-2026-04-20-d7236aa093",
+      "date": "2026-04-20",
+      "timestamp": "2026-04-20T16:43:59+08:00",
+      "category": "APIs",
+      "title": "Design for idempotency",
+      "content": "Idempotent create/update endpoints make retries safe under network failures and reduce accidental duplicate operations.",
+      "source": "https://www.rfc-editor.org/rfc/rfc7231"
+    },
+    {
+      "id": "entry-2026-04-20-3ed04fb1fb",
+      "date": "2026-04-20",
+      "timestamp": "2026-04-20T17:35:06+08:00",
+      "category": "Observability",
+      "title": "Log with stable keys",
+      "content": "Structured logs with predictable field names make filtering and alerting far easier than free-form log lines.",
+      "source": "https://opentelemetry.io/docs/concepts/signals/logs/"
+    },
+    {
+      "id": "entry-2026-04-20-c8313586e2",
+      "date": "2026-04-20",
+      "timestamp": "2026-04-20T18:33:28+08:00",
+      "category": "Architecture",
+      "title": "Keep boundaries explicit",
+      "content": "Defining module boundaries early reduces accidental coupling and keeps refactors local instead of system-wide.",
+      "source": "https://12factor.net/"
+    },
+    {
+      "id": "entry-2026-04-20-cd5d4bf7d7",
+      "date": "2026-04-20",
+      "timestamp": "2026-04-20T19:29:58+08:00",
+      "category": "Frontend",
+      "title": "Optimize first contentful view",
+      "content": "Prioritizing critical rendering path assets improves perceived performance more than micro-optimizing non-critical code paths.",
+      "source": "https://web.dev/"
+    },
+    {
+      "id": "entry-2026-04-20-a3ed573eb6",
+      "date": "2026-04-20",
+      "timestamp": "2026-04-20T20:22:31+08:00",
+      "category": "Backend",
+      "title": "Set realistic timeouts everywhere",
+      "content": "Explicit timeouts on outbound calls prevent thread exhaustion and keep cascading failures contained.",
+      "source": "https://sre.google/sre-book/addressing-cascading-failures/"
+    },
+    {
+      "id": "entry-2026-04-20-d121f9cb65",
+      "date": "2026-04-20",
+      "timestamp": "2026-04-20T21:33:20+08:00",
+      "category": "DevOps",
+      "title": "Automate rollback paths",
+      "content": "A tested rollback mechanism shortens incident duration and increases confidence during high-frequency deployments.",
+      "source": "https://cloud.google.com/architecture/devops"
+    },
+    {
+      "id": "entry-2026-04-20-39f1a9f298",
+      "date": "2026-04-20",
+      "timestamp": "2026-04-20T22:34:00+08:00",
+      "category": "Code Quality",
+      "title": "Name intent, not mechanics",
+      "content": "Readable names should communicate business intent so maintainers understand why code exists before how it works.",
+      "source": "https://martinfowler.com/books/clean-code.html"
+    },
+    {
+      "id": "entry-2026-04-20-5ccd707fd9",
+      "date": "2026-04-20",
+      "timestamp": "2026-04-20T23:29:14+08:00",
+      "category": "Reliability",
+      "title": "Use exponential backoff with jitter",
+      "content": "Backoff plus jitter avoids retry storms and improves recovery behavior when downstream systems are degraded.",
+      "source": "https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/"
+    },
+    {
+      "id": "entry-2026-04-21-79239138fb",
+      "date": "2026-04-21",
+      "timestamp": "2026-04-21T00:25:40+08:00",
+      "category": "Documentation",
+      "title": "Keep runbooks close to code",
+      "content": "Version-controlled operational runbooks age better than external docs and stay aligned with implementation changes.",
+      "source": "https://sre.google/workbook/"
+    },
+    {
+      "id": "entry-2026-04-21-25b69009af",
+      "date": "2026-04-21",
+      "timestamp": "2026-04-21T01:22:36+08:00",
+      "category": "Productivity",
+      "title": "Batch similar tasks",
+      "content": "Grouping related cognitive tasks reduces context switching overhead and improves steady development throughput.",
+      "source": "https://www.atlassian.com/blog/productivity"
+    },
+    {
+      "id": "entry-2026-04-21-e66fcbb0d6",
+      "date": "2026-04-21",
+      "timestamp": "2026-04-21T02:19:05+08:00",
+      "category": "Networking",
+      "title": "Retry only safe operations",
+      "content": "Not all requests should be retried blindly; non-idempotent calls need safeguards or idempotency keys.",
+      "source": "https://www.rfc-editor.org/rfc/rfc9110"
+    },
+    {
+      "id": "entry-2026-04-21-b587b65796",
+      "date": "2026-04-21",
+      "timestamp": "2026-04-21T03:24:50+08:00",
+      "category": "CI/CD",
+      "title": "Fail fast on lint and tests",
+      "content": "Early pipeline checks give faster feedback loops and reduce wasted compute in late deployment stages.",
+      "source": "https://docs.github.com/actions"
+    },
+    {
+      "id": "entry-2026-04-21-9965e85782",
+      "date": "2026-04-21",
+      "timestamp": "2026-04-21T04:14:29+08:00",
+      "category": "Performance",
+      "title": "Measure before tuning",
+      "content": "Profiling first prevents optimization of cold paths and helps teams target changes with measurable user impact.",
+      "source": "https://perf.wiki/"
+    },
+    {
+      "id": "entry-2026-04-21-9fffa01b51",
+      "date": "2026-04-21",
+      "timestamp": "2026-04-21T05:15:54+08:00",
+      "category": "Accessibility",
+      "title": "Keyboard support is a baseline",
+      "content": "All interactive controls should be reachable and usable by keyboard to support accessibility and power users.",
+      "source": "https://www.w3.org/WAI/standards-guidelines/wcag/"
+    },
+    {
+      "id": "entry-2026-04-21-3b9d138ac5",
+      "date": "2026-04-21",
+      "timestamp": "2026-04-21T06:14:45+08:00",
+      "category": "Leadership",
+      "title": "Write decisions down",
+      "content": "Lightweight decision records preserve context, reduce repeated debates, and accelerate onboarding for new contributors.",
+      "source": "https://adr.github.io/"
+    },
+    {
+      "id": "entry-2026-04-21-2ae0d8336b",
+      "date": "2026-04-21",
+      "timestamp": "2026-04-21T07:15:15+08:00",
+      "category": "Git",
+      "title": "Prefer small focused commits",
+      "content": "Smaller commits are easier to review, easier to revert, and reduce merge conflict risk when multiple contributors work in parallel.",
+      "source": "https://git-scm.com/docs"
+    },
+    {
+      "id": "entry-2026-04-21-572d3c134b",
+      "date": "2026-04-21",
+      "timestamp": "2026-04-21T08:23:39+08:00",
+      "category": "Python",
+      "title": "Use virtual environments by default",
+      "content": "Project-specific virtual environments prevent dependency leaks across projects and make builds more reproducible on CI.",
+      "source": "https://docs.python.org/3/library/venv.html"
+    },
+    {
+      "id": "entry-2026-04-21-44437cc19e",
+      "date": "2026-04-21",
+      "timestamp": "2026-04-21T09:33:37+08:00",
+      "category": "Testing",
+      "title": "Write one behavior per test",
+      "content": "Single-purpose tests fail with clearer intent and reduce time spent diagnosing what actually regressed.",
+      "source": "https://martinfowler.com/bliki/UnitTest.html"
+    },
+    {
+      "id": "entry-2026-04-21-33aabedf82",
+      "date": "2026-04-21",
+      "timestamp": "2026-04-21T11:02:43+08:00",
+      "category": "Security",
+      "title": "Rotate credentials on schedule",
+      "content": "Regular credential rotation limits blast radius if a secret leaks and encourages teams to maintain key management hygiene.",
+      "source": "https://owasp.org/www-project-top-ten/"
+    },
+    {
+      "id": "entry-2026-04-21-75a32ca7f5",
+      "date": "2026-04-21",
+      "timestamp": "2026-04-21T12:57:51+08:00",
+      "category": "Databases",
+      "title": "Add indexes for real query patterns",
+      "content": "Measure slow queries first, then index based on predicates and sort order. Over-indexing harms write performance.",
+      "source": "https://use-the-index-luke.com/"
+    },
+    {
+      "id": "entry-2026-04-21-015ab594c7",
+      "date": "2026-04-21",
+      "timestamp": "2026-04-21T13:48:40+08:00",
+      "category": "APIs",
+      "title": "Design for idempotency",
+      "content": "Idempotent create/update endpoints make retries safe under network failures and reduce accidental duplicate operations.",
+      "source": "https://www.rfc-editor.org/rfc/rfc7231"
+    },
+    {
+      "id": "entry-2026-04-21-82b3fd208a",
+      "date": "2026-04-21",
+      "timestamp": "2026-04-21T14:36:11+08:00",
+      "category": "Observability",
+      "title": "Log with stable keys",
+      "content": "Structured logs with predictable field names make filtering and alerting far easier than free-form log lines.",
+      "source": "https://opentelemetry.io/docs/concepts/signals/logs/"
+    },
+    {
+      "id": "entry-2026-04-21-1b3da73e18",
+      "date": "2026-04-21",
+      "timestamp": "2026-04-21T15:33:05+08:00",
+      "category": "Architecture",
+      "title": "Keep boundaries explicit",
+      "content": "Defining module boundaries early reduces accidental coupling and keeps refactors local instead of system-wide.",
+      "source": "https://12factor.net/"
+    },
+    {
+      "id": "entry-2026-04-21-b1481e2768",
+      "date": "2026-04-21",
+      "timestamp": "2026-04-21T16:35:36+08:00",
+      "category": "Frontend",
+      "title": "Optimize first contentful view",
+      "content": "Prioritizing critical rendering path assets improves perceived performance more than micro-optimizing non-critical code paths.",
+      "source": "https://web.dev/"
+    },
+    {
+      "id": "entry-2026-04-21-cbd34b289c",
+      "date": "2026-04-21",
+      "timestamp": "2026-04-21T17:32:24+08:00",
+      "category": "Backend",
+      "title": "Set realistic timeouts everywhere",
+      "content": "Explicit timeouts on outbound calls prevent thread exhaustion and keep cascading failures contained.",
+      "source": "https://sre.google/sre-book/addressing-cascading-failures/"
+    },
+    {
+      "id": "entry-2026-04-21-9858340806",
+      "date": "2026-04-21",
+      "timestamp": "2026-04-21T18:29:17+08:00",
+      "category": "DevOps",
+      "title": "Automate rollback paths",
+      "content": "A tested rollback mechanism shortens incident duration and increases confidence during high-frequency deployments.",
+      "source": "https://cloud.google.com/architecture/devops"
+    },
+    {
+      "id": "entry-2026-04-21-30851bb4f4",
+      "date": "2026-04-21",
+      "timestamp": "2026-04-21T19:25:20+08:00",
+      "category": "Code Quality",
+      "title": "Name intent, not mechanics",
+      "content": "Readable names should communicate business intent so maintainers understand why code exists before how it works.",
+      "source": "https://martinfowler.com/books/clean-code.html"
+    },
+    {
+      "id": "entry-2026-04-21-448ca02398",
+      "date": "2026-04-21",
+      "timestamp": "2026-04-21T20:20:01+08:00",
+      "category": "Reliability",
+      "title": "Use exponential backoff with jitter",
+      "content": "Backoff plus jitter avoids retry storms and improves recovery behavior when downstream systems are degraded.",
+      "source": "https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/"
+    },
+    {
+      "id": "entry-2026-04-21-db6f8448b5",
+      "date": "2026-04-21",
+      "timestamp": "2026-04-21T21:32:55+08:00",
+      "category": "Documentation",
+      "title": "Keep runbooks close to code",
+      "content": "Version-controlled operational runbooks age better than external docs and stay aligned with implementation changes.",
+      "source": "https://sre.google/workbook/"
+    },
+    {
+      "id": "entry-2026-04-21-05d0d3cba2",
+      "date": "2026-04-21",
+      "timestamp": "2026-04-21T22:33:54+08:00",
+      "category": "Productivity",
+      "title": "Batch similar tasks",
+      "content": "Grouping related cognitive tasks reduces context switching overhead and improves steady development throughput.",
+      "source": "https://www.atlassian.com/blog/productivity"
+    },
+    {
+      "id": "entry-2026-04-21-27ea0ae7d9",
+      "date": "2026-04-21",
+      "timestamp": "2026-04-21T23:28:11+08:00",
+      "category": "Networking",
+      "title": "Retry only safe operations",
+      "content": "Not all requests should be retried blindly; non-idempotent calls need safeguards or idempotency keys.",
+      "source": "https://www.rfc-editor.org/rfc/rfc9110"
+    },
+    {
+      "id": "entry-2026-04-22-57c4ca2f6b",
+      "date": "2026-04-22",
+      "timestamp": "2026-04-22T00:24:00+08:00",
+      "category": "CI/CD",
+      "title": "Fail fast on lint and tests",
+      "content": "Early pipeline checks give faster feedback loops and reduce wasted compute in late deployment stages.",
+      "source": "https://docs.github.com/actions"
+    },
+    {
+      "id": "entry-2026-04-22-ec670cdb4a",
+      "date": "2026-04-22",
+      "timestamp": "2026-04-22T01:22:19+08:00",
+      "category": "Performance",
+      "title": "Measure before tuning",
+      "content": "Profiling first prevents optimization of cold paths and helps teams target changes with measurable user impact.",
+      "source": "https://perf.wiki/"
+    },
+    {
+      "id": "entry-2026-04-22-4b10e5b88e",
+      "date": "2026-04-22",
+      "timestamp": "2026-04-22T02:21:32+08:00",
+      "category": "Accessibility",
+      "title": "Keyboard support is a baseline",
+      "content": "All interactive controls should be reachable and usable by keyboard to support accessibility and power users.",
+      "source": "https://www.w3.org/WAI/standards-guidelines/wcag/"
+    },
+    {
+      "id": "entry-2026-04-22-9dfefddf7e",
+      "date": "2026-04-22",
+      "timestamp": "2026-04-22T03:27:45+08:00",
+      "category": "Leadership",
+      "title": "Write decisions down",
+      "content": "Lightweight decision records preserve context, reduce repeated debates, and accelerate onboarding for new contributors.",
+      "source": "https://adr.github.io/"
+    },
+    {
+      "id": "entry-2026-04-22-047302816a",
+      "date": "2026-04-22",
+      "timestamp": "2026-04-22T04:17:38+08:00",
+      "category": "Git",
+      "title": "Prefer small focused commits",
+      "content": "Smaller commits are easier to review, easier to revert, and reduce merge conflict risk when multiple contributors work in parallel.",
+      "source": "https://git-scm.com/docs"
+    },
+    {
+      "id": "entry-2026-04-22-452ffc9395",
+      "date": "2026-04-22",
+      "timestamp": "2026-04-22T05:15:33+08:00",
+      "category": "Python",
+      "title": "Use virtual environments by default",
+      "content": "Project-specific virtual environments prevent dependency leaks across projects and make builds more reproducible on CI.",
+      "source": "https://docs.python.org/3/library/venv.html"
+    },
+    {
+      "id": "entry-2026-04-22-348635f699",
+      "date": "2026-04-22",
+      "timestamp": "2026-04-22T06:14:26+08:00",
+      "category": "Testing",
+      "title": "Write one behavior per test",
+      "content": "Single-purpose tests fail with clearer intent and reduce time spent diagnosing what actually regressed.",
+      "source": "https://martinfowler.com/bliki/UnitTest.html"
+    },
+    {
+      "id": "entry-2026-04-22-50d341675c",
+      "date": "2026-04-22",
+      "timestamp": "2026-04-22T07:13:36+08:00",
+      "category": "Security",
+      "title": "Rotate credentials on schedule",
+      "content": "Regular credential rotation limits blast radius if a secret leaks and encourages teams to maintain key management hygiene.",
+      "source": "https://owasp.org/www-project-top-ten/"
+    },
+    {
+      "id": "entry-2026-04-22-afd88daf18",
+      "date": "2026-04-22",
+      "timestamp": "2026-04-22T08:20:57+08:00",
+      "category": "Databases",
+      "title": "Add indexes for real query patterns",
+      "content": "Measure slow queries first, then index based on predicates and sort order. Over-indexing harms write performance.",
+      "source": "https://use-the-index-luke.com/"
+    },
+    {
+      "id": "entry-2026-04-22-24daed2ef9",
+      "date": "2026-04-22",
+      "timestamp": "2026-04-22T09:33:36+08:00",
+      "category": "APIs",
+      "title": "Design for idempotency",
+      "content": "Idempotent create/update endpoints make retries safe under network failures and reduce accidental duplicate operations.",
+      "source": "https://www.rfc-editor.org/rfc/rfc7231"
+    },
+    {
+      "id": "entry-2026-04-22-1ddc741d6e",
+      "date": "2026-04-22",
+      "timestamp": "2026-04-22T11:02:58+08:00",
+      "category": "Observability",
+      "title": "Log with stable keys",
+      "content": "Structured logs with predictable field names make filtering and alerting far easier than free-form log lines.",
+      "source": "https://opentelemetry.io/docs/concepts/signals/logs/"
+    },
+    {
+      "id": "entry-2026-04-22-0d249b732e",
+      "date": "2026-04-22",
+      "timestamp": "2026-04-22T12:56:24+08:00",
+      "category": "Architecture",
+      "title": "Keep boundaries explicit",
+      "content": "Defining module boundaries early reduces accidental coupling and keeps refactors local instead of system-wide.",
+      "source": "https://12factor.net/"
+    },
+    {
+      "id": "entry-2026-04-22-a6d336ac93",
+      "date": "2026-04-22",
+      "timestamp": "2026-04-22T13:45:30+08:00",
+      "category": "Frontend",
+      "title": "Optimize first contentful view",
+      "content": "Prioritizing critical rendering path assets improves perceived performance more than micro-optimizing non-critical code paths.",
+      "source": "https://web.dev/"
+    },
+    {
+      "id": "entry-2026-04-22-206fd1468d",
+      "date": "2026-04-22",
+      "timestamp": "2026-04-22T14:36:22+08:00",
+      "category": "Backend",
+      "title": "Set realistic timeouts everywhere",
+      "content": "Explicit timeouts on outbound calls prevent thread exhaustion and keep cascading failures contained.",
+      "source": "https://sre.google/sre-book/addressing-cascading-failures/"
+    },
+    {
+      "id": "entry-2026-04-22-740f6cc2d2",
+      "date": "2026-04-22",
+      "timestamp": "2026-04-22T15:33:13+08:00",
+      "category": "DevOps",
+      "title": "Automate rollback paths",
+      "content": "A tested rollback mechanism shortens incident duration and increases confidence during high-frequency deployments.",
+      "source": "https://cloud.google.com/architecture/devops"
+    },
+    {
+      "id": "entry-2026-04-22-868c72f1bb",
+      "date": "2026-04-22",
+      "timestamp": "2026-04-22T16:33:39+08:00",
+      "category": "Code Quality",
+      "title": "Name intent, not mechanics",
+      "content": "Readable names should communicate business intent so maintainers understand why code exists before how it works.",
+      "source": "https://martinfowler.com/books/clean-code.html"
+    },
+    {
+      "id": "entry-2026-04-22-f157d77562",
+      "date": "2026-04-22",
+      "timestamp": "2026-04-22T17:31:32+08:00",
+      "category": "Reliability",
+      "title": "Use exponential backoff with jitter",
+      "content": "Backoff plus jitter avoids retry storms and improves recovery behavior when downstream systems are degraded.",
+      "source": "https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/"
+    },
+    {
+      "id": "entry-2026-04-22-35911b42c0",
+      "date": "2026-04-22",
+      "timestamp": "2026-04-22T18:29:11+08:00",
+      "category": "Documentation",
+      "title": "Keep runbooks close to code",
+      "content": "Version-controlled operational runbooks age better than external docs and stay aligned with implementation changes.",
+      "source": "https://sre.google/workbook/"
+    },
+    {
+      "id": "entry-2026-04-22-1dc173c805",
+      "date": "2026-04-22",
+      "timestamp": "2026-04-22T19:24:23+08:00",
+      "category": "Productivity",
+      "title": "Batch similar tasks",
+      "content": "Grouping related cognitive tasks reduces context switching overhead and improves steady development throughput.",
+      "source": "https://www.atlassian.com/blog/productivity"
+    },
+    {
+      "id": "entry-2026-04-22-17c89f8598",
+      "date": "2026-04-22",
+      "timestamp": "2026-04-22T20:19:38+08:00",
+      "category": "Networking",
+      "title": "Retry only safe operations",
+      "content": "Not all requests should be retried blindly; non-idempotent calls need safeguards or idempotency keys.",
+      "source": "https://www.rfc-editor.org/rfc/rfc9110"
+    },
+    {
+      "id": "entry-2026-04-22-cee2fb828f",
+      "date": "2026-04-22",
+      "timestamp": "2026-04-22T21:32:23+08:00",
+      "category": "CI/CD",
+      "title": "Fail fast on lint and tests",
+      "content": "Early pipeline checks give faster feedback loops and reduce wasted compute in late deployment stages.",
+      "source": "https://docs.github.com/actions"
+    },
+    {
+      "id": "entry-2026-04-22-54b90bd44f",
+      "date": "2026-04-22",
+      "timestamp": "2026-04-22T22:33:38+08:00",
+      "category": "Performance",
+      "title": "Measure before tuning",
+      "content": "Profiling first prevents optimization of cold paths and helps teams target changes with measurable user impact.",
+      "source": "https://perf.wiki/"
+    },
+    {
+      "id": "entry-2026-04-22-eda4750e42",
+      "date": "2026-04-22",
+      "timestamp": "2026-04-22T23:27:50+08:00",
+      "category": "Accessibility",
+      "title": "Keyboard support is a baseline",
+      "content": "All interactive controls should be reachable and usable by keyboard to support accessibility and power users.",
+      "source": "https://www.w3.org/WAI/standards-guidelines/wcag/"
+    },
+    {
+      "id": "entry-2026-04-23-e14714256d",
+      "date": "2026-04-23",
+      "timestamp": "2026-04-23T00:23:15+08:00",
+      "category": "Leadership",
+      "title": "Write decisions down",
+      "content": "Lightweight decision records preserve context, reduce repeated debates, and accelerate onboarding for new contributors.",
+      "source": "https://adr.github.io/"
+    },
+    {
+      "id": "entry-2026-04-23-35381ee47e",
+      "date": "2026-04-23",
+      "timestamp": "2026-04-23T01:20:57+08:00",
+      "category": "Git",
+      "title": "Prefer small focused commits",
+      "content": "Smaller commits are easier to review, easier to revert, and reduce merge conflict risk when multiple contributors work in parallel.",
+      "source": "https://git-scm.com/docs"
+    },
+    {
+      "id": "entry-2026-04-23-1760b52a99",
+      "date": "2026-04-23",
+      "timestamp": "2026-04-23T02:21:54+08:00",
+      "category": "Python",
+      "title": "Use virtual environments by default",
+      "content": "Project-specific virtual environments prevent dependency leaks across projects and make builds more reproducible on CI.",
+      "source": "https://docs.python.org/3/library/venv.html"
+    },
+    {
+      "id": "entry-2026-04-23-4e72445a3f",
+      "date": "2026-04-23",
+      "timestamp": "2026-04-23T03:28:48+08:00",
+      "category": "Testing",
+      "title": "Write one behavior per test",
+      "content": "Single-purpose tests fail with clearer intent and reduce time spent diagnosing what actually regressed.",
+      "source": "https://martinfowler.com/bliki/UnitTest.html"
+    },
+    {
+      "id": "entry-2026-04-23-30c776e7aa",
+      "date": "2026-04-23",
+      "timestamp": "2026-04-23T04:19:06+08:00",
+      "category": "Security",
+      "title": "Rotate credentials on schedule",
+      "content": "Regular credential rotation limits blast radius if a secret leaks and encourages teams to maintain key management hygiene.",
+      "source": "https://owasp.org/www-project-top-ten/"
+    },
+    {
+      "id": "entry-2026-04-23-aac3df0c63",
+      "date": "2026-04-23",
+      "timestamp": "2026-04-23T05:17:05+08:00",
+      "category": "Databases",
+      "title": "Add indexes for real query patterns",
+      "content": "Measure slow queries first, then index based on predicates and sort order. Over-indexing harms write performance.",
+      "source": "https://use-the-index-luke.com/"
+    },
+    {
+      "id": "entry-2026-04-23-6c3d90c248",
+      "date": "2026-04-23",
+      "timestamp": "2026-04-23T06:15:12+08:00",
+      "category": "APIs",
+      "title": "Design for idempotency",
+      "content": "Idempotent create/update endpoints make retries safe under network failures and reduce accidental duplicate operations.",
+      "source": "https://www.rfc-editor.org/rfc/rfc7231"
+    },
+    {
+      "id": "entry-2026-04-23-1e51eeb65d",
+      "date": "2026-04-23",
+      "timestamp": "2026-04-23T07:17:01+08:00",
+      "category": "Observability",
+      "title": "Log with stable keys",
+      "content": "Structured logs with predictable field names make filtering and alerting far easier than free-form log lines.",
+      "source": "https://opentelemetry.io/docs/concepts/signals/logs/"
+    },
+    {
+      "id": "entry-2026-04-23-0be105e818",
+      "date": "2026-04-23",
+      "timestamp": "2026-04-23T08:26:14+08:00",
+      "category": "Architecture",
+      "title": "Keep boundaries explicit",
+      "content": "Defining module boundaries early reduces accidental coupling and keeps refactors local instead of system-wide.",
+      "source": "https://12factor.net/"
+    },
+    {
+      "id": "entry-2026-04-23-9e625d02d3",
+      "date": "2026-04-23",
+      "timestamp": "2026-04-23T09:33:38+08:00",
+      "category": "Frontend",
+      "title": "Optimize first contentful view",
+      "content": "Prioritizing critical rendering path assets improves perceived performance more than micro-optimizing non-critical code paths.",
+      "source": "https://web.dev/"
+    },
+    {
+      "id": "entry-2026-04-23-e1ecf814d8",
+      "date": "2026-04-23",
+      "timestamp": "2026-04-23T11:02:36+08:00",
+      "category": "Backend",
+      "title": "Set realistic timeouts everywhere",
+      "content": "Explicit timeouts on outbound calls prevent thread exhaustion and keep cascading failures contained.",
+      "source": "https://sre.google/sre-book/addressing-cascading-failures/"
+    },
+    {
+      "id": "entry-2026-04-23-e0a08e571e",
+      "date": "2026-04-23",
+      "timestamp": "2026-04-23T12:59:16+08:00",
+      "category": "DevOps",
+      "title": "Automate rollback paths",
+      "content": "A tested rollback mechanism shortens incident duration and increases confidence during high-frequency deployments.",
+      "source": "https://cloud.google.com/architecture/devops"
+    },
+    {
+      "id": "entry-2026-04-23-179c22add9",
+      "date": "2026-04-23",
+      "timestamp": "2026-04-23T13:50:49+08:00",
+      "category": "Code Quality",
+      "title": "Name intent, not mechanics",
+      "content": "Readable names should communicate business intent so maintainers understand why code exists before how it works.",
+      "source": "https://martinfowler.com/books/clean-code.html"
+    },
+    {
+      "id": "entry-2026-04-23-bee07a429d",
+      "date": "2026-04-23",
+      "timestamp": "2026-04-23T14:36:47+08:00",
+      "category": "Reliability",
+      "title": "Use exponential backoff with jitter",
+      "content": "Backoff plus jitter avoids retry storms and improves recovery behavior when downstream systems are degraded.",
+      "source": "https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/"
+    },
+    {
+      "id": "entry-2026-04-23-16eb5f5a3d",
+      "date": "2026-04-23",
+      "timestamp": "2026-04-23T15:33:41+08:00",
+      "category": "Documentation",
+      "title": "Keep runbooks close to code",
+      "content": "Version-controlled operational runbooks age better than external docs and stay aligned with implementation changes.",
+      "source": "https://sre.google/workbook/"
+    },
+    {
+      "id": "entry-2026-04-23-79c2ab7267",
+      "date": "2026-04-23",
+      "timestamp": "2026-04-23T16:12:17+08:00",
+      "category": "Productivity",
+      "title": "Batch similar tasks",
+      "content": "Grouping related cognitive tasks reduces context switching overhead and improves steady development throughput.",
+      "source": "https://www.atlassian.com/blog/productivity"
+    },
+    {
+      "id": "entry-2026-04-23-d10a8a75fe",
+      "date": "2026-04-23",
+      "timestamp": "2026-04-23T16:34:56+08:00",
+      "category": "Networking",
+      "title": "Retry only safe operations",
+      "content": "Not all requests should be retried blindly; non-idempotent calls need safeguards or idempotency keys.",
+      "source": "https://www.rfc-editor.org/rfc/rfc9110"
     }
   ]
 }
