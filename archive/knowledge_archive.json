@@ -2213,6 +2213,15 @@
       "title": "Optimize first contentful view",
       "content": "Prioritizing critical rendering path assets improves perceived performance more than micro-optimizing non-critical code paths.",
       "source": "https://web.dev/"
+    },
+    {
+      "id": "entry-2026-04-27-43d0d60328",
+      "date": "2026-04-27",
+      "timestamp": "2026-04-27T21:32:56+08:00",
+      "category": "Backend",
+      "title": "Set realistic timeouts everywhere",
+      "content": "Explicit timeouts on outbound calls prevent thread exhaustion and keep cascading failures contained.",
+      "source": "https://sre.google/sre-book/addressing-cascading-failures/"
     }
   ]
 }
