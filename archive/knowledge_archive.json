@@ -2276,6 +2276,15 @@
       "title": "Retry only safe operations",
       "content": "Not all requests should be retried blindly; non-idempotent calls need safeguards or idempotency keys.",
       "source": "https://www.rfc-editor.org/rfc/rfc9110"
+    },
+    {
+      "id": "entry-2026-04-28-577c2c5015",
+      "date": "2026-04-28",
+      "timestamp": "2026-04-28T04:23:13+08:00",
+      "category": "CI/CD",
+      "title": "Fail fast on lint and tests",
+      "content": "Early pipeline checks give faster feedback loops and reduce wasted compute in late deployment stages.",
+      "source": "https://docs.github.com/actions"
     }
   ]
 }
