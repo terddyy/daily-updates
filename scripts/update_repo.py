@@ -10,7 +10,7 @@ import subprocess
 import urllib.error
 import urllib.request
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any
 from zoneinfo import ZoneInfo
@@ -63,6 +63,10 @@ def write_json(path: Path, value: Any) -> None:
 def make_entry_id(date_str: str, slot_key: str) -> str:
     digest = hashlib.sha256(f"{date_str}|{slot_key}".encode("utf-8")).hexdigest()[:10]
     return f"entry-{date_str}-{digest}"
+
+
+def make_burst_slot_key(date_str: str, sequence: int) -> str:
+    return f"{date_str}Tburst-{sequence:05d}"
 
 
 def select_pool_item(pool: list[dict[str, Any]], archive_entries: list[dict[str, Any]], slot_key: str) -> dict[str, Any]:
@@ -321,6 +325,137 @@ def git_commit_and_push(repo_root: Path, targets: list[Path], message: str, auth
     return True, push.returncode == 0
 
 
+def git_commit_no_push(repo_root: Path, targets: list[Path], message: str, author_name: str, author_email: str) -> bool:
+    rel_targets = [str(t.as_posix()) for t in targets]
+    subprocess.run(["git", "add", "--", *rel_targets], cwd=repo_root, check=True)
+    staged = subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=repo_root, check=False)
+    if staged.returncode == 0:
+        return False
+
+    env = {
+        "GIT_AUTHOR_NAME": author_name,
+        "GIT_AUTHOR_EMAIL": author_email,
+        "GIT_COMMITTER_NAME": author_name,
+        "GIT_COMMITTER_EMAIL": author_email,
+    }
+    full_env = {**os.environ, **env}
+    subprocess.run(["git", "commit", "-m", message], cwd=repo_root, check=True, env=full_env)
+    return True
+
+
+def git_push(repo_root: Path) -> bool:
+    push = subprocess.run(["git", "push"], cwd=repo_root, check=False)
+    return push.returncode == 0
+
+
+def run_burst_update(
+    repo_root: Path,
+    timezone: str,
+    burst_count: int,
+    burst_date: str | None = None,
+    skip_git: bool = False,
+    skip_gemini_in_burst: bool = False,
+    max_attempts: int | None = None,
+) -> UpdateResult:
+    if burst_count < 1:
+        return UpdateResult(False, False, False, None, "Burst count must be at least 1.")
+
+    local_now = now_in_timezone(timezone)
+    date_str = burst_date or local_now.strftime("%Y-%m-%d")
+    datetime.strptime(date_str, "%Y-%m-%d")
+
+    pool = load_json(repo_root / KNOWLEDGE_POOL_PATH, [])
+    archive_doc = load_json(repo_root / ARCHIVE_PATH, {"entries": []})
+    archive_entries: list[dict[str, Any]] = archive_doc.get("entries", [])
+    existing_ids = {item.get("id") for item in archive_entries}
+
+    note_path = repo_root / NOTES_DIR / f"{date_str}.md"
+    ensure_today_note_header(note_path, date_str)
+
+    targets = [README_PATH, ARCHIVE_PATH, NOTES_DIR / f"{date_str}.md"]
+    trend_cache_path = repo_root / DAILY_TRENDS_CACHE_PATH
+    if trend_cache_path.exists():
+        targets.append(DAILY_TRENDS_CACHE_PATH)
+
+    can_use_git = not skip_git and is_git_repo(repo_root)
+    author_name = os.environ.get("GIT_AUTHOR_NAME", "terddyy")
+    author_email = os.environ.get("GIT_AUTHOR_EMAIL", "terddy03@gmail.com")
+
+    attempts_limit = max_attempts if max_attempts is not None else burst_count * 3
+    committed_count = 0
+    last_entry_id: str | None = None
+
+    for sequence in range(attempts_limit):
+        if committed_count >= burst_count:
+            break
+        slot_key = make_burst_slot_key(date_str, sequence)
+        entry_id = make_entry_id(date_str, slot_key)
+        if entry_id in existing_ids:
+            continue
+
+        selected = None
+        if not skip_gemini_in_burst:
+            todays_trend_exists = any(
+                item.get("date") == date_str and item.get("category") == "Tech Trends"
+                for item in archive_entries
+            )
+            if not todays_trend_exists:
+                selected = get_daily_trend_item(repo_root=repo_root, date_str=date_str, local_now=local_now)
+        if selected is None:
+            selected = select_pool_item(pool, archive_entries, slot_key)
+
+        record_time = local_now + timedelta(seconds=sequence)
+        record = {
+            "id": entry_id,
+            "date": date_str,
+            "timestamp": record_time.isoformat(timespec="seconds"),
+            "category": selected["category"],
+            "title": selected["title"],
+            "content": selected["content"],
+            "source": selected["source"],
+        }
+
+        append_note_entry(note_path, record)
+        archive_entries.append(record)
+        archive_doc["entries"] = archive_entries
+        write_json(repo_root / ARCHIVE_PATH, archive_doc)
+
+        today_count = sum(1 for item in archive_entries if item.get("date") == date_str)
+        readme_content = render_readme(archive_entries, today_count, NOTES_DIR / f"{date_str}.md")
+        (repo_root / README_PATH).write_text(readme_content, encoding="utf-8")
+
+        if can_use_git:
+            message = f"chore(knowledge): burst update {date_str} #{committed_count + 1}"
+            committed = git_commit_no_push(repo_root, targets, message, author_name, author_email)
+            if not committed:
+                continue
+
+        existing_ids.add(entry_id)
+        last_entry_id = entry_id
+        committed_count += 1
+
+    if committed_count < burst_count:
+        return UpdateResult(
+            committed_count > 0,
+            can_use_git and committed_count > 0,
+            False,
+            last_entry_id,
+            f"Burst stopped early: created {committed_count}/{burst_count} entries within max attempts {attempts_limit}.",
+        )
+
+    pushed = False
+    if can_use_git and committed_count > 0:
+        pushed = git_push(repo_root)
+
+    reason = "Burst update completed."
+    if not can_use_git:
+        if skip_git:
+            reason = "Burst files updated; git operations skipped."
+        else:
+            reason = "Burst files updated; not a git repository."
+    return UpdateResult(True, can_use_git, pushed, last_entry_id, reason)
+
+
 def run_update(repo_root: Path, timezone: str, now: datetime | None = None, skip_git: bool = False) -> UpdateResult:
     local_now = now_in_timezone(timezone, now)
     date_str = local_now.strftime("%Y-%m-%d")
@@ -390,13 +525,28 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Daily Knowledge Repo updater")
     parser.add_argument("--timezone", default=os.environ.get("TZ", DEFAULT_TIMEZONE))
     parser.add_argument("--skip-git", action="store_true", help="Update files without git commit/push.")
+    parser.add_argument("--burst-count", type=int, default=0, help="Create this many commits/entries in burst mode.")
+    parser.add_argument("--burst-date", default="", help="Override burst date in YYYY-MM-DD format.")
+    parser.add_argument("--skip-gemini-in-burst", action="store_true", help="Force local pool selection during burst mode.")
+    parser.add_argument("--max-attempts", type=int, default=0, help="Max attempts to create unique burst entries.")
     return parser.parse_args()
 
 
 def main() -> int:
     args = parse_args()
     repo_root = Path(__file__).resolve().parent.parent
-    result = run_update(repo_root=repo_root, timezone=args.timezone, skip_git=args.skip_git)
+    if args.burst_count > 0:
+        result = run_burst_update(
+            repo_root=repo_root,
+            timezone=args.timezone,
+            burst_count=args.burst_count,
+            burst_date=args.burst_date or None,
+            skip_git=args.skip_git,
+            skip_gemini_in_burst=args.skip_gemini_in_burst,
+            max_attempts=args.max_attempts if args.max_attempts > 0 else None,
+        )
+    else:
+        result = run_update(repo_root=repo_root, timezone=args.timezone, skip_git=args.skip_git)
     print(
         json.dumps(
             {

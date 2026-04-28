@@ -2,7 +2,8 @@ name: Daily Knowledge Scheduler
 
 on:
   schedule:
-    - cron: "0 * * * *"
+    - cron: "0 0 * * 5"
+    - cron: "0 0 * * 6"
   workflow_dispatch:
 
 permissions:
@@ -22,18 +23,37 @@ jobs:
       GIT_COMMITTER_NAME: terddyy
       GIT_COMMITTER_EMAIL: terddy03@gmail.com
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      BURST_COUNT: "500"
+      MAX_ATTEMPTS: "2000"
     steps:
+      - name: Weekend preflight gate
+        id: preflight
+        run: |
+          day_name="$(TZ="$TZ" date +%A)"
+          if [ "$day_name" = "Friday" ] || [ "$day_name" = "Saturday" ]; then
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "should_run=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Checkout repository
+        if: steps.preflight.outputs.should_run == 'true'
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
       - name: Set up Python
+        if: steps.preflight.outputs.should_run == 'true'
         uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
-      - name: Update repo content and push
+      - name: Run weekend burst update and push
+        if: steps.preflight.outputs.should_run == 'true'
         run: |
-          python scripts/update_repo.py --timezone "$TZ"
+          python scripts/update_repo.py \
+            --timezone "$TZ" \
+            --burst-count "$BURST_COUNT" \
+            --max-attempts "$MAX_ATTEMPTS" \
+            --skip-gemini-in-burst
 

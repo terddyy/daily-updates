@@ -8,7 +8,7 @@ from tempfile import TemporaryDirectory
 import unittest
 from zoneinfo import ZoneInfo
 
-from scripts.update_repo import run_update
+from scripts.update_repo import run_burst_update, run_update
 
 
 def seed_repo(root: Path) -> None:
@@ -113,6 +113,52 @@ class UpdateRepoTests(unittest.TestCase):
             self.assertIn("Total archive entries: **2**", readme)
             self.assertIn("Today's entries: **2**", readme)
             self.assertIn("Set `GEMINI_API_KEY` as a GitHub Actions secret", readme)
+
+    def test_burst_update_creates_exact_count_for_one_day(self) -> None:
+        with TemporaryDirectory() as td:
+            root = Path(td)
+            seed_repo(root)
+            result = run_burst_update(
+                repo_root=root,
+                timezone="Asia/Manila",
+                burst_count=5,
+                burst_date="2026-04-18",
+                skip_git=True,
+                skip_gemini_in_burst=True,
+            )
+            self.assertTrue(result.changed)
+            self.assertIn("skipped", result.reason.lower())
+
+            archive = json.loads((root / "archive" / "knowledge_archive.json").read_text(encoding="utf-8"))
+            self.assertEqual(len(archive["entries"]), 5)
+            self.assertTrue(all(item["date"] == "2026-04-18" for item in archive["entries"]))
+            self.assertEqual(len({item["id"] for item in archive["entries"]}), 5)
+
+            note_path = root / "notes" / "2026-04-18.md"
+            self.assertTrue(note_path.exists())
+            readme = (root / "README.md").read_text(encoding="utf-8")
+            self.assertIn("Total archive entries: **5**", readme)
+            self.assertIn("Today's entries: **5**", readme)
+
+    def test_burst_update_bypasses_gemini_when_flag_enabled(self) -> None:
+        with TemporaryDirectory() as td:
+            root = Path(td)
+            seed_repo(root)
+            os.environ["GEMINI_API_KEY"] = "dummy-key"
+            try:
+                result = run_burst_update(
+                    repo_root=root,
+                    timezone="Asia/Manila",
+                    burst_count=3,
+                    burst_date="2026-04-19",
+                    skip_git=True,
+                    skip_gemini_in_burst=True,
+                )
+            finally:
+                os.environ.pop("GEMINI_API_KEY", None)
+
+            self.assertTrue(result.changed)
+            self.assertFalse((root / "data" / "daily_tech_trends.json").exists())
 
 
 if __name__ == "__main__":
