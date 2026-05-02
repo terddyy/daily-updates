@@ -10817,6 +10817,15 @@
       "title": "Add indexes for real query patterns",
       "content": "Measure slow queries first, then index based on predicates and sort order. Over-indexing harms write performance.",
       "source": "https://use-the-index-luke.com/"
+    },
+    {
+      "id": "entry-2026-05-02-9cf483ad94",
+      "date": "2026-05-02",
+      "timestamp": "2026-05-02T08:45:16+08:00",
+      "category": "APIs",
+      "title": "Design for idempotency",
+      "content": "Idempotent create/update endpoints make retries safe under network failures and reduce accidental duplicate operations.",
+      "source": "https://www.rfc-editor.org/rfc/rfc7231"
     }
   ]
 }
