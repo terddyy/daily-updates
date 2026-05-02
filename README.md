@@ -10,28 +10,29 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ## Dashboard
 
-- Total archive entries: **1088**
-- Today's entries: **316**
+- Total archive entries: **1089**
+- Today's entries: **317**
 - Today's note: `notes/2026-05-02.md`
 
 ### Latest Entry
 
-- Timestamp: `2026-05-02T08:43:21+08:00`
-- Title: **Automate rollback paths**
-- Category: `DevOps`
-- Source: https://cloud.google.com/architecture/devops
-- Summary: A tested rollback mechanism shortens incident duration and increases confidence during high-frequency deployments.
+- Timestamp: `2026-05-02T08:43:22+08:00`
+- Title: **Name intent, not mechanics**
+- Category: `Code Quality`
+- Source: https://martinfowler.com/books/clean-code.html
+- Summary: Readable names should communicate business intent so maintainers understand why code exists before how it works.
 
 ### Top Categories
 
 - `APIs`: 55
 - `Architecture`: 55
 - `Backend`: 55
+- `Code Quality`: 55
 - `Databases`: 55
-- `DevOps`: 55
 
 ### Recent Timeline
 
+- `2026-05-02T08:43:22+08:00` | **Name intent, not mechanics** (Code Quality)
 - `2026-05-02T08:43:21+08:00` | **Automate rollback paths** (DevOps)
 - `2026-05-02T08:43:20+08:00` | **Set realistic timeouts everywhere** (Backend)
 - `2026-05-02T08:43:19+08:00` | **Optimize first contentful view** (Frontend)
@@ -41,4 +42,3 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 - `2026-05-02T08:43:15+08:00` | **Add indexes for real query patterns** (Databases)
 - `2026-05-02T08:43:14+08:00` | **Rotate credentials on schedule** (Security)
 - `2026-05-02T08:43:13+08:00` | **Write one behavior per test** (Testing)
-- `2026-05-02T08:43:12+08:00` | **Use virtual environments by default** (Python)
