@@ -10,28 +10,29 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ## Dashboard
 
-- Total archive entries: **925**
-- Today's entries: **153**
+- Total archive entries: **926**
+- Today's entries: **154**
 - Today's note: `notes/2026-05-02.md`
 
 ### Latest Entry
 
-- Timestamp: `2026-05-02T08:40:38+08:00`
-- Title: **Keep boundaries explicit**
-- Category: `Architecture`
-- Source: https://12factor.net/
-- Summary: Defining module boundaries early reduces accidental coupling and keeps refactors local instead of system-wide.
+- Timestamp: `2026-05-02T08:40:39+08:00`
+- Title: **Optimize first contentful view**
+- Category: `Frontend`
+- Source: https://web.dev/
+- Summary: Prioritizing critical rendering path assets improves perceived performance more than micro-optimizing non-critical code paths.
 
 ### Top Categories
 
 - `APIs`: 47
 - `Architecture`: 47
 - `Databases`: 47
+- `Frontend`: 47
 - `Observability`: 47
-- `Security`: 47
 
 ### Recent Timeline
 
+- `2026-05-02T08:40:39+08:00` | **Optimize first contentful view** (Frontend)
 - `2026-05-02T08:40:38+08:00` | **Keep boundaries explicit** (Architecture)
 - `2026-05-02T08:40:37+08:00` | **Log with stable keys** (Observability)
 - `2026-05-02T08:40:36+08:00` | **Design for idempotency** (APIs)
@@ -41,4 +42,3 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 - `2026-05-02T08:40:32+08:00` | **Use virtual environments by default** (Python)
 - `2026-05-02T08:40:31+08:00` | **Prefer small focused commits** (Git)
 - `2026-05-02T08:40:30+08:00` | **Write decisions down** (Leadership)
-- `2026-05-02T08:40:29+08:00` | **Keyboard support is a baseline** (Accessibility)
