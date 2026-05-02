@@ -10,28 +10,29 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ## Dashboard
 
-- Total archive entries: **826**
-- Today's entries: **54**
+- Total archive entries: **827**
+- Today's entries: **55**
 - Today's note: `notes/2026-05-02.md`
 
 ### Latest Entry
 
-- Timestamp: `2026-05-02T08:38:59+08:00`
-- Title: **Optimize first contentful view**
-- Category: `Frontend`
-- Source: https://web.dev/
-- Summary: Prioritizing critical rendering path assets improves perceived performance more than micro-optimizing non-critical code paths.
+- Timestamp: `2026-05-02T08:39:00+08:00`
+- Title: **Set realistic timeouts everywhere**
+- Category: `Backend`
+- Source: https://sre.google/sre-book/addressing-cascading-failures/
+- Summary: Explicit timeouts on outbound calls prevent thread exhaustion and keep cascading failures contained.
 
 ### Top Categories
 
 - `APIs`: 42
 - `Architecture`: 42
+- `Backend`: 42
 - `Databases`: 42
 - `Frontend`: 42
-- `Observability`: 42
 
 ### Recent Timeline
 
+- `2026-05-02T08:39:00+08:00` | **Set realistic timeouts everywhere** (Backend)
 - `2026-05-02T08:38:59+08:00` | **Optimize first contentful view** (Frontend)
 - `2026-05-02T08:38:58+08:00` | **Keep boundaries explicit** (Architecture)
 - `2026-05-02T08:38:57+08:00` | **Log with stable keys** (Observability)
@@ -41,4 +42,3 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 - `2026-05-02T08:38:53+08:00` | **Write one behavior per test** (Testing)
 - `2026-05-02T08:38:52+08:00` | **Use virtual environments by default** (Python)
 - `2026-05-02T08:38:51+08:00` | **Prefer small focused commits** (Git)
-- `2026-05-02T08:38:50+08:00` | **Write decisions down** (Leadership)
