@@ -7,6 +7,7 @@ import os
 import random
 import re
 import subprocess
+import time
 import urllib.error
 import urllib.request
 from dataclasses import dataclass
@@ -23,6 +24,7 @@ ARCHIVE_PATH = Path("archive/knowledge_archive.json")
 NOTES_DIR = Path("notes")
 SLOT_MINUTES = 5
 DAILY_TRENDS_CACHE_PATH = Path("data/daily_tech_trends.json")
+DASHBOARD_STATE_PATH = Path("data/dashboard_state.json")
 GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent"
 
 
@@ -33,6 +35,7 @@ class UpdateResult:
     pushed: bool
     entry_id: str | None
     reason: str
+    timings_ms: dict[str, int] | None = None
 
 
 def now_in_timezone(tz_name: str, now: datetime | None = None) -> datetime:
@@ -109,7 +112,7 @@ def parse_json_object(text: str) -> dict[str, Any]:
     raise ValueError("Gemini did not return a valid JSON object.")
 
 
-def fetch_daily_trend_from_gemini(api_key: str, local_now: datetime) -> dict[str, Any]:
+def fetch_daily_trend_from_gemini(api_key: str, local_now: datetime, timeout_seconds: float) -> dict[str, Any]:
     prompt = (
         "Use Google Search to find one latest significant software/AI tech advancement from the last 7 days. "
         "Prioritize developer-relevant topics (examples: OpenClaw, major model releases, framework/runtime updates, tooling). "
@@ -145,7 +148,7 @@ def fetch_daily_trend_from_gemini(api_key: str, local_now: datetime) -> dict[str
     )
 
     try:
-        with urllib.request.urlopen(req, timeout=30) as resp:
+        with urllib.request.urlopen(req, timeout=timeout_seconds) as resp:
             raw = json.loads(resp.read().decode("utf-8"))
     except urllib.error.URLError as exc:
         raise RuntimeError(f"Gemini request failed: {exc}") from exc
@@ -174,7 +177,13 @@ def fetch_daily_trend_from_gemini(api_key: str, local_now: datetime) -> dict[str
     }
 
 
-def get_daily_trend_item(repo_root: Path, date_str: str, local_now: datetime) -> dict[str, Any] | None:
+def get_daily_trend_item(
+    repo_root: Path,
+    date_str: str,
+    local_now: datetime,
+    gemini_timeout_seconds: float,
+    gemini_max_retries: int,
+) -> dict[str, Any] | None:
     api_key = os.environ.get("GEMINI_API_KEY", "").strip()
     if not api_key:
         return None
@@ -190,26 +199,35 @@ def get_daily_trend_item(repo_root: Path, date_str: str, local_now: datetime) ->
             "source": day_entry["source"],
         }
 
-    try:
-        fresh = fetch_daily_trend_from_gemini(api_key=api_key, local_now=local_now)
-    except Exception as exc:
-        print(f"Warning: failed to fetch daily trend from Gemini: {exc}")
-        return None
+    attempts = max(1, gemini_max_retries + 1)
+    last_error: Exception | None = None
+    for _ in range(attempts):
+        try:
+            fresh = fetch_daily_trend_from_gemini(
+                api_key=api_key,
+                local_now=local_now,
+                timeout_seconds=gemini_timeout_seconds,
+            )
+            days[date_str] = {
+                "title": fresh["title"],
+                "content": fresh["content"],
+                "source": fresh["source"],
+                "fetched_at": fresh["fetched_at"],
+            }
+            cache["days"] = days
+            write_json(repo_root / DAILY_TRENDS_CACHE_PATH, cache)
+            return {
+                "category": fresh["category"],
+                "title": fresh["title"],
+                "content": fresh["content"],
+                "source": fresh["source"],
+            }
+        except Exception as exc:
+            last_error = exc
 
-    days[date_str] = {
-        "title": fresh["title"],
-        "content": fresh["content"],
-        "source": fresh["source"],
-        "fetched_at": fresh["fetched_at"],
-    }
-    cache["days"] = days
-    write_json(repo_root / DAILY_TRENDS_CACHE_PATH, cache)
-    return {
-        "category": fresh["category"],
-        "title": fresh["title"],
-        "content": fresh["content"],
-        "source": fresh["source"],
-    }
+    if last_error is not None:
+        print(f"Warning: failed to fetch daily trend from Gemini: {last_error}")
+    return None
 
 
 def ensure_today_note_header(note_path: Path, date_str: str) -> None:
@@ -238,35 +256,78 @@ def append_note_entry(note_path: Path, record: dict[str, Any]) -> None:
         handle.write(entry_block)
 
 
-def render_readme(entries: list[dict[str, Any]], today_count: int, today_note_path: Path) -> str:
-    total = len(entries)
+def build_dashboard_state(entries: list[dict[str, Any]], today_note_path: Path) -> dict[str, Any]:
     categories: dict[str, int] = {}
     for item in entries:
         category = item.get("category", "Uncategorized")
         categories[category] = categories.get(category, 0) + 1
 
     latest = entries[-1] if entries else None
-    latest_block = (
-        (
-            f"- Timestamp: `{latest['timestamp']}`\n"
-            f"- Title: **{latest['title']}**\n"
-            f"- Category: `{latest['category']}`\n"
-            f"- Source: {latest['source']}\n"
-            f"- Summary: {latest['content']}\n"
-        )
-        if latest
-        else "- No entries yet.\n"
-    )
+    if latest is not None:
+        latest_summary: dict[str, Any] = {
+            "timestamp": latest.get("timestamp"),
+            "title": latest.get("title"),
+            "category": latest.get("category"),
+            "source": latest.get("source"),
+            "content": latest.get("content"),
+        }
+    else:
+        latest_summary = {}
 
-    top_categories = sorted(categories.items(), key=lambda x: (-x[1], x[0]))[:5]
+    recent = []
+    for item in entries[-10:]:
+        recent.append(
+            {
+                "timestamp": item.get("timestamp"),
+                "title": item.get("title"),
+                "category": item.get("category"),
+            }
+        )
+
+    day_counts: dict[str, int] = {}
+    for item in entries:
+        day = str(item.get("date", ""))
+        day_counts[day] = day_counts.get(day, 0) + 1
+
+    return {
+        "total_entries": len(entries),
+        "latest": latest_summary,
+        "top_categories": sorted(categories.items(), key=lambda x: (-x[1], x[0]))[:5],
+        "recent_timeline": recent,
+        "today_note": today_note_path.as_posix(),
+        "day_counts": day_counts,
+    }
+
+
+def render_readme_from_state(state: dict[str, Any], today_date: str) -> str:
+    total = int(state.get("total_entries", 0))
+    day_counts = state.get("day_counts", {})
+    today_count = int(day_counts.get(today_date, 0)) if isinstance(day_counts, dict) else 0
+
+    latest = state.get("latest", {}) if isinstance(state.get("latest", {}), dict) else {}
+    if latest:
+        latest_block = (
+            f"- Timestamp: `{latest.get('timestamp', '')}`\n"
+            f"- Title: **{latest.get('title', '')}**\n"
+            f"- Category: `{latest.get('category', '')}`\n"
+            f"- Source: {latest.get('source', '')}\n"
+            f"- Summary: {latest.get('content', '')}\n"
+        )
+    else:
+        latest_block = "- No entries yet.\n"
+
+    top_categories = state.get("top_categories", [])
     category_lines = "\n".join(f"- `{name}`: {count}" for name, count in top_categories) or "- No categories yet."
 
+    recent = state.get("recent_timeline", [])
     recent_lines = []
-    for item in reversed(entries[-10:]):
+    for item in reversed(recent):
         recent_lines.append(
-            f"- `{item['timestamp']}` | **{item['title']}** ({item['category']})"
+            f"- `{item.get('timestamp', '')}` | **{item.get('title', '')}** ({item.get('category', '')})"
         )
     recent_block = "\n".join(recent_lines) or "- No recent entries."
+
+    today_note = state.get("today_note", f"notes/{today_date}.md")
 
     return (
         "# Daily Knowledge Repo MVP\n\n"
@@ -278,7 +339,7 @@ def render_readme(entries: list[dict[str, Any]], today_count: int, today_note_pa
         "## Dashboard\n\n"
         f"- Total archive entries: **{total}**\n"
         f"- Today's entries: **{today_count}**\n"
-        f"- Today's note: `{today_note_path.as_posix()}`\n\n"
+        f"- Today's note: `{today_note}`\n\n"
         "### Latest Entry\n\n"
         f"{latest_block}\n"
         "### Top Categories\n\n"
@@ -348,6 +409,16 @@ def git_push(repo_root: Path) -> bool:
     return push.returncode == 0
 
 
+def _build_timings(start_perf: float, load_perf: float, select_perf: float, write_perf: float, git_perf: float, end_perf: float) -> dict[str, int]:
+    return {
+        "load_ms": int((load_perf - start_perf) * 1000),
+        "select_ms": int((select_perf - load_perf) * 1000),
+        "write_ms": int((write_perf - select_perf) * 1000),
+        "git_ms": int((git_perf - write_perf) * 1000),
+        "total_ms": int((end_perf - start_perf) * 1000),
+    }
+
+
 def run_burst_update(
     repo_root: Path,
     timezone: str,
@@ -356,7 +427,12 @@ def run_burst_update(
     skip_git: bool = False,
     skip_gemini_in_burst: bool = False,
     max_attempts: int | None = None,
+    burst_commit_mode: str = "single",
+    gemini_timeout_seconds: float = 6.0,
+    gemini_max_retries: int = 1,
+    include_timing: bool = False,
 ) -> UpdateResult:
+    start_perf = time.perf_counter()
     if burst_count < 1:
         return UpdateResult(False, False, False, None, "Burst count must be at least 1.")
 
@@ -372,10 +448,7 @@ def run_burst_update(
     note_path = repo_root / NOTES_DIR / f"{date_str}.md"
     ensure_today_note_header(note_path, date_str)
 
-    targets = [README_PATH, ARCHIVE_PATH, NOTES_DIR / f"{date_str}.md"]
-    trend_cache_path = repo_root / DAILY_TRENDS_CACHE_PATH
-    if trend_cache_path.exists():
-        targets.append(DAILY_TRENDS_CACHE_PATH)
+    load_perf = time.perf_counter()
 
     can_use_git = not skip_git and is_git_repo(repo_root)
     author_name = os.environ.get("GIT_AUTHOR_NAME", "terddyy")
@@ -384,6 +457,10 @@ def run_burst_update(
     attempts_limit = max_attempts if max_attempts is not None else burst_count * 3
     committed_count = 0
     last_entry_id: str | None = None
+
+    targets = [README_PATH, ARCHIVE_PATH, NOTES_DIR / f"{date_str}.md", DASHBOARD_STATE_PATH]
+    if (repo_root / DAILY_TRENDS_CACHE_PATH).exists():
+        targets.append(DAILY_TRENDS_CACHE_PATH)
 
     for sequence in range(attempts_limit):
         if committed_count >= burst_count:
@@ -400,7 +477,13 @@ def run_burst_update(
                 for item in archive_entries
             )
             if not todays_trend_exists:
-                selected = get_daily_trend_item(repo_root=repo_root, date_str=date_str, local_now=local_now)
+                selected = get_daily_trend_item(
+                    repo_root=repo_root,
+                    date_str=date_str,
+                    local_now=local_now,
+                    gemini_timeout_seconds=gemini_timeout_seconds,
+                    gemini_max_retries=gemini_max_retries,
+                )
         if selected is None:
             selected = select_pool_item(pool, archive_entries, slot_key)
 
@@ -417,46 +500,73 @@ def run_burst_update(
 
         append_note_entry(note_path, record)
         archive_entries.append(record)
-        archive_doc["entries"] = archive_entries
-        write_json(repo_root / ARCHIVE_PATH, archive_doc)
-
-        today_count = sum(1 for item in archive_entries if item.get("date") == date_str)
-        readme_content = render_readme(archive_entries, today_count, NOTES_DIR / f"{date_str}.md")
-        (repo_root / README_PATH).write_text(readme_content, encoding="utf-8")
-
-        if can_use_git:
-            message = f"chore(knowledge): burst update {date_str} #{committed_count + 1}"
-            committed = git_commit_no_push(repo_root, targets, message, author_name, author_email)
-            if not committed:
-                continue
-
         existing_ids.add(entry_id)
         last_entry_id = entry_id
         committed_count += 1
 
-    if committed_count < burst_count:
-        return UpdateResult(
-            committed_count > 0,
-            can_use_git and committed_count > 0,
-            False,
-            last_entry_id,
-            f"Burst stopped early: created {committed_count}/{burst_count} entries within max attempts {attempts_limit}.",
-        )
+        if can_use_git and burst_commit_mode == "per-entry":
+            archive_doc["entries"] = archive_entries
+            write_json(repo_root / ARCHIVE_PATH, archive_doc)
+            state = build_dashboard_state(archive_entries, NOTES_DIR / f"{date_str}.md")
+            write_json(repo_root / DASHBOARD_STATE_PATH, state)
+            readme_content = render_readme_from_state(state, date_str)
+            (repo_root / README_PATH).write_text(readme_content, encoding="utf-8")
+            message = f"chore(knowledge): burst update {date_str} #{committed_count}"
+            git_commit_no_push(repo_root, targets, message, author_name, author_email)
 
+    select_perf = time.perf_counter()
+
+    if committed_count == 0:
+        end_perf = time.perf_counter()
+        timings = _build_timings(start_perf, load_perf, select_perf, select_perf, select_perf, end_perf) if include_timing else None
+        return UpdateResult(False, False, False, None, f"Burst stopped early: created 0/{burst_count} entries.", timings)
+
+    archive_doc["entries"] = archive_entries
+    write_json(repo_root / ARCHIVE_PATH, archive_doc)
+    state = build_dashboard_state(archive_entries, NOTES_DIR / f"{date_str}.md")
+    write_json(repo_root / DASHBOARD_STATE_PATH, state)
+    readme_content = render_readme_from_state(state, date_str)
+    (repo_root / README_PATH).write_text(readme_content, encoding="utf-8")
+
+    write_perf = time.perf_counter()
+
+    committed = False
     pushed = False
-    if can_use_git and committed_count > 0:
-        pushed = git_push(repo_root)
-
     reason = "Burst update completed."
-    if not can_use_git:
+
+    if can_use_git:
+        if burst_commit_mode == "single":
+            message = f"chore(knowledge): burst update {date_str} x{committed_count}"
+            committed, pushed = git_commit_and_push(repo_root, targets, message, author_name, author_email)
+        else:
+            pushed = git_push(repo_root)
+            committed = True
+    else:
         if skip_git:
             reason = "Burst files updated; git operations skipped."
         else:
             reason = "Burst files updated; not a git repository."
-    return UpdateResult(True, can_use_git, pushed, last_entry_id, reason)
+
+    if committed_count < burst_count:
+        reason = f"Burst stopped early: created {committed_count}/{burst_count} entries within max attempts {attempts_limit}."
+
+    git_perf = time.perf_counter()
+    end_perf = git_perf
+    timings = _build_timings(start_perf, load_perf, select_perf, write_perf, git_perf, end_perf) if include_timing else None
+
+    return UpdateResult(True, committed, pushed, last_entry_id, reason, timings)
 
 
-def run_update(repo_root: Path, timezone: str, now: datetime | None = None, skip_git: bool = False) -> UpdateResult:
+def run_update(
+    repo_root: Path,
+    timezone: str,
+    now: datetime | None = None,
+    skip_git: bool = False,
+    gemini_timeout_seconds: float = 6.0,
+    gemini_max_retries: int = 1,
+    include_timing: bool = False,
+) -> UpdateResult:
+    start_perf = time.perf_counter()
     local_now = now_in_timezone(timezone, now)
     date_str = local_now.strftime("%Y-%m-%d")
     iso_timestamp = local_now.isoformat(timespec="seconds")
@@ -466,9 +576,13 @@ def run_update(repo_root: Path, timezone: str, now: datetime | None = None, skip
     pool = load_json(repo_root / KNOWLEDGE_POOL_PATH, [])
     archive_doc = load_json(repo_root / ARCHIVE_PATH, {"entries": []})
     archive_entries: list[dict[str, Any]] = archive_doc.get("entries", [])
+    existing_ids = {item.get("id") for item in archive_entries}
+    load_perf = time.perf_counter()
 
-    if any(item.get("id") == entry_id for item in archive_entries):
-        return UpdateResult(False, False, False, entry_id, "Slot already processed.")
+    if entry_id in existing_ids:
+        end_perf = time.perf_counter()
+        timings = _build_timings(start_perf, load_perf, load_perf, load_perf, load_perf, end_perf) if include_timing else None
+        return UpdateResult(False, False, False, entry_id, "Slot already processed.", timings)
 
     todays_trend_exists = any(
         item.get("date") == date_str and item.get("category") == "Tech Trends"
@@ -476,9 +590,16 @@ def run_update(repo_root: Path, timezone: str, now: datetime | None = None, skip
     )
     selected = None
     if not todays_trend_exists:
-        selected = get_daily_trend_item(repo_root=repo_root, date_str=date_str, local_now=local_now)
+        selected = get_daily_trend_item(
+            repo_root=repo_root,
+            date_str=date_str,
+            local_now=local_now,
+            gemini_timeout_seconds=gemini_timeout_seconds,
+            gemini_max_retries=gemini_max_retries,
+        )
     if selected is None:
         selected = select_pool_item(pool, archive_entries, slot_key)
+
     record = {
         "id": entry_id,
         "date": date_str,
@@ -489,6 +610,8 @@ def run_update(repo_root: Path, timezone: str, now: datetime | None = None, skip
         "source": selected["source"],
     }
 
+    select_perf = time.perf_counter()
+
     note_path = repo_root / NOTES_DIR / f"{date_str}.md"
     ensure_today_note_header(note_path, date_str)
     append_note_entry(note_path, record)
@@ -497,28 +620,41 @@ def run_update(repo_root: Path, timezone: str, now: datetime | None = None, skip
     archive_doc["entries"] = archive_entries
     write_json(repo_root / ARCHIVE_PATH, archive_doc)
 
-    today_count = sum(1 for item in archive_entries if item.get("date") == date_str)
-    readme_content = render_readme(archive_entries, today_count, NOTES_DIR / f"{date_str}.md")
+    state = build_dashboard_state(archive_entries, NOTES_DIR / f"{date_str}.md")
+    write_json(repo_root / DASHBOARD_STATE_PATH, state)
+    readme_content = render_readme_from_state(state, date_str)
     (repo_root / README_PATH).write_text(readme_content, encoding="utf-8")
 
+    write_perf = time.perf_counter()
+
     if skip_git:
-        return UpdateResult(True, False, False, entry_id, "Files updated; git operations skipped.")
+        end_perf = time.perf_counter()
+        timings = _build_timings(start_perf, load_perf, select_perf, write_perf, write_perf, end_perf) if include_timing else None
+        return UpdateResult(True, False, False, entry_id, "Files updated; git operations skipped.", timings)
 
     if not is_git_repo(repo_root):
-        return UpdateResult(True, False, False, entry_id, "Files updated; not a git repository.")
+        end_perf = time.perf_counter()
+        timings = _build_timings(start_perf, load_perf, select_perf, write_perf, write_perf, end_perf) if include_timing else None
+        return UpdateResult(True, False, False, entry_id, "Files updated; not a git repository.", timings)
 
-    targets = [README_PATH, ARCHIVE_PATH, NOTES_DIR / f"{date_str}.md"]
+    targets = [README_PATH, ARCHIVE_PATH, NOTES_DIR / f"{date_str}.md", DASHBOARD_STATE_PATH]
     trend_cache_path = repo_root / DAILY_TRENDS_CACHE_PATH
     if trend_cache_path.exists():
         targets.append(DAILY_TRENDS_CACHE_PATH)
     if not has_repo_changes_for_targets(repo_root, targets):
-        return UpdateResult(False, False, False, entry_id, "No tracked file changes.")
+        end_perf = time.perf_counter()
+        timings = _build_timings(start_perf, load_perf, select_perf, write_perf, write_perf, end_perf) if include_timing else None
+        return UpdateResult(False, False, False, entry_id, "No tracked file changes.", timings)
 
     message = f"chore(knowledge): update {date_str} {local_now.strftime('%H:%M')}"
     author_name = os.environ.get("GIT_AUTHOR_NAME", "terddyy")
     author_email = os.environ.get("GIT_AUTHOR_EMAIL", "terddy03@gmail.com")
     committed, pushed = git_commit_and_push(repo_root, targets, message, author_name, author_email)
-    return UpdateResult(True, committed, pushed, entry_id, "Update completed.")
+
+    git_perf = time.perf_counter()
+    end_perf = git_perf
+    timings = _build_timings(start_perf, load_perf, select_perf, write_perf, git_perf, end_perf) if include_timing else None
+    return UpdateResult(True, committed, pushed, entry_id, "Update completed.", timings)
 
 
 def parse_args() -> argparse.Namespace:
@@ -529,6 +665,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--burst-date", default="", help="Override burst date in YYYY-MM-DD format.")
     parser.add_argument("--skip-gemini-in-burst", action="store_true", help="Force local pool selection during burst mode.")
     parser.add_argument("--max-attempts", type=int, default=0, help="Max attempts to create unique burst entries.")
+    parser.add_argument("--burst-commit-mode", choices=["single", "per-entry"], default="single")
+    parser.add_argument("--gemini-timeout-seconds", type=float, default=6.0)
+    parser.add_argument("--gemini-max-retries", type=int, default=1)
+    parser.add_argument("--timing", action="store_true", help="Include timing telemetry in output JSON.")
     return parser.parse_args()
 
 
@@ -544,20 +684,32 @@ def main() -> int:
             skip_git=args.skip_git,
             skip_gemini_in_burst=args.skip_gemini_in_burst,
             max_attempts=args.max_attempts if args.max_attempts > 0 else None,
+            burst_commit_mode=args.burst_commit_mode,
+            gemini_timeout_seconds=args.gemini_timeout_seconds,
+            gemini_max_retries=args.gemini_max_retries,
+            include_timing=args.timing,
         )
     else:
-        result = run_update(repo_root=repo_root, timezone=args.timezone, skip_git=args.skip_git)
-    print(
-        json.dumps(
-            {
-                "changed": result.changed,
-                "committed": result.committed,
-                "pushed": result.pushed,
-                "entry_id": result.entry_id,
-                "reason": result.reason,
-            }
+        result = run_update(
+            repo_root=repo_root,
+            timezone=args.timezone,
+            skip_git=args.skip_git,
+            gemini_timeout_seconds=args.gemini_timeout_seconds,
+            gemini_max_retries=args.gemini_max_retries,
+            include_timing=args.timing,
         )
-    )
+
+    payload: dict[str, Any] = {
+        "changed": result.changed,
+        "committed": result.committed,
+        "pushed": result.pushed,
+        "entry_id": result.entry_id,
+        "reason": result.reason,
+    }
+    if args.timing and result.timings_ms is not None:
+        payload["timings_ms"] = result.timings_ms
+
+    print(json.dumps(payload))
     return 0
 
 

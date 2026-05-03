@@ -2,8 +2,7 @@ name: Daily Knowledge Scheduler
 
 on:
   schedule:
-    - cron: "0 0 * * 5"
-    - cron: "0 0 * * 6"
+    - cron: "*/15 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -23,37 +22,74 @@ jobs:
       GIT_COMMITTER_NAME: terddyy
       GIT_COMMITTER_EMAIL: terddy03@gmail.com
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-      BURST_COUNT: "500"
-      MAX_ATTEMPTS: "2000"
-    steps:
-      - name: Weekend preflight gate
-        id: preflight
-        run: |
-          day_name="$(TZ="$TZ" date +%A)"
-          if [ "$day_name" = "Friday" ] || [ "$day_name" = "Saturday" ]; then
-            echo "should_run=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "should_run=false" >> "$GITHUB_OUTPUT"
-          fi
+      MONTHLY_HARD_CAP_MINUTES: "1800"
+      MINUTES_PER_RUN: "1"
+      SCHEDULE_START_HOUR: "6"
+      SCHEDULE_END_HOUR: "23"
+      SCHEDULE_INTERVAL_MINUTES: "15"
+      WEEKDAY_WEIGHT: "1.0"
+      WEEKEND_WEIGHT: "0.65"
+      SCHEDULER_STATE_PATH: "data/scheduler_usage.json"
 
+    steps:
       - name: Checkout repository
-        if: steps.preflight.outputs.should_run == 'true'
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
       - name: Set up Python
-        if: steps.preflight.outputs.should_run == 'true'
         uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
-      - name: Run weekend burst update and push
-        if: steps.preflight.outputs.should_run == 'true'
+      - name: Scheduler gate
+        id: gate
+        run: |
+          python scripts/scheduler_gate.py \
+            --mode gate \
+            --tz "$TZ" \
+            --start "$SCHEDULE_START_HOUR" \
+            --end "$SCHEDULE_END_HOUR" \
+            --interval "$SCHEDULE_INTERVAL_MINUTES" \
+            --weekday-weight "$WEEKDAY_WEIGHT" \
+            --weekend-weight "$WEEKEND_WEIGHT" \
+            --month-cap "$MONTHLY_HARD_CAP_MINUTES" \
+            --minutes-per-run "$MINUTES_PER_RUN" \
+            --state-path "$SCHEDULER_STATE_PATH" \
+            > gate.out
+          cat gate.out >> "$GITHUB_OUTPUT"
+
+      - name: Run update and push
+        if: steps.gate.outputs.should_run == 'true'
         run: |
           python scripts/update_repo.py \
             --timezone "$TZ" \
-            --burst-count "$BURST_COUNT" \
-            --max-attempts "$MAX_ATTEMPTS" \
-            --skip-gemini-in-burst
+            --timing > update.out
+          cat update.out
+          python - <<'PY'
+import json
+with open("update.out", "r", encoding="utf-8") as f:
+    payload = json.loads(f.read())
+if not payload.get("pushed", False):
+    raise SystemExit("Update did not push changes; skipping usage record.")
+PY
 
+      - name: Record monthly usage
+        if: steps.gate.outputs.should_run == 'true'
+        run: |
+          python scripts/scheduler_gate.py \
+            --mode record-success \
+            --tz "$TZ" \
+            --minutes-per-run "$MINUTES_PER_RUN" \
+            --state-path "$SCHEDULER_STATE_PATH"
+
+      - name: Commit scheduler usage state
+        if: steps.gate.outputs.should_run == 'true'
+        run: |
+          if [ -n "$(git status --porcelain -- "$SCHEDULER_STATE_PATH")" ]; then
+            git add "$SCHEDULER_STATE_PATH"
+            git commit -m "chore(scheduler): record monthly usage"
+            git push
+          else
+            echo "No scheduler state changes to commit"
+          fi
