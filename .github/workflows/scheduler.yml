@@ -67,12 +67,12 @@ jobs:
             --timing > update.out
           cat update.out
           python - <<'PY'
-import json
-with open("update.out", "r", encoding="utf-8") as f:
-    payload = json.loads(f.read())
-if not payload.get("pushed", False):
-    raise SystemExit("Update did not push changes; skipping usage record.")
-PY
+          import json
+          with open("update.out", "r", encoding="utf-8") as f:
+              payload = json.loads(f.read())
+          if not payload.get("pushed", False):
+              raise SystemExit("Update did not push changes; skipping usage record.")
+          PY
 
       - name: Record monthly usage
         if: steps.gate.outputs.should_run == 'true'
