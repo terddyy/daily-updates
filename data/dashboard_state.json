@@ -1,11 +1,11 @@
 {
-  "total_entries": 1286,
+  "total_entries": 1287,
   "latest": {
-    "timestamp": "2026-05-17T18:04:27+08:00",
-    "title": "Optimize first contentful view",
-    "category": "Frontend",
-    "source": "https://web.dev/",
-    "content": "Prioritizing critical rendering path assets improves perceived performance more than micro-optimizing non-critical code paths."
+    "timestamp": "2026-05-17T18:43:57+08:00",
+    "title": "Set realistic timeouts everywhere",
+    "category": "Backend",
+    "source": "https://sre.google/sre-book/addressing-cascading-failures/",
+    "content": "Explicit timeouts on outbound calls prevent thread exhaustion and keep cascading failures contained."
   },
   "top_categories": [
     [
@@ -17,24 +17,19 @@
       65
     ],
     [
+      "Backend",
+      65
+    ],
+    [
       "Databases",
       65
     ],
     [
       "Frontend",
       65
-    ],
-    [
-      "Observability",
-      65
     ]
   ],
   "recent_timeline": [
-    {
-      "timestamp": "2026-05-16T20:39:06+08:00",
-      "title": "Write decisions down",
-      "category": "Leadership"
-    },
     {
       "timestamp": "2026-05-16T21:11:13+08:00",
       "title": "Prefer small focused commits",
@@ -79,6 +74,11 @@
       "timestamp": "2026-05-17T18:04:27+08:00",
       "title": "Optimize first contentful view",
       "category": "Frontend"
+    },
+    {
+      "timestamp": "2026-05-17T18:43:57+08:00",
+      "title": "Set realistic timeouts everywhere",
+      "category": "Backend"
     }
   ],
   "today_note": "notes/2026-05-17.md",
@@ -100,6 +100,6 @@
     "2026-05-01": 500,
     "2026-05-02": 500,
     "2026-05-16": 6,
-    "2026-05-17": 8
+    "2026-05-17": 9
   }
 }
