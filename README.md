@@ -10,28 +10,29 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ## Dashboard
 
-- Total archive entries: **1361**
-- Today's entries: **9**
+- Total archive entries: **1362**
+- Today's entries: **10**
 - Today's note: `notes/2026-05-22.md`
 
 ### Latest Entry
 
-- Timestamp: `2026-05-22T14:49:23+08:00`
-- Title: **Rotate credentials on schedule**
-- Category: `Security`
-- Source: https://owasp.org/www-project-top-ten/
-- Summary: Regular credential rotation limits blast radius if a secret leaks and encourages teams to maintain key management hygiene.
+- Timestamp: `2026-05-22T16:10:47+08:00`
+- Title: **Add indexes for real query patterns**
+- Category: `Databases`
+- Source: https://use-the-index-luke.com/
+- Summary: Measure slow queries first, then index based on predicates and sort order. Over-indexing harms write performance.
 
 ### Top Categories
 
+- `Databases`: 69
 - `Security`: 69
 - `Testing`: 69
 - `APIs`: 68
 - `Accessibility`: 68
-- `Architecture`: 68
 
 ### Recent Timeline
 
+- `2026-05-22T16:10:47+08:00` | **Add indexes for real query patterns** (Databases)
 - `2026-05-22T14:49:23+08:00` | **Rotate credentials on schedule** (Security)
 - `2026-05-22T13:26:07+08:00` | **Write one behavior per test** (Testing)
 - `2026-05-22T11:47:27+08:00` | **Use virtual environments by default** (Python)
@@ -41,4 +42,3 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 - `2026-05-22T07:36:55+08:00` | **Measure before tuning** (Performance)
 - `2026-05-22T07:09:03+08:00` | **Fail fast on lint and tests** (CI/CD)
 - `2026-05-22T06:32:18+08:00` | **Retry only safe operations** (Networking)
-- `2026-05-21T22:43:01+08:00` | **Batch similar tasks** (Productivity)
