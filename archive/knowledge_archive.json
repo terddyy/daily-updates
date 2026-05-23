@@ -12347,6 +12347,15 @@
       "title": "Batch similar tasks",
       "content": "Grouping related cognitive tasks reduces context switching overhead and improves steady development throughput.",
       "source": "https://www.atlassian.com/blog/productivity"
+    },
+    {
+      "id": "entry-2026-05-23-fb767a0844",
+      "date": "2026-05-23",
+      "timestamp": "2026-05-23T09:14:20+08:00",
+      "category": "Networking",
+      "title": "Retry only safe operations",
+      "content": "Not all requests should be retried blindly; non-idempotent calls need safeguards or idempotency keys.",
+      "source": "https://www.rfc-editor.org/rfc/rfc9110"
     }
   ]
 }
