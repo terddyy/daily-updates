@@ -12644,6 +12644,15 @@
       "title": "Keep boundaries explicit",
       "content": "Defining module boundaries early reduces accidental coupling and keeps refactors local instead of system-wide.",
       "source": "https://12factor.net/"
+    },
+    {
+      "id": "entry-2026-05-25-c8303a76b7",
+      "date": "2026-05-25",
+      "timestamp": "2026-05-25T15:11:20+08:00",
+      "category": "Frontend",
+      "title": "Optimize first contentful view",
+      "content": "Prioritizing critical rendering path assets improves perceived performance more than micro-optimizing non-critical code paths.",
+      "source": "https://web.dev/"
     }
   ]
 }
