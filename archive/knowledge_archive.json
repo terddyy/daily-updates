@@ -13490,6 +13490,15 @@
       "title": "Use virtual environments by default",
       "content": "Project-specific virtual environments prevent dependency leaks across projects and make builds more reproducible on CI.",
       "source": "https://docs.python.org/3/library/venv.html"
+    },
+    {
+      "id": "entry-2026-06-01-130b187ffd",
+      "date": "2026-06-01",
+      "timestamp": "2026-06-01T13:42:31+08:00",
+      "category": "Testing",
+      "title": "Write one behavior per test",
+      "content": "Single-purpose tests fail with clearer intent and reduce time spent diagnosing what actually regressed.",
+      "source": "https://martinfowler.com/bliki/UnitTest.html"
     }
   ]
 }
