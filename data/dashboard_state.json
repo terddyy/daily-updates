@@ -1,11 +1,11 @@
 {
-  "total_entries": 1530,
+  "total_entries": 1531,
   "latest": {
-    "timestamp": "2026-06-03T22:58:04+08:00",
-    "title": "Use exponential backoff with jitter",
-    "category": "Reliability",
-    "source": "https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/",
-    "content": "Backoff plus jitter avoids retry storms and improves recovery behavior when downstream systems are degraded."
+    "timestamp": "2026-06-04T06:35:04+08:00",
+    "title": "Keep runbooks close to code",
+    "category": "Documentation",
+    "source": "https://sre.google/workbook/",
+    "content": "Version-controlled operational runbooks age better than external docs and stay aligned with implementation changes."
   },
   "top_categories": [
     [
@@ -30,11 +30,6 @@
     ]
   ],
   "recent_timeline": [
-    {
-      "timestamp": "2026-06-03T08:18:23+08:00",
-      "title": "Rotate credentials on schedule",
-      "category": "Security"
-    },
     {
       "timestamp": "2026-06-03T09:36:51+08:00",
       "title": "Add indexes for real query patterns",
@@ -79,9 +74,14 @@
       "timestamp": "2026-06-03T22:58:04+08:00",
       "title": "Use exponential backoff with jitter",
       "category": "Reliability"
+    },
+    {
+      "timestamp": "2026-06-04T06:35:04+08:00",
+      "title": "Keep runbooks close to code",
+      "category": "Documentation"
     }
   ],
-  "today_note": "notes/2026-06-03.md",
+  "today_note": "notes/2026-06-04.md",
   "day_counts": {
     "2026-04-16": 4,
     "2026-04-17": 18,
@@ -117,6 +117,7 @@
     "2026-05-31": 11,
     "2026-06-01": 13,
     "2026-06-02": 13,
-    "2026-06-03": 13
+    "2026-06-03": 13,
+    "2026-06-04": 1
   }
 }
