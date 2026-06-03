@@ -1,13 +1,17 @@
 {
-  "total_entries": 1521,
+  "total_entries": 1522,
   "latest": {
-    "timestamp": "2026-06-03T08:18:23+08:00",
-    "title": "Rotate credentials on schedule",
-    "category": "Security",
-    "source": "https://owasp.org/www-project-top-ten/",
-    "content": "Regular credential rotation limits blast radius if a secret leaks and encourages teams to maintain key management hygiene."
+    "timestamp": "2026-06-03T09:36:51+08:00",
+    "title": "Add indexes for real query patterns",
+    "category": "Databases",
+    "source": "https://use-the-index-luke.com/",
+    "content": "Measure slow queries first, then index based on predicates and sort order. Over-indexing harms write performance."
   },
   "top_categories": [
+    [
+      "Databases",
+      77
+    ],
     [
       "Security",
       77
@@ -23,18 +27,9 @@
     [
       "Accessibility",
       76
-    ],
-    [
-      "Architecture",
-      76
     ]
   ],
   "recent_timeline": [
-    {
-      "timestamp": "2026-06-02T13:39:01+08:00",
-      "title": "Batch similar tasks",
-      "category": "Productivity"
-    },
     {
       "timestamp": "2026-06-02T15:13:15+08:00",
       "title": "Retry only safe operations",
@@ -79,6 +74,11 @@
       "timestamp": "2026-06-03T08:18:23+08:00",
       "title": "Rotate credentials on schedule",
       "category": "Security"
+    },
+    {
+      "timestamp": "2026-06-03T09:36:51+08:00",
+      "title": "Add indexes for real query patterns",
+      "category": "Databases"
     }
   ],
   "today_note": "notes/2026-06-03.md",
@@ -117,6 +117,6 @@
     "2026-05-31": 11,
     "2026-06-01": 13,
     "2026-06-02": 13,
-    "2026-06-03": 4
+    "2026-06-03": 5
   }
 }
