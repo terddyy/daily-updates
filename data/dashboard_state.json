@@ -1,11 +1,11 @@
 {
-  "total_entries": 1569,
+  "total_entries": 1570,
   "latest": {
-    "timestamp": "2026-06-06T19:46:06+08:00",
-    "title": "Name intent, not mechanics",
-    "category": "Code Quality",
-    "source": "https://martinfowler.com/books/clean-code.html",
-    "content": "Readable names should communicate business intent so maintainers understand why code exists before how it works."
+    "timestamp": "2026-06-06T20:33:24+08:00",
+    "title": "Use exponential backoff with jitter",
+    "category": "Reliability",
+    "source": "https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/",
+    "content": "Backoff plus jitter avoids retry storms and improves recovery behavior when downstream systems are degraded."
   },
   "top_categories": [
     [
@@ -30,11 +30,6 @@
     ]
   ],
   "recent_timeline": [
-    {
-      "timestamp": "2026-06-06T08:09:26+08:00",
-      "title": "Write one behavior per test",
-      "category": "Testing"
-    },
     {
       "timestamp": "2026-06-06T10:21:27+08:00",
       "title": "Rotate credentials on schedule",
@@ -79,6 +74,11 @@
       "timestamp": "2026-06-06T19:46:06+08:00",
       "title": "Name intent, not mechanics",
       "category": "Code Quality"
+    },
+    {
+      "timestamp": "2026-06-06T20:33:24+08:00",
+      "title": "Use exponential backoff with jitter",
+      "category": "Reliability"
     }
   ],
   "today_note": "notes/2026-06-06.md",
@@ -120,6 +120,6 @@
     "2026-06-03": 13,
     "2026-06-04": 13,
     "2026-06-05": 15,
-    "2026-06-06": 11
+    "2026-06-06": 12
   }
 }
