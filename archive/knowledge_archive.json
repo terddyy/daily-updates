@@ -14354,6 +14354,15 @@
       "title": "Measure before tuning",
       "content": "Profiling first prevents optimization of cold paths and helps teams target changes with measurable user impact.",
       "source": "https://perf.wiki/"
+    },
+    {
+      "id": "entry-2026-06-09-c541717b9e",
+      "date": "2026-06-09",
+      "timestamp": "2026-06-09T06:35:05+08:00",
+      "category": "Accessibility",
+      "title": "Keyboard support is a baseline",
+      "content": "All interactive controls should be reachable and usable by keyboard to support accessibility and power users.",
+      "source": "https://www.w3.org/WAI/standards-guidelines/wcag/"
     }
   ]
 }
