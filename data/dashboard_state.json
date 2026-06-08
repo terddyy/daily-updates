@@ -1,11 +1,11 @@
 {
-  "total_entries": 1591,
+  "total_entries": 1592,
   "latest": {
-    "timestamp": "2026-06-08T15:16:58+08:00",
-    "title": "Keep runbooks close to code",
-    "category": "Documentation",
-    "source": "https://sre.google/workbook/",
-    "content": "Version-controlled operational runbooks age better than external docs and stay aligned with implementation changes."
+    "timestamp": "2026-06-08T17:07:45+08:00",
+    "title": "Batch similar tasks",
+    "category": "Productivity",
+    "source": "https://www.atlassian.com/blog/productivity",
+    "content": "Grouping related cognitive tasks reduces context switching overhead and improves steady development throughput."
   },
   "top_categories": [
     [
@@ -30,11 +30,6 @@
     ]
   ],
   "recent_timeline": [
-    {
-      "timestamp": "2026-06-08T06:13:26+08:00",
-      "title": "Add indexes for real query patterns",
-      "category": "Databases"
-    },
     {
       "timestamp": "2026-06-08T06:40:59+08:00",
       "title": "Design for idempotency",
@@ -79,6 +74,11 @@
       "timestamp": "2026-06-08T15:16:58+08:00",
       "title": "Keep runbooks close to code",
       "category": "Documentation"
+    },
+    {
+      "timestamp": "2026-06-08T17:07:45+08:00",
+      "title": "Batch similar tasks",
+      "category": "Productivity"
     }
   ],
   "today_note": "notes/2026-06-08.md",
@@ -122,6 +122,6 @@
     "2026-06-05": 15,
     "2026-06-06": 14,
     "2026-06-07": 9,
-    "2026-06-08": 10
+    "2026-06-08": 11
   }
 }
