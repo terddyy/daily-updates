@@ -1,11 +1,11 @@
 {
-  "total_entries": 1643,
+  "total_entries": 1644,
   "latest": {
-    "timestamp": "2026-06-12T11:26:03+08:00",
-    "title": "Design for idempotency",
-    "category": "APIs",
-    "source": "https://www.rfc-editor.org/rfc/rfc7231",
-    "content": "Idempotent create/update endpoints make retries safe under network failures and reduce accidental duplicate operations."
+    "timestamp": "2026-06-12T13:08:57+08:00",
+    "title": "Log with stable keys",
+    "category": "Observability",
+    "source": "https://opentelemetry.io/docs/concepts/signals/logs/",
+    "content": "Structured logs with predictable field names make filtering and alerting far easier than free-form log lines."
   },
   "top_categories": [
     [
@@ -17,24 +17,19 @@
       83
     ],
     [
+      "Observability",
+      83
+    ],
+    [
       "Security",
       83
     ],
     [
       "Testing",
       83
-    ],
-    [
-      "Accessibility",
-      82
     ]
   ],
   "recent_timeline": [
-    {
-      "timestamp": "2026-06-11T18:11:40+08:00",
-      "title": "Fail fast on lint and tests",
-      "category": "CI/CD"
-    },
     {
       "timestamp": "2026-06-11T19:48:54+08:00",
       "title": "Measure before tuning",
@@ -79,6 +74,11 @@
       "timestamp": "2026-06-12T11:26:03+08:00",
       "title": "Design for idempotency",
       "category": "APIs"
+    },
+    {
+      "timestamp": "2026-06-12T13:08:57+08:00",
+      "title": "Log with stable keys",
+      "category": "Observability"
     }
   ],
   "today_note": "notes/2026-06-12.md",
@@ -126,6 +126,6 @@
     "2026-06-09": 15,
     "2026-06-10": 14,
     "2026-06-11": 13,
-    "2026-06-12": 6
+    "2026-06-12": 7
   }
 }
