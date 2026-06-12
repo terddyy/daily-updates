@@ -1,11 +1,11 @@
 {
-  "total_entries": 1648,
+  "total_entries": 1649,
   "latest": {
-    "timestamp": "2026-06-12T19:30:27+08:00",
-    "title": "Automate rollback paths",
-    "category": "DevOps",
-    "source": "https://cloud.google.com/architecture/devops",
-    "content": "A tested rollback mechanism shortens incident duration and increases confidence during high-frequency deployments."
+    "timestamp": "2026-06-12T20:44:13+08:00",
+    "title": "Name intent, not mechanics",
+    "category": "Code Quality",
+    "source": "https://martinfowler.com/books/clean-code.html",
+    "content": "Readable names should communicate business intent so maintainers understand why code exists before how it works."
   },
   "top_categories": [
     [
@@ -21,20 +21,15 @@
       83
     ],
     [
-      "Databases",
+      "Code Quality",
       83
     ],
     [
-      "DevOps",
+      "Databases",
       83
     ]
   ],
   "recent_timeline": [
-    {
-      "timestamp": "2026-06-12T07:13:25+08:00",
-      "title": "Use virtual environments by default",
-      "category": "Python"
-    },
     {
       "timestamp": "2026-06-12T07:53:08+08:00",
       "title": "Write one behavior per test",
@@ -79,6 +74,11 @@
       "timestamp": "2026-06-12T19:30:27+08:00",
       "title": "Automate rollback paths",
       "category": "DevOps"
+    },
+    {
+      "timestamp": "2026-06-12T20:44:13+08:00",
+      "title": "Name intent, not mechanics",
+      "category": "Code Quality"
     }
   ],
   "today_note": "notes/2026-06-12.md",
@@ -126,6 +126,6 @@
     "2026-06-09": 15,
     "2026-06-10": 14,
     "2026-06-11": 13,
-    "2026-06-12": 11
+    "2026-06-12": 12
   }
 }
