@@ -1,15 +1,19 @@
 {
-  "total_entries": 1644,
+  "total_entries": 1645,
   "latest": {
-    "timestamp": "2026-06-12T13:08:57+08:00",
-    "title": "Log with stable keys",
-    "category": "Observability",
-    "source": "https://opentelemetry.io/docs/concepts/signals/logs/",
-    "content": "Structured logs with predictable field names make filtering and alerting far easier than free-form log lines."
+    "timestamp": "2026-06-12T14:52:25+08:00",
+    "title": "Keep boundaries explicit",
+    "category": "Architecture",
+    "source": "https://12factor.net/",
+    "content": "Defining module boundaries early reduces accidental coupling and keeps refactors local instead of system-wide."
   },
   "top_categories": [
     [
       "APIs",
+      83
+    ],
+    [
+      "Architecture",
       83
     ],
     [
@@ -23,18 +27,9 @@
     [
       "Security",
       83
-    ],
-    [
-      "Testing",
-      83
     ]
   ],
   "recent_timeline": [
-    {
-      "timestamp": "2026-06-11T19:48:54+08:00",
-      "title": "Measure before tuning",
-      "category": "Performance"
-    },
     {
       "timestamp": "2026-06-11T21:26:27+08:00",
       "title": "Keyboard support is a baseline",
@@ -79,6 +74,11 @@
       "timestamp": "2026-06-12T13:08:57+08:00",
       "title": "Log with stable keys",
       "category": "Observability"
+    },
+    {
+      "timestamp": "2026-06-12T14:52:25+08:00",
+      "title": "Keep boundaries explicit",
+      "category": "Architecture"
     }
   ],
   "today_note": "notes/2026-06-12.md",
@@ -126,6 +126,6 @@
     "2026-06-09": 15,
     "2026-06-10": 14,
     "2026-06-11": 13,
-    "2026-06-12": 7
+    "2026-06-12": 8
   }
 }
