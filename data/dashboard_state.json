@@ -1,11 +1,11 @@
 {
-  "total_entries": 1694,
+  "total_entries": 1695,
   "latest": {
-    "timestamp": "2026-06-17T07:47:37+08:00",
-    "title": "Fail fast on lint and tests",
-    "category": "CI/CD",
-    "source": "https://docs.github.com/actions",
-    "content": "Early pipeline checks give faster feedback loops and reduce wasted compute in late deployment stages."
+    "timestamp": "2026-06-17T09:02:01+08:00",
+    "title": "Measure before tuning",
+    "category": "Performance",
+    "source": "https://perf.wiki/",
+    "content": "Profiling first prevents optimization of cold paths and helps teams target changes with measurable user impact."
   },
   "top_categories": [
     [
@@ -30,11 +30,6 @@
     ]
   ],
   "recent_timeline": [
-    {
-      "timestamp": "2026-06-16T10:42:01+08:00",
-      "title": "Keep boundaries explicit",
-      "category": "Architecture"
-    },
     {
       "timestamp": "2026-06-16T12:13:32+08:00",
       "title": "Optimize first contentful view",
@@ -79,6 +74,11 @@
       "timestamp": "2026-06-17T07:47:37+08:00",
       "title": "Fail fast on lint and tests",
       "category": "CI/CD"
+    },
+    {
+      "timestamp": "2026-06-17T09:02:01+08:00",
+      "title": "Measure before tuning",
+      "category": "Performance"
     }
   ],
   "today_note": "notes/2026-06-17.md",
@@ -131,6 +131,6 @@
     "2026-06-14": 11,
     "2026-06-15": 11,
     "2026-06-16": 12,
-    "2026-06-17": 3
+    "2026-06-17": 4
   }
 }
