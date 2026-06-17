@@ -1,11 +1,11 @@
 {
-  "total_entries": 1698,
+  "total_entries": 1699,
   "latest": {
-    "timestamp": "2026-06-17T13:13:36+08:00",
-    "title": "Prefer small focused commits",
-    "category": "Git",
-    "source": "https://git-scm.com/docs",
-    "content": "Smaller commits are easier to review, easier to revert, and reduce merge conflict risk when multiple contributors work in parallel."
+    "timestamp": "2026-06-17T15:01:53+08:00",
+    "title": "Use virtual environments by default",
+    "category": "Python",
+    "source": "https://docs.python.org/3/library/venv.html",
+    "content": "Project-specific virtual environments prevent dependency leaks across projects and make builds more reproducible on CI."
   },
   "top_categories": [
     [
@@ -30,11 +30,6 @@
     ]
   ],
   "recent_timeline": [
-    {
-      "timestamp": "2026-06-16T18:16:40+08:00",
-      "title": "Name intent, not mechanics",
-      "category": "Code Quality"
-    },
     {
       "timestamp": "2026-06-16T20:16:19+08:00",
       "title": "Use exponential backoff with jitter",
@@ -79,6 +74,11 @@
       "timestamp": "2026-06-17T13:13:36+08:00",
       "title": "Prefer small focused commits",
       "category": "Git"
+    },
+    {
+      "timestamp": "2026-06-17T15:01:53+08:00",
+      "title": "Use virtual environments by default",
+      "category": "Python"
     }
   ],
   "today_note": "notes/2026-06-17.md",
@@ -131,6 +131,6 @@
     "2026-06-14": 11,
     "2026-06-15": 11,
     "2026-06-16": 12,
-    "2026-06-17": 7
+    "2026-06-17": 8
   }
 }
