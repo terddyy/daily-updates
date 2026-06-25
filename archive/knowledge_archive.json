@@ -16271,6 +16271,15 @@
       "title": "Automate rollback paths",
       "content": "A tested rollback mechanism shortens incident duration and increases confidence during high-frequency deployments.",
       "source": "https://cloud.google.com/architecture/devops"
+    },
+    {
+      "id": "entry-2026-06-25-1c3c3e6fa9",
+      "date": "2026-06-25",
+      "timestamp": "2026-06-25T18:28:01+08:00",
+      "category": "Code Quality",
+      "title": "Name intent, not mechanics",
+      "content": "Readable names should communicate business intent so maintainers understand why code exists before how it works.",
+      "source": "https://martinfowler.com/books/clean-code.html"
     }
   ]
 }
