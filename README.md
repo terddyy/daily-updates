@@ -10,17 +10,17 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ## Dashboard
 
-- Total archive entries: **1812**
-- Today's entries: **15**
+- Total archive entries: **1813**
+- Today's entries: **16**
 - Today's note: `notes/2026-06-25.md`
 
 ### Latest Entry
 
-- Timestamp: `2026-06-25T21:17:26+08:00`
-- Title: **Batch similar tasks**
-- Category: `Productivity`
-- Source: https://www.atlassian.com/blog/productivity
-- Summary: Grouping related cognitive tasks reduces context switching overhead and improves steady development throughput.
+- Timestamp: `2026-06-25T22:18:45+08:00`
+- Title: **Retry only safe operations**
+- Category: `Networking`
+- Source: https://www.rfc-editor.org/rfc/rfc9110
+- Summary: Not all requests should be retried blindly; non-idempotent calls need safeguards or idempotency keys.
 
 ### Top Categories
 
@@ -32,6 +32,7 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ### Recent Timeline
 
+- `2026-06-25T22:18:45+08:00` | **Retry only safe operations** (Networking)
 - `2026-06-25T21:17:26+08:00` | **Batch similar tasks** (Productivity)
 - `2026-06-25T20:20:51+08:00` | **Keep runbooks close to code** (Documentation)
 - `2026-06-25T19:27:30+08:00` | **Use exponential backoff with jitter** (Reliability)
@@ -41,4 +42,3 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 - `2026-06-25T14:47:49+08:00` | **Optimize first contentful view** (Frontend)
 - `2026-06-25T13:25:19+08:00` | **Keep boundaries explicit** (Architecture)
 - `2026-06-25T11:46:46+08:00` | **Log with stable keys** (Observability)
-- `2026-06-25T10:22:04+08:00` | **Design for idempotency** (APIs)
