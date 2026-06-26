@@ -10,28 +10,29 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ## Dashboard
 
-- Total archive entries: **1824**
-- Today's entries: **11**
+- Total archive entries: **1825**
+- Today's entries: **12**
 - Today's note: `notes/2026-06-26.md`
 
 ### Latest Entry
 
-- Timestamp: `2026-06-26T17:46:26+08:00`
-- Title: **Log with stable keys**
-- Category: `Observability`
-- Source: https://opentelemetry.io/docs/concepts/signals/logs/
-- Summary: Structured logs with predictable field names make filtering and alerting far easier than free-form log lines.
+- Timestamp: `2026-06-26T19:04:18+08:00`
+- Title: **Keep boundaries explicit**
+- Category: `Architecture`
+- Source: https://12factor.net/
+- Summary: Defining module boundaries early reduces accidental coupling and keeps refactors local instead of system-wide.
 
 ### Top Categories
 
 - `APIs`: 92
+- `Architecture`: 92
 - `Databases`: 92
 - `Observability`: 92
 - `Security`: 92
-- `Testing`: 92
 
 ### Recent Timeline
 
+- `2026-06-26T19:04:18+08:00` | **Keep boundaries explicit** (Architecture)
 - `2026-06-26T17:46:26+08:00` | **Log with stable keys** (Observability)
 - `2026-06-26T16:26:03+08:00` | **Design for idempotency** (APIs)
 - `2026-06-26T15:02:25+08:00` | **Add indexes for real query patterns** (Databases)
@@ -41,4 +42,3 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 - `2026-06-26T09:20:59+08:00` | **Prefer small focused commits** (Git)
 - `2026-06-26T08:09:33+08:00` | **Write decisions down** (Leadership)
 - `2026-06-26T07:32:01+08:00` | **Keyboard support is a baseline** (Accessibility)
-- `2026-06-26T06:48:57+08:00` | **Measure before tuning** (Performance)
