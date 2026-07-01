@@ -17000,6 +17000,15 @@
       "title": "Name intent, not mechanics",
       "content": "Readable names should communicate business intent so maintainers understand why code exists before how it works.",
       "source": "https://martinfowler.com/books/clean-code.html"
+    },
+    {
+      "id": "entry-2026-07-01-26ab358e7d",
+      "date": "2026-07-01",
+      "timestamp": "2026-07-01T13:37:23+08:00",
+      "category": "Reliability",
+      "title": "Use exponential backoff with jitter",
+      "content": "Backoff plus jitter avoids retry storms and improves recovery behavior when downstream systems are degraded.",
+      "source": "https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/"
     }
   ]
 }
