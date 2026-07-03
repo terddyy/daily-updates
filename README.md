@@ -10,28 +10,29 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ## Dashboard
 
-- Total archive entries: **1923**
-- Today's entries: **10**
+- Total archive entries: **1924**
+- Today's entries: **11**
 - Today's note: `notes/2026-07-03.md`
 
 ### Latest Entry
 
-- Timestamp: `2026-07-03T14:03:05+08:00`
-- Title: **Design for idempotency**
-- Category: `APIs`
-- Source: https://www.rfc-editor.org/rfc/rfc7231
-- Summary: Idempotent create/update endpoints make retries safe under network failures and reduce accidental duplicate operations.
+- Timestamp: `2026-07-03T15:24:03+08:00`
+- Title: **Log with stable keys**
+- Category: `Observability`
+- Source: https://opentelemetry.io/docs/concepts/signals/logs/
+- Summary: Structured logs with predictable field names make filtering and alerting far easier than free-form log lines.
 
 ### Top Categories
 
 - `APIs`: 97
 - `Databases`: 97
+- `Observability`: 97
 - `Security`: 97
 - `Testing`: 97
-- `Accessibility`: 96
 
 ### Recent Timeline
 
+- `2026-07-03T15:24:03+08:00` | **Log with stable keys** (Observability)
 - `2026-07-03T14:03:05+08:00` | **Design for idempotency** (APIs)
 - `2026-07-03T12:33:47+08:00` | **Add indexes for real query patterns** (Databases)
 - `2026-07-03T11:14:43+08:00` | **Rotate credentials on schedule** (Security)
@@ -41,4 +42,3 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 - `2026-07-03T07:39:08+08:00` | **Write decisions down** (Leadership)
 - `2026-07-03T07:10:10+08:00` | **Keyboard support is a baseline** (Accessibility)
 - `2026-07-03T06:40:45+08:00` | **Measure before tuning** (Performance)
-- `2026-07-03T06:12:27+08:00` | **Fail fast on lint and tests** (CI/CD)
