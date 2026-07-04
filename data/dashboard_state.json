@@ -1,15 +1,19 @@
 {
-  "total_entries": 1935,
+  "total_entries": 1936,
   "latest": {
-    "timestamp": "2026-07-04T09:19:22+08:00",
-    "title": "Measure before tuning",
-    "category": "Performance",
-    "source": "https://perf.wiki/",
-    "content": "Profiling first prevents optimization of cold paths and helps teams target changes with measurable user impact."
+    "timestamp": "2026-07-04T11:46:01+08:00",
+    "title": "Keyboard support is a baseline",
+    "category": "Accessibility",
+    "source": "https://www.w3.org/WAI/standards-guidelines/wcag/",
+    "content": "All interactive controls should be reachable and usable by keyboard to support accessibility and power users."
   },
   "top_categories": [
     [
       "APIs",
+      97
+    ],
+    [
+      "Accessibility",
       97
     ],
     [
@@ -23,18 +27,9 @@
     [
       "CI/CD",
       97
-    ],
-    [
-      "Code Quality",
-      97
     ]
   ],
   "recent_timeline": [
-    {
-      "timestamp": "2026-07-03T17:45:58+08:00",
-      "title": "Optimize first contentful view",
-      "category": "Frontend"
-    },
     {
       "timestamp": "2026-07-03T18:56:37+08:00",
       "title": "Set realistic timeouts everywhere",
@@ -79,6 +74,11 @@
       "timestamp": "2026-07-04T09:19:22+08:00",
       "title": "Measure before tuning",
       "category": "Performance"
+    },
+    {
+      "timestamp": "2026-07-04T11:46:01+08:00",
+      "title": "Keyboard support is a baseline",
+      "category": "Accessibility"
     }
   ],
   "today_note": "notes/2026-07-04.md",
@@ -148,6 +148,6 @@
     "2026-07-01": 15,
     "2026-07-02": 16,
     "2026-07-03": 18,
-    "2026-07-04": 4
+    "2026-07-04": 5
   }
 }
