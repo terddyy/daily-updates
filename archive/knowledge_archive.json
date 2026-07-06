@@ -17666,6 +17666,15 @@
       "title": "Design for idempotency",
       "content": "Idempotent create/update endpoints make retries safe under network failures and reduce accidental duplicate operations.",
       "source": "https://www.rfc-editor.org/rfc/rfc7231"
+    },
+    {
+      "id": "entry-2026-07-06-7a9a824bdf",
+      "date": "2026-07-06",
+      "timestamp": "2026-07-06T12:09:38+08:00",
+      "category": "Observability",
+      "title": "Log with stable keys",
+      "content": "Structured logs with predictable field names make filtering and alerting far easier than free-form log lines.",
+      "source": "https://opentelemetry.io/docs/concepts/signals/logs/"
     }
   ]
 }
