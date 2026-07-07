@@ -10,17 +10,17 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ## Dashboard
 
-- Total archive entries: **1987**
-- Today's entries: **16**
-- Today's note: `notes/2026-07-07.md`
+- Total archive entries: **1988**
+- Today's entries: **1**
+- Today's note: `notes/2026-07-08.md`
 
 ### Latest Entry
 
-- Timestamp: `2026-07-07T22:18:26+08:00`
-- Title: **Set realistic timeouts everywhere**
-- Category: `Backend`
-- Source: https://sre.google/sre-book/addressing-cascading-failures/
-- Summary: Explicit timeouts on outbound calls prevent thread exhaustion and keep cascading failures contained.
+- Timestamp: `2026-07-08T06:15:34+08:00`
+- Title: **Automate rollback paths**
+- Category: `DevOps`
+- Source: https://cloud.google.com/architecture/devops
+- Summary: A tested rollback mechanism shortens incident duration and increases confidence during high-frequency deployments.
 
 ### Top Categories
 
@@ -28,10 +28,11 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 - `Architecture`: 100
 - `Backend`: 100
 - `Databases`: 100
-- `Frontend`: 100
+- `DevOps`: 100
 
 ### Recent Timeline
 
+- `2026-07-08T06:15:34+08:00` | **Automate rollback paths** (DevOps)
 - `2026-07-07T22:18:26+08:00` | **Set realistic timeouts everywhere** (Backend)
 - `2026-07-07T21:17:44+08:00` | **Optimize first contentful view** (Frontend)
 - `2026-07-07T20:22:53+08:00` | **Keep boundaries explicit** (Architecture)
@@ -41,4 +42,3 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 - `2026-07-07T15:46:26+08:00` | **Rotate credentials on schedule** (Security)
 - `2026-07-07T14:23:34+08:00` | **Write one behavior per test** (Testing)
 - `2026-07-07T12:47:54+08:00` | **Use virtual environments by default** (Python)
-- `2026-07-07T11:15:23+08:00` | **Prefer small focused commits** (Git)
