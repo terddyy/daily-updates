@@ -10,17 +10,17 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ## Dashboard
 
-- Total archive entries: **2070**
-- Today's entries: **11**
+- Total archive entries: **2071**
+- Today's entries: **12**
 - Today's note: `notes/2026-07-12.md`
 
 ### Latest Entry
 
-- Timestamp: `2026-07-12T16:17:04+08:00`
-- Title: **Use exponential backoff with jitter**
-- Category: `Reliability`
-- Source: https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/
-- Summary: Backoff plus jitter avoids retry storms and improves recovery behavior when downstream systems are degraded.
+- Timestamp: `2026-07-12T17:56:17+08:00`
+- Title: **Keep runbooks close to code**
+- Category: `Documentation`
+- Source: https://sre.google/workbook/
+- Summary: Version-controlled operational runbooks age better than external docs and stay aligned with implementation changes.
 
 ### Top Categories
 
@@ -32,6 +32,7 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ### Recent Timeline
 
+- `2026-07-12T17:56:17+08:00` | **Keep runbooks close to code** (Documentation)
 - `2026-07-12T16:17:04+08:00` | **Use exponential backoff with jitter** (Reliability)
 - `2026-07-12T14:21:38+08:00` | **Name intent, not mechanics** (Code Quality)
 - `2026-07-12T13:25:13+08:00` | **Automate rollback paths** (DevOps)
@@ -41,4 +42,3 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 - `2026-07-12T08:57:12+08:00` | **Log with stable keys** (Observability)
 - `2026-07-12T07:34:17+08:00` | **Design for idempotency** (APIs)
 - `2026-07-12T07:05:04+08:00` | **Add indexes for real query patterns** (Databases)
-- `2026-07-12T06:31:34+08:00` | **Rotate credentials on schedule** (Security)
