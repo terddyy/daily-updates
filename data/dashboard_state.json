@@ -1,11 +1,11 @@
 {
-  "total_entries": 2073,
+  "total_entries": 2074,
   "latest": {
-    "timestamp": "2026-07-12T20:33:51+08:00",
-    "title": "Retry only safe operations",
-    "category": "Networking",
-    "source": "https://www.rfc-editor.org/rfc/rfc9110",
-    "content": "Not all requests should be retried blindly; non-idempotent calls need safeguards or idempotency keys."
+    "timestamp": "2026-07-12T21:50:32+08:00",
+    "title": "Fail fast on lint and tests",
+    "category": "CI/CD",
+    "source": "https://docs.github.com/actions",
+    "content": "Early pipeline checks give faster feedback loops and reduce wasted compute in late deployment stages."
   },
   "top_categories": [
     [
@@ -21,20 +21,15 @@
       104
     ],
     [
-      "Code Quality",
+      "CI/CD",
       104
     ],
     [
-      "Databases",
+      "Code Quality",
       104
     ]
   ],
   "recent_timeline": [
-    {
-      "timestamp": "2026-07-12T08:57:12+08:00",
-      "title": "Log with stable keys",
-      "category": "Observability"
-    },
     {
       "timestamp": "2026-07-12T09:40:22+08:00",
       "title": "Keep boundaries explicit",
@@ -79,6 +74,11 @@
       "timestamp": "2026-07-12T20:33:51+08:00",
       "title": "Retry only safe operations",
       "category": "Networking"
+    },
+    {
+      "timestamp": "2026-07-12T21:50:32+08:00",
+      "title": "Fail fast on lint and tests",
+      "category": "CI/CD"
     }
   ],
   "today_note": "notes/2026-07-12.md",
@@ -156,6 +156,6 @@
     "2026-07-09": 17,
     "2026-07-10": 17,
     "2026-07-11": 18,
-    "2026-07-12": 14
+    "2026-07-12": 15
   }
 }
