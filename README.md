@@ -10,17 +10,17 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ## Dashboard
 
-- Total archive entries: **2149**
-- Today's entries: **14**
+- Total archive entries: **2150**
+- Today's entries: **15**
 - Today's note: `notes/2026-07-16.md`
 
 ### Latest Entry
 
-- Timestamp: `2026-07-16T16:53:53+08:00`
-- Title: **Name intent, not mechanics**
-- Category: `Code Quality`
-- Source: https://martinfowler.com/books/clean-code.html
-- Summary: Readable names should communicate business intent so maintainers understand why code exists before how it works.
+- Timestamp: `2026-07-16T17:44:11+08:00`
+- Title: **Use exponential backoff with jitter**
+- Category: `Reliability`
+- Source: https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/
+- Summary: Backoff plus jitter avoids retry storms and improves recovery behavior when downstream systems are degraded.
 
 ### Top Categories
 
@@ -32,6 +32,7 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ### Recent Timeline
 
+- `2026-07-16T17:44:11+08:00` | **Use exponential backoff with jitter** (Reliability)
 - `2026-07-16T16:53:53+08:00` | **Name intent, not mechanics** (Code Quality)
 - `2026-07-16T15:56:23+08:00` | **Automate rollback paths** (DevOps)
 - `2026-07-16T15:05:52+08:00` | **Set realistic timeouts everywhere** (Backend)
@@ -41,4 +42,3 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 - `2026-07-16T10:39:33+08:00` | **Design for idempotency** (APIs)
 - `2026-07-16T09:36:32+08:00` | **Add indexes for real query patterns** (Databases)
 - `2026-07-16T08:50:59+08:00` | **Rotate credentials on schedule** (Security)
-- `2026-07-16T08:06:27+08:00` | **Write one behavior per test** (Testing)
