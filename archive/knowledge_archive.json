@@ -19619,6 +19619,15 @@
       "title": "Write one behavior per test",
       "content": "Single-purpose tests fail with clearer intent and reduce time spent diagnosing what actually regressed.",
       "source": "https://martinfowler.com/bliki/UnitTest.html"
+    },
+    {
+      "id": "entry-2026-07-18-ef6c2f4f97",
+      "date": "2026-07-18",
+      "timestamp": "2026-07-18T06:04:03+08:00",
+      "category": "Security",
+      "title": "Rotate credentials on schedule",
+      "content": "Regular credential rotation limits blast radius if a secret leaks and encourages teams to maintain key management hygiene.",
+      "source": "https://owasp.org/www-project-top-ten/"
     }
   ]
 }
