@@ -10,28 +10,29 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ## Dashboard
 
-- Total archive entries: **2195**
-- Today's entries: **6**
-- Today's note: `notes/2026-07-19.md`
+- Total archive entries: **2196**
+- Today's entries: **1**
+- Today's note: `notes/2026-07-20.md`
 
 ### Latest Entry
 
-- Timestamp: `2026-07-19T22:41:23+08:00`
-- Title: **Measure before tuning**
-- Category: `Performance`
-- Source: https://perf.wiki/
-- Summary: Profiling first prevents optimization of cold paths and helps teams target changes with measurable user impact.
+- Timestamp: `2026-07-20T06:52:30+08:00`
+- Title: **Keyboard support is a baseline**
+- Category: `Accessibility`
+- Source: https://www.w3.org/WAI/standards-guidelines/wcag/
+- Summary: All interactive controls should be reachable and usable by keyboard to support accessibility and power users.
 
 ### Top Categories
 
 - `APIs`: 110
+- `Accessibility`: 110
 - `Architecture`: 110
 - `Backend`: 110
 - `CI/CD`: 110
-- `Code Quality`: 110
 
 ### Recent Timeline
 
+- `2026-07-20T06:52:30+08:00` | **Keyboard support is a baseline** (Accessibility)
 - `2026-07-19T22:41:23+08:00` | **Measure before tuning** (Performance)
 - `2026-07-19T21:42:33+08:00` | **Fail fast on lint and tests** (CI/CD)
 - `2026-07-19T17:26:38+08:00` | **Retry only safe operations** (Networking)
@@ -41,4 +42,3 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 - `2026-07-18T22:52:41+08:00` | **Name intent, not mechanics** (Code Quality)
 - `2026-07-18T20:04:38+08:00` | **Automate rollback paths** (DevOps)
 - `2026-07-18T17:56:28+08:00` | **Set realistic timeouts everywhere** (Backend)
-- `2026-07-18T16:19:34+08:00` | **Optimize first contentful view** (Frontend)
