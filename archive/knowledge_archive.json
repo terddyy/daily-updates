@@ -20321,6 +20321,15 @@
       "title": "Prefer small focused commits",
       "content": "Smaller commits are easier to review, easier to revert, and reduce merge conflict risk when multiple contributors work in parallel.",
       "source": "https://git-scm.com/docs"
+    },
+    {
+      "id": "entry-2026-07-28-ff8a5e130d",
+      "date": "2026-07-28",
+      "timestamp": "2026-07-28T22:40:12+08:00",
+      "category": "Python",
+      "title": "Use virtual environments by default",
+      "content": "Project-specific virtual environments prevent dependency leaks across projects and make builds more reproducible on CI.",
+      "source": "https://docs.python.org/3/library/venv.html"
     }
   ]
 }
