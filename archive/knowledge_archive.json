@@ -20798,6 +20798,15 @@
       "title": "Keep runbooks close to code",
       "content": "Version-controlled operational runbooks age better than external docs and stay aligned with implementation changes.",
       "source": "https://sre.google/workbook/"
+    },
+    {
+      "id": "entry-2026-08-05-2605722e5f",
+      "date": "2026-08-05",
+      "timestamp": "2026-08-05T09:12:18+08:00",
+      "category": "Productivity",
+      "title": "Batch similar tasks",
+      "content": "Grouping related cognitive tasks reduces context switching overhead and improves steady development throughput.",
+      "source": "https://www.atlassian.com/blog/productivity"
     }
   ]
 }
