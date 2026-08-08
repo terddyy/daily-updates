@@ -10,17 +10,17 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ## Dashboard
 
-- Total archive entries: **2397**
-- Today's entries: **26**
-- Today's note: `notes/2026-08-08.md`
+- Total archive entries: **2398**
+- Today's entries: **1**
+- Today's note: `notes/2026-08-09.md`
 
 ### Latest Entry
 
-- Timestamp: `2026-08-08T22:30:18+08:00`
-- Title: **Write decisions down**
-- Category: `Leadership`
-- Source: https://adr.github.io/
-- Summary: Lightweight decision records preserve context, reduce repeated debates, and accelerate onboarding for new contributors.
+- Timestamp: `2026-08-09T06:07:55+08:00`
+- Title: **Prefer small focused commits**
+- Category: `Git`
+- Source: https://git-scm.com/docs
+- Summary: Smaller commits are easier to review, easier to revert, and reduce merge conflict risk when multiple contributors work in parallel.
 
 ### Top Categories
 
@@ -32,6 +32,7 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ### Recent Timeline
 
+- `2026-08-09T06:07:55+08:00` | **Prefer small focused commits** (Git)
 - `2026-08-08T22:30:18+08:00` | **Write decisions down** (Leadership)
 - `2026-08-08T21:46:44+08:00` | **Keyboard support is a baseline** (Accessibility)
 - `2026-08-08T21:20:29+08:00` | **Measure before tuning** (Performance)
@@ -41,4 +42,3 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 - `2026-08-08T19:24:55+08:00` | **Keep runbooks close to code** (Documentation)
 - `2026-08-08T19:01:13+08:00` | **Use exponential backoff with jitter** (Reliability)
 - `2026-08-08T18:25:54+08:00` | **Name intent, not mechanics** (Code Quality)
-- `2026-08-08T18:10:31+08:00` | **Automate rollback paths** (DevOps)
