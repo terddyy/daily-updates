@@ -1,11 +1,11 @@
 {
-  "total_entries": 2405,
+  "total_entries": 2406,
   "latest": {
-    "timestamp": "2026-08-09T08:28:48+08:00",
-    "title": "Keep boundaries explicit",
-    "category": "Architecture",
-    "source": "https://12factor.net/",
-    "content": "Defining module boundaries early reduces accidental coupling and keeps refactors local instead of system-wide."
+    "timestamp": "2026-08-09T08:54:29+08:00",
+    "title": "Optimize first contentful view",
+    "category": "Frontend",
+    "source": "https://web.dev/",
+    "content": "Prioritizing critical rendering path assets improves perceived performance more than micro-optimizing non-critical code paths."
   },
   "top_categories": [
     [
@@ -21,20 +21,15 @@
       121
     ],
     [
-      "Observability",
+      "Frontend",
       121
     ],
     [
-      "Security",
+      "Observability",
       121
     ]
   ],
   "recent_timeline": [
-    {
-      "timestamp": "2026-08-08T21:46:44+08:00",
-      "title": "Keyboard support is a baseline",
-      "category": "Accessibility"
-    },
     {
       "timestamp": "2026-08-08T22:30:18+08:00",
       "title": "Write decisions down",
@@ -79,6 +74,11 @@
       "timestamp": "2026-08-09T08:28:48+08:00",
       "title": "Keep boundaries explicit",
       "category": "Architecture"
+    },
+    {
+      "timestamp": "2026-08-09T08:54:29+08:00",
+      "title": "Optimize first contentful view",
+      "category": "Frontend"
     }
   ],
   "today_note": "notes/2026-08-09.md",
@@ -184,6 +184,6 @@
     "2026-08-06": 20,
     "2026-08-07": 25,
     "2026-08-08": 26,
-    "2026-08-09": 8
+    "2026-08-09": 9
   }
 }
