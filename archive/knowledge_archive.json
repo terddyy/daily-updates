@@ -21725,6 +21725,15 @@
       "title": "Fail fast on lint and tests",
       "content": "Early pipeline checks give faster feedback loops and reduce wasted compute in late deployment stages.",
       "source": "https://docs.github.com/actions"
+    },
+    {
+      "id": "entry-2026-08-09-c746c43f93",
+      "date": "2026-08-09",
+      "timestamp": "2026-08-09T16:15:41+08:00",
+      "category": "Performance",
+      "title": "Measure before tuning",
+      "content": "Profiling first prevents optimization of cold paths and helps teams target changes with measurable user impact.",
+      "source": "https://perf.wiki/"
     }
   ]
 }
