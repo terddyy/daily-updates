@@ -1,11 +1,11 @@
 {
-  "total_entries": 2436,
+  "total_entries": 2437,
   "latest": {
-    "timestamp": "2026-08-10T11:36:50+08:00",
-    "title": "Keyboard support is a baseline",
-    "category": "Accessibility",
-    "source": "https://www.w3.org/WAI/standards-guidelines/wcag/",
-    "content": "All interactive controls should be reachable and usable by keyboard to support accessibility and power users."
+    "timestamp": "2026-08-10T12:17:38+08:00",
+    "title": "Write decisions down",
+    "category": "Leadership",
+    "source": "https://adr.github.io/",
+    "content": "Lightweight decision records preserve context, reduce repeated debates, and accelerate onboarding for new contributors."
   },
   "top_categories": [
     [
@@ -30,11 +30,6 @@
     ]
   ],
   "recent_timeline": [
-    {
-      "timestamp": "2026-08-10T06:47:05+08:00",
-      "title": "Set realistic timeouts everywhere",
-      "category": "Backend"
-    },
     {
       "timestamp": "2026-08-10T07:09:23+08:00",
       "title": "Automate rollback paths",
@@ -79,6 +74,11 @@
       "timestamp": "2026-08-10T11:36:50+08:00",
       "title": "Keyboard support is a baseline",
       "category": "Accessibility"
+    },
+    {
+      "timestamp": "2026-08-10T12:17:38+08:00",
+      "title": "Write decisions down",
+      "category": "Leadership"
     }
   ],
   "today_note": "notes/2026-08-10.md",
@@ -185,6 +185,6 @@
     "2026-08-07": 25,
     "2026-08-08": 26,
     "2026-08-09": 27,
-    "2026-08-10": 12
+    "2026-08-10": 13
   }
 }
