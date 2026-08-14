@@ -10,17 +10,17 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ## Dashboard
 
-- Total archive entries: **2551**
-- Today's entries: **8**
+- Total archive entries: **2552**
+- Today's entries: **9**
 - Today's note: `notes/2026-08-14.md`
 
 ### Latest Entry
 
-- Timestamp: `2026-08-14T10:36:49+08:00`
-- Title: **Keep runbooks close to code**
-- Category: `Documentation`
-- Source: https://sre.google/workbook/
-- Summary: Version-controlled operational runbooks age better than external docs and stay aligned with implementation changes.
+- Timestamp: `2026-08-14T11:30:07+08:00`
+- Title: **Batch similar tasks**
+- Category: `Productivity`
+- Source: https://www.atlassian.com/blog/productivity
+- Summary: Grouping related cognitive tasks reduces context switching overhead and improves steady development throughput.
 
 ### Top Categories
 
@@ -32,6 +32,7 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ### Recent Timeline
 
+- `2026-08-14T11:30:07+08:00` | **Batch similar tasks** (Productivity)
 - `2026-08-14T10:36:49+08:00` | **Keep runbooks close to code** (Documentation)
 - `2026-08-14T09:34:15+08:00` | **Use exponential backoff with jitter** (Reliability)
 - `2026-08-14T08:53:07+08:00` | **Name intent, not mechanics** (Code Quality)
@@ -41,4 +42,3 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 - `2026-08-14T06:46:20+08:00` | **Keep boundaries explicit** (Architecture)
 - `2026-08-14T06:16:47+08:00` | **Log with stable keys** (Observability)
 - `2026-08-13T22:53:32+08:00` | **Design for idempotency** (APIs)
-- `2026-08-13T22:29:01+08:00` | **Add indexes for real query patterns** (Databases)
