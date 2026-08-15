@@ -10,28 +10,29 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ## Dashboard
 
-- Total archive entries: **2593**
-- Today's entries: **22**
+- Total archive entries: **2594**
+- Today's entries: **23**
 - Today's note: `notes/2026-08-15.md`
 
 ### Latest Entry
 
-- Timestamp: `2026-08-15T16:24:41+08:00`
-- Title: **Retry only safe operations**
-- Category: `Networking`
-- Source: https://www.rfc-editor.org/rfc/rfc9110
-- Summary: Not all requests should be retried blindly; non-idempotent calls need safeguards or idempotency keys.
+- Timestamp: `2026-08-15T16:56:18+08:00`
+- Title: **Fail fast on lint and tests**
+- Category: `CI/CD`
+- Source: https://docs.github.com/actions
+- Summary: Early pipeline checks give faster feedback loops and reduce wasted compute in late deployment stages.
 
 ### Top Categories
 
 - `APIs`: 130
 - `Architecture`: 130
 - `Backend`: 130
+- `CI/CD`: 130
 - `Code Quality`: 130
-- `Databases`: 130
 
 ### Recent Timeline
 
+- `2026-08-15T16:56:18+08:00` | **Fail fast on lint and tests** (CI/CD)
 - `2026-08-15T16:24:41+08:00` | **Retry only safe operations** (Networking)
 - `2026-08-15T15:55:55+08:00` | **Batch similar tasks** (Productivity)
 - `2026-08-15T15:43:52+08:00` | **Keep runbooks close to code** (Documentation)
@@ -41,4 +42,3 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 - `2026-08-15T12:26:00+08:00` | **Set realistic timeouts everywhere** (Backend)
 - `2026-08-15T12:10:46+08:00` | **Optimize first contentful view** (Frontend)
 - `2026-08-15T11:47:13+08:00` | **Keep boundaries explicit** (Architecture)
-- `2026-08-15T11:26:45+08:00` | **Log with stable keys** (Observability)
