@@ -23795,6 +23795,15 @@
       "title": "Log with stable keys",
       "content": "Structured logs with predictable field names make filtering and alerting far easier than free-form log lines.",
       "source": "https://opentelemetry.io/docs/concepts/signals/logs/"
+    },
+    {
+      "id": "entry-2026-08-17-2cb1cf088f",
+      "date": "2026-08-17",
+      "timestamp": "2026-08-17T06:50:53+08:00",
+      "category": "Architecture",
+      "title": "Keep boundaries explicit",
+      "content": "Defining module boundaries early reduces accidental coupling and keeps refactors local instead of system-wide.",
+      "source": "https://12factor.net/"
     }
   ]
 }
