@@ -1,13 +1,17 @@
 {
-  "total_entries": 2720,
+  "total_entries": 2721,
   "latest": {
-    "timestamp": "2026-08-20T12:10:22+08:00",
-    "title": "Write one behavior per test",
-    "category": "Testing",
-    "source": "https://martinfowler.com/bliki/UnitTest.html",
-    "content": "Single-purpose tests fail with clearer intent and reduce time spent diagnosing what actually regressed."
+    "timestamp": "2026-08-20T12:52:55+08:00",
+    "title": "Rotate credentials on schedule",
+    "category": "Security",
+    "source": "https://owasp.org/www-project-top-ten/",
+    "content": "Regular credential rotation limits blast radius if a secret leaks and encourages teams to maintain key management hygiene."
   },
   "top_categories": [
+    [
+      "Security",
+      137
+    ],
     [
       "Testing",
       137
@@ -23,18 +27,9 @@
     [
       "Architecture",
       136
-    ],
-    [
-      "Backend",
-      136
     ]
   ],
   "recent_timeline": [
-    {
-      "timestamp": "2026-08-19T21:43:03+08:00",
-      "title": "Keep runbooks close to code",
-      "category": "Documentation"
-    },
     {
       "timestamp": "2026-08-19T22:18:03+08:00",
       "title": "Batch similar tasks",
@@ -79,6 +74,11 @@
       "timestamp": "2026-08-20T12:10:22+08:00",
       "title": "Write one behavior per test",
       "category": "Testing"
+    },
+    {
+      "timestamp": "2026-08-20T12:52:55+08:00",
+      "title": "Rotate credentials on schedule",
+      "category": "Security"
     }
   ],
   "today_note": "notes/2026-08-20.md",
@@ -195,6 +195,6 @@
     "2026-08-17": 23,
     "2026-08-18": 23,
     "2026-08-19": 23,
-    "2026-08-20": 8
+    "2026-08-20": 9
   }
 }
