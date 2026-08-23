@@ -10,17 +10,17 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ## Dashboard
 
-- Total archive entries: **2776**
-- Today's entries: **3**
+- Total archive entries: **2777**
+- Today's entries: **4**
 - Today's note: `notes/2026-08-23.md`
 
 ### Latest Entry
 
-- Timestamp: `2026-08-23T09:18:30+08:00`
-- Title: **Keyboard support is a baseline**
-- Category: `Accessibility`
-- Source: https://www.w3.org/WAI/standards-guidelines/wcag/
-- Summary: All interactive controls should be reachable and usable by keyboard to support accessibility and power users.
+- Timestamp: `2026-08-23T10:44:26+08:00`
+- Title: **Write decisions down**
+- Category: `Leadership`
+- Source: https://adr.github.io/
+- Summary: Lightweight decision records preserve context, reduce repeated debates, and accelerate onboarding for new contributors.
 
 ### Top Categories
 
@@ -32,6 +32,7 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 
 ### Recent Timeline
 
+- `2026-08-23T10:44:26+08:00` | **Write decisions down** (Leadership)
 - `2026-08-23T09:18:30+08:00` | **Keyboard support is a baseline** (Accessibility)
 - `2026-08-23T07:45:30+08:00` | **Measure before tuning** (Performance)
 - `2026-08-23T06:20:57+08:00` | **Fail fast on lint and tests** (CI/CD)
@@ -41,4 +42,3 @@ Automated knowledge maintenance repository. It appends practical daily notes and
 - `2026-08-22T20:37:49+08:00` | **Use exponential backoff with jitter** (Reliability)
 - `2026-08-22T18:32:33+08:00` | **Name intent, not mechanics** (Code Quality)
 - `2026-08-22T17:59:27+08:00` | **Automate rollback paths** (DevOps)
-- `2026-08-22T17:34:55+08:00` | **Set realistic timeouts everywhere** (Backend)
