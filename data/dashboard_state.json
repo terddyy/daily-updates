@@ -1,11 +1,11 @@
 {
-  "total_entries": 2787,
+  "total_entries": 2788,
   "latest": {
-    "timestamp": "2026-08-23T21:20:06+08:00",
-    "title": "Set realistic timeouts everywhere",
-    "category": "Backend",
-    "source": "https://sre.google/sre-book/addressing-cascading-failures/",
-    "content": "Explicit timeouts on outbound calls prevent thread exhaustion and keep cascading failures contained."
+    "timestamp": "2026-08-23T21:53:35+08:00",
+    "title": "Automate rollback paths",
+    "category": "DevOps",
+    "source": "https://cloud.google.com/architecture/devops",
+    "content": "A tested rollback mechanism shortens incident duration and increases confidence during high-frequency deployments."
   },
   "top_categories": [
     [
@@ -25,16 +25,11 @@
       140
     ],
     [
-      "Frontend",
+      "DevOps",
       140
     ]
   ],
   "recent_timeline": [
-    {
-      "timestamp": "2026-08-23T12:22:09+08:00",
-      "title": "Prefer small focused commits",
-      "category": "Git"
-    },
     {
       "timestamp": "2026-08-23T13:44:33+08:00",
       "title": "Use virtual environments by default",
@@ -79,6 +74,11 @@
       "timestamp": "2026-08-23T21:20:06+08:00",
       "title": "Set realistic timeouts everywhere",
       "category": "Backend"
+    },
+    {
+      "timestamp": "2026-08-23T21:53:35+08:00",
+      "title": "Automate rollback paths",
+      "category": "DevOps"
     }
   ],
   "today_note": "notes/2026-08-23.md",
@@ -198,6 +198,6 @@
     "2026-08-20": 23,
     "2026-08-21": 22,
     "2026-08-22": 16,
-    "2026-08-23": 14
+    "2026-08-23": 15
   }
 }
