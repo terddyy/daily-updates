@@ -25532,6 +25532,15 @@
       "title": "Write decisions down",
       "content": "Lightweight decision records preserve context, reduce repeated debates, and accelerate onboarding for new contributors.",
       "source": "https://adr.github.io/"
+    },
+    {
+      "id": "entry-2026-08-26-8d41899fae",
+      "date": "2026-08-26",
+      "timestamp": "2026-08-26T12:39:03+08:00",
+      "category": "Git",
+      "title": "Prefer small focused commits",
+      "content": "Smaller commits are easier to review, easier to revert, and reduce merge conflict risk when multiple contributors work in parallel.",
+      "source": "https://git-scm.com/docs"
     }
   ]
 }
