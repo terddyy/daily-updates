@@ -26162,6 +26162,15 @@
       "title": "Set realistic timeouts everywhere",
       "content": "Explicit timeouts on outbound calls prevent thread exhaustion and keep cascading failures contained.",
       "source": "https://sre.google/sre-book/addressing-cascading-failures/"
+    },
+    {
+      "id": "entry-2026-09-06-4f1f0846f1",
+      "date": "2026-09-06",
+      "timestamp": "2026-09-06T18:34:40+08:00",
+      "category": "DevOps",
+      "title": "Automate rollback paths",
+      "content": "A tested rollback mechanism shortens incident duration and increases confidence during high-frequency deployments.",
+      "source": "https://cloud.google.com/architecture/devops"
     }
   ]
 }
